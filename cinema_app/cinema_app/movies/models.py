@@ -63,8 +63,8 @@ class Movie(models.Model):
 
     year = models.IntegerField(
         validators=(
-            MinValueValidator(YEAR_MIN_VALUE),
             MaxValueValidator(YEAR_MAX_VALUE),
+            MinValueValidator(YEAR_MIN_VALUE),
         )
     )
 
@@ -82,7 +82,7 @@ class Movie(models.Model):
         max_length=CATEGORY_MAX_LENGTH,
         choices=CATEGORY_CHOICES,
         validators=(
-            MinValueValidator(CATEGORY_MIN_LENGTH),
+            MinLengthValidator(CATEGORY_MIN_LENGTH),
         )
     )
 

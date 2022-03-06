@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="list-movies-page">
+        <h2 class="list-movies-title">All Movies</h2>
+
+        <section class="movies-container">
+            {% if movies %}
+                {% for movie in movies %}
+                    <article class="movie-container">
+                        <h3>{{ movie.name }}</h3>
+                        <p>Genre: {{ movie.genre }}</p>
+                        <p>Year: {{ movie.year }}</p>
+                        <p>Category: {{ movie.category }}</p>
+                    </article>
+                {% endfor %}
+            {% endif %}
+
+        </section>
+
+    </section>
+
+
+{% endblock %}

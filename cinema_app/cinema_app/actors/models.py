@@ -12,8 +12,8 @@ class Actor(models.Model):
     LAST_NAME_MIN_LENGTH = 2
     AGE_MIN_VALUE = 0
     AGE_MAX_VALUE = 100
-    CITY_MAX_LENGTH = 20
-    CITY_MIN_LENGTH = 2
+    COUNTRY_MAX_LENGTH = 20
+    COUNTRY_MIN_LENGTH = 2
 
 
     first_name = models.CharField(
@@ -36,10 +36,10 @@ class Actor(models.Model):
         )
     )
 
-    city = models.CharField(
-        max_length=CITY_MAX_LENGTH,
+    country = models.CharField(
+        max_length=COUNTRY_MAX_LENGTH,
         validators=(
-            MinLengthValidator(CITY_MIN_LENGTH),
+            MinLengthValidator(COUNTRY_MIN_LENGTH),
         )
     )
 
