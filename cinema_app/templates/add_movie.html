@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="add-movie-page">
+
+    <h2 class="add-movie-title">Add Movie</h2>
+
+
+    <form method="post" enctype="multipart/form-data" action="{% url 'add movie' %}">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+
+{#            <label for="title">Title: <input id="title" placeholder="Title"></label>#}
+{##}
+{#        <label for="description">Description: <textarea id="description"></textarea></label>#}
+{##}
+{#        <label for="year">Year: <input type="number" id="year" placeholder="Year"></label>#}
+{##}
+        <input type="submit" class="submit-btn">
+
+
+    </form>
+
+
+    </section>
+{% endblock %}

@@ -5,7 +5,7 @@ from cinema_app.movies.models import Movie
 
 
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ['name', 'genre', 'year', 'description', 'duration', 'category']
+    list_display = ['title', 'genre', 'year', 'description', 'duration', 'category']
 
 
 admin.site.register(Movie, MovieAdmin)

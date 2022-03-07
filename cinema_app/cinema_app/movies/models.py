@@ -45,12 +45,17 @@ class Movie(models.Model):
     CATEGORY_MAX_LENGTH = max(len(x) for x, _ in CATEGORY_CHOICES)
     CATEGORY_MIN_LENGTH = min(len(x) for x, _ in CATEGORY_CHOICES)
 
-    name = models.CharField(
+    title = models.CharField(
         max_length=NAME_MAX_LENGTH,
         validators=(
             MinLengthValidator(NAME_MIN_LENGTH),
             validate_word_start_with_capital_letter,
         )
+    )
+
+    image = models.ImageField(
+        upload_to='movie_images',
+        default='movie_images/default.jpg',
     )
 
     genre = models.CharField(
