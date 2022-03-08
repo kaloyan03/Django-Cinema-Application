@@ -3,8 +3,32 @@
 
 {% block content %}
 
-    <article class="home-page-wallpaper">
-    <img src="{% static 'images/wallpaper-example.jpg' %}">
-    </article>
+    <section class="home-page">
+        <h2 class="home-page-title">Welcome to the home page!</h2>
+
+        <article class="home-page-wallpaper">
+            <img src="{% static 'images/wallpaper-example.jpg' %}">
+        </article>
+
+        <article class="home-page-content">
+            <p>Welcome to our cinema application! Our mission is to present you the best movies on available prices. You
+                can buy tickets with all of your family members! Enjoy it! </p>
+
+            {% if movies %}
+                <h3>Here are the top 3 liked movies</h3>
+
+                <div class="movies-container">
+                    {% for movie in movies %}
+                        <div class="movie-container">
+
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </article>
+    </section>
+
+
+
 
 {% endblock %}
