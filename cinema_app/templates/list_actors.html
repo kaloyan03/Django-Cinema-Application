@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="list-actors-page">
+         <h2 class="list-actors-title">All Actors</h2>
+
+        <section class="actors-container">
+            {% if actors %}
+                {% for actor in actors %}
+                    <article class="actor-container">
+                        <div class="actor-image">
+                            <img src="{{ actor.image.url }}">
+                        </div>
+                        <h3 class="actor-name">{{ actor.get_full_name }}</h3>
+                        <p>Age: {{ actor.age }}</p>
+                        <p>Country: {{ actor.country }}</p>
+                        <div class="actor-buttons">
+                            <a href="#" class="details">Details</a>
+                            <a href="#" class="edit">Edit</a>
+                            <a href="#" class="delete">Delete</a>
+                        </div>
+                    </article>
+                {% endfor %}
+            {% endif %}
+    </section>
+
+{% endblock %}

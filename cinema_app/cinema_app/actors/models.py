@@ -30,6 +30,11 @@ class Actor(models.Model):
         )
     )
 
+    image = models.ImageField(
+        upload_to='actor_images/',
+        default='unknown.jpg',
+    )
+
     age = models.IntegerField(
         validators=(
             MinValueValidator(AGE_MIN_VALUE),
@@ -47,3 +52,6 @@ class Actor(models.Model):
         Movie,
     )
 
+    @property
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
