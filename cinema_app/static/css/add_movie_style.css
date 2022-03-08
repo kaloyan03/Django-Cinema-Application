@@ -1,0 +1,59 @@
+.add-movie-page label {
+    display: block;
+}
+
+.add-movie-page form {
+    background-color: #ececec;
+    width: 500px;
+    padding: 30px;
+    border-radius: 6px;
+}
+
+
+.add-movie-page {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-movie-page .title-form-field {
+    width: 300px;
+}
+
+.add-movie-page .image-form-field {
+    width: 500px;
+}
+
+.add-movie-page .genre-form-field {
+    width: 100px;
+}
+
+.add-movie-page .input {
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.add-movie-page input,select, textarea {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.add-movie-page .submit-btn {
+    background-color: #ee660f;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    padding: 8px 16px;
+}
+
+.add-movie-page .submit-btn:hover {
+    cursor: pointer;
+    background-color: #c45303;
+}
+
+.add-movie-title {
+    text-align: center;
+    margin-bottom: 20px;
+}

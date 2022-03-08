@@ -1,0 +1,38 @@
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.page-title {
+    color: white;
+    padding: 12px;
+    letter-spacing: 1.5px;
+}
+
+.navigation ul {
+    width: 100%;
+    padding: 14px;
+}
+
+.navigation li {
+    display: inline-block;
+}
+
+.navigation li a {
+    color: white;
+    padding: 14px 20px;
+}
+
+.navigation a:hover {
+    background-color: #c45303;
+}
+
+.navigation {
+    background-color: #ee660f;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}

@@ -1,4 +1,7 @@
 {% extends 'common/base.html' %}
+{% load crispy_forms_tags %}
+
+
 
 {% block content %}
     <section class="add-movie-page">
@@ -9,7 +12,7 @@
     <form method="post" enctype="multipart/form-data" action="{% url 'add movie' %}">
 
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
 
 {#            <label for="title">Title: <input id="title" placeholder="Title"></label>#}
 {##}
@@ -17,7 +20,7 @@
 {##}
 {#        <label for="year">Year: <input type="number" id="year" placeholder="Year"></label>#}
 {##}
-        <input type="submit" class="submit-btn">
+        <input type="submit" class="submit-btn" value="Add movie">
 
 
     </form>

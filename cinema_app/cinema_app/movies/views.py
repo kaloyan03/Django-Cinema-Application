@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 
+from cinema_app.movies.forms import AddMovieForm
 from cinema_app.movies.models import Movie
 
 
@@ -12,8 +13,9 @@ class ListMovies(ListView):
     context_object_name = 'movies'
     template_name = 'list_movies.html'
 
+
 class AddMovie(CreateView):
     model = Movie
-    fields = '__all__'
+    form_class = AddMovieForm
     template_name = 'add_movie.html'
     success_url = reverse_lazy('list movies')

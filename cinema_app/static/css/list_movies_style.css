@@ -1,0 +1,66 @@
+.movie-container {
+    background-color: #ececec;
+    display: inline-block;
+    padding: 20px;
+    color: #3d3939;
+}
+
+.list-movies-title {
+    text-align: center;
+    margin: 24px;
+}
+
+.movie-image img {
+    width: 300px;
+    max-height: 300px;
+}
+
+.movie-title {
+    color: black;
+}
+
+.movies-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 34px;
+    margin: 0 32px;
+}
+
+.movie-buttons {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.movie-buttons a {
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    margin-right: 12px;
+}
+
+.movie-buttons .details {
+    background-color: deepskyblue;
+}
+
+.movie-buttons .edit {
+    background-color: orange;
+}
+
+.movie-buttons .delete {
+    background-color: red;
+}
+
+.movie-buttons .details:hover {
+    background-color: #0287b1;
+}
+
+.movie-buttons .edit:hover {
+    background-color: #bf8000;
+}
+
+.movie-buttons .delete:hover {
+    background-color: #b10000;
+}
