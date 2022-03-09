@@ -64,3 +64,10 @@
 .movie-buttons .delete:hover, .actor-buttons .delete:hover {
     background-color: #b10000;
 }
+
+.no-actors-message, .no-movies-message {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
