@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('movies/', include('cinema_app.movies.urls')),
     path('actors/', include('cinema_app.actors.urls')),
+    path('auth/', include('cinema_app.cinema_auth.urls')),
     path('', include('cinema_app.landing_page.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

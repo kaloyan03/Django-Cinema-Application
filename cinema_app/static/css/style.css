@@ -4,6 +4,8 @@
 @import "home_page_style.css";
 @import "list_movies_and_actors_style.css";
 @import "add_movie_style.css";
+@import "sign_up_style.css";
+@import "sign_in_style.css";
 
 * {
     box-sizing: border-box;

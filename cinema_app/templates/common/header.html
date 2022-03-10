@@ -1,7 +1,7 @@
 <header>
-{#    <h1 class="page-title">#}
-{#        Cinema#}
-{#    </h1>#}
+    {#    <h1 class="page-title">#}
+    {#        Cinema#}
+    {#    </h1>#}
 
     <nav class="navigation">
         <a href="{% url 'landing page' %}"><h2 class="page-title">Cinema</h2></a>
@@ -10,7 +10,15 @@
             <li><a href="{% url 'list movies' %}">MOVIES</a></li>
             <li><a href="{% url 'add movie' %}">ADD MOVIE</a></li>
             <li><a href="{% url 'list actors' %}">ACTORS</a></li>
-            <li><a href="#">PROFILE</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="#">PROFILE</a></li>
+                <li><a href="{% url 'sign out' %}">SIGN OUT</a></li>
+
+
+            {% else %}
+                <li><a href="{% url 'sign up' %}">SIGN UP</a></li>
+                <li><a href="{% url 'sign in' %}">SIGN IN</a></li>
+            {% endif %}
 
         </ul>
     </nav>
