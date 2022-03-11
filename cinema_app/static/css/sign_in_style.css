@@ -15,7 +15,7 @@ body {
 #sign-in-box {
   margin: 5% auto;
   width: 550px;
-  height: 450px;
+  height: 350px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -81,7 +81,5 @@ input[type="submit"]:focus {
   transition: 0.2s ease;
 }
 
-.input-field[name="password1"] {
-}
 
 

@@ -1,6 +1,7 @@
 from django import forms
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, authenticate
 from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm
+from django.core.exceptions import ValidationError
 from django.template.defaultfilters import capfirst
 from django.utils.translation import gettext_lazy as _
 
@@ -72,17 +73,14 @@ class SignUpForm(UserCreationForm):
 
 
 class SignInForm(AuthenticationForm):
-    email = UsernameField(
+    username = UsernameField(
         label='',
-        widget=forms.TextInput(attrs={"autofocus": True, "class": "input-field"})
+        required=True,
+        widget=forms.EmailInput(attrs={"autofocus": True, "class": "input-field", "placeholder": "Email"})
     )
     password = forms.CharField(
         label='',
         strip=False,
-        widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "class": "input-field"}),
+        widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "class": "input-field", "placeholder": "Password"}),
     )
 
-    class Meta:
-        model = UserModel
-        fields = ('email', 'password',)
-        field_classes = {"email": UsernameField}

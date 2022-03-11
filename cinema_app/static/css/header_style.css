@@ -30,6 +30,10 @@ header {
     background-color: #c45303;
 }
 
+.active {
+    background-color: #c45303;
+}
+
 .navigation {
     background-color: #ee660f;
     display: flex;

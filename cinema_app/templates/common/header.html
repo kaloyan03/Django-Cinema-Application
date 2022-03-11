@@ -1,25 +1,23 @@
 <header>
-    {#    <h1 class="page-title">#}
-    {#        Cinema#}
-    {#    </h1>#}
-
     <nav class="navigation">
         <a href="{% url 'landing page' %}"><h2 class="page-title">Cinema</h2></a>
-        <ul>
-            <li><a href="{% url 'landing page' %}">HOME</a></li>
-            <li><a href="{% url 'list movies' %}">MOVIES</a></li>
-            <li><a href="{% url 'add movie' %}">ADD MOVIE</a></li>
-            <li><a href="{% url 'list actors' %}">ACTORS</a></li>
+        {% block nav %}
+            <ul>
+            <li><a href="{% url 'landing page' %}" class="{% if request.path == '/' %}active{% endif %}">HOME</a></li>
+            <li><a href="{% url 'list movies' %}" class="{% if request.path == '/movies/' %}active{% endif %}">MOVIES</a></li>
+            <li><a href="{% url 'add movie' %}" class="{% if request.path == '/movies/add/' %}active{% endif %}">ADD MOVIE</a></li>
+            <li><a href="{% url 'list actors' %}" class="{% if request.path == '/actors/' %}active{% endif %}">ACTORS</a></li>
             {% if request.user.is_authenticated %}
-                <li><a href="#">PROFILE</a></li>
+                <li>{% block nav-profile %}<a href="#" class="{% if request.path == '/auth/profile/' %}active{% endif %}">PROFILE</a>{% endblock %}</li>
                 <li><a href="{% url 'sign out' %}">SIGN OUT</a></li>
 
 
             {% else %}
-                <li><a href="{% url 'sign up' %}">SIGN UP</a></li>
-                <li><a href="{% url 'sign in' %}">SIGN IN</a></li>
+                 <li><a href="{% url 'sign up' %}" class="{% if request.path == '/auth/sign-up/' %}active{% endif %}">SIGN UP</a></li>
+                 <li><a href="{% url 'sign in' %}" class="{% if request.path == '/auth/sign-in/' %}active{% endif %}">SIGN IN</a></li>
             {% endif %}
 
         </ul>
+        {% endblock %}
     </nav>
 </header>

@@ -49,4 +49,4 @@ class SignInView(LoginView):
 
 
 class SignOutView(LogoutView):
-    template_name = 'sign_in.html'
+    next_page = reverse_lazy('sign in')
