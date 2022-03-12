@@ -63,7 +63,8 @@ class Movie(models.Model):
         choices=GENRE_CHOICES,
         validators=(
             MinLengthValidator(GENRE_MIN_LENGTH),
-        )
+        ),
+        verbose_name = "genre",
     )
 
     year = models.IntegerField(

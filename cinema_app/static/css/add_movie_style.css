@@ -1,59 +1,163 @@
-.add-movie-page label {
-    display: block;
+/*.add-movie-page label {*/
+/*    display: block;*/
+/*}*/
+
+/*.add-movie-page form {*/
+/*    background-color: #ececec;*/
+/*    width: 500px;*/
+/*    padding: 30px;*/
+/*    border-radius: 6px;*/
+/*}*/
+
+
+/*.add-movie-page {*/
+/*    position: absolute;*/
+/*    top: 40%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
+
+/*.add-movie-page .title-form-field {*/
+/*    width: 300px;*/
+/*}*/
+
+/*.add-movie-page .image-form-field {*/
+/*    width: 500px;*/
+/*}*/
+
+/*.add-movie-page .genre-form-field {*/
+/*    width: 100px;*/
+/*}*/
+
+/*.add-movie-page .input {*/
+/*    height: 30px;*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid black;*/
+/*}*/
+
+/*.add-movie-page input,select, textarea {*/
+/*    margin-top: 5px;*/
+/*    margin-bottom: 5px;*/
+/*}*/
+
+/*.add-movie-page .submit-btn {*/
+/*    background-color: #ee660f;*/
+/*    color: white;*/
+/*    border-radius: 6px;*/
+/*    border: none;*/
+/*    padding: 8px 16px;*/
+/*}*/
+
+/*.add-movie-page .submit-btn:hover {*/
+/*    cursor: pointer;*/
+/*    background-color: #c45303;*/
+/*}*/
+
+/*.add-movie-title {*/
+/*    text-align: center;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+
+*:focus {
+  outline: none;
 }
 
-.add-movie-page form {
-    background-color: #ececec;
-    width: 500px;
-    padding: 30px;
-    border-radius: 6px;
+body {
+  margin: 0;
+  padding: 0;
+  background: #DDD;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+#add-movie-box {
+  margin: 1% auto;
+  width: 550px;
+  height: 800px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.add-movie-form {
+  box-sizing: border-box;
+  padding: 40px;
+  width: 550px;
+  height: 500px;
+}
+
+.add-movie-form h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+input[type="submit"] {
+  margin-top: 15px;
+  width: 120px;
+  height: 32px;
+  padding: 8px 16px;
+  background: #ee660f;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.add-movie-form .got-profile-aside a {
+  color: blue;
+}
+
+.add-movie-form .input-field {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 450px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.add-movie-form .input-field:focus {
+  border-bottom: 2px solid #ee660f;
+  transition: 0.2s ease;
+}
+
+.input-field[type="file"] {
+  width: 210px;
+}
+
+.input-field[type="number"] {
+  width: 180px;
+}
+
+select.input-field[name='genre'] {
+  width: 140px;
+}
+
+select.input-field[name='category'] {
+  width: 100px;
 }
 
 
-.add-movie-page {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-.add-movie-page .title-form-field {
-    width: 300px;
-}
 
-.add-movie-page .image-form-field {
-    width: 500px;
-}
-
-.add-movie-page .genre-form-field {
-    width: 100px;
-}
-
-.add-movie-page .input {
-    height: 30px;
-    border-radius: 8px;
-    border: 1px solid black;
-}
-
-.add-movie-page input,select, textarea {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.add-movie-page .submit-btn {
-    background-color: #ee660f;
-    color: white;
-    border-radius: 6px;
-    border: none;
-    padding: 8px 16px;
-}
-
-.add-movie-page .submit-btn:hover {
-    cursor: pointer;
-    background-color: #c45303;
-}
-
-.add-movie-title {
-    text-align: center;
-    margin-bottom: 20px;
-}

@@ -23,35 +23,38 @@ class AddMovieForm(forms.ModelForm):
     CATEGORY_CHOICES = [(x, x) for x in (CATEGORY_B, CATEGORY_C, CATEGORY_D)]
 
     title = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'title-form-field input', 'placeholder': 'Title...'})
+        label='Title',
+        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Title...'})
     )
 
     image = forms.ImageField(
-        widget=forms.FileInput(attrs={'class': 'image-form-field'})
+        widget=forms.FileInput(attrs={'class': 'input-field', 'placeholder': 'Add image', 'value': 'Add image'})
     )
 
     genre = forms.ChoiceField(
-        widget=forms.Select(attrs={'class': 'genre-form-field input'}),
+        label='Genre',
+        widget=forms.Select(attrs={'class': 'input-field'}),
         choices=GENRE_CHOICES,
     )
 
     year = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'class': 'input', 'placeholder': 'Year...'})
+        widget=forms.NumberInput(attrs={'class': 'input-field', 'placeholder': 'Year(movie created)...'})
     )
 
     description = forms.CharField(
-        widget=forms.Textarea(attrs={'class': 'input', 'placeholder': 'Description...'})
+        widget=forms.Textarea(attrs={'class': 'input-field', 'placeholder': 'Description...'})
     )
 
     duration = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'class': 'input', 'placeholder': 'Movie duration...'})
+        widget=forms.NumberInput(attrs={'class': 'input-field', 'placeholder': 'Movie duration(mins)...'})
     )
 
     category = forms.ChoiceField(
-        widget=forms.Select(attrs={'class': 'input '}),
+        widget=forms.Select(attrs={'class': 'input-field'}),
         choices=CATEGORY_CHOICES,
     )
 
     class Meta:
         model = Movie
         fields = '__all__'
+
