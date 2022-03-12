@@ -6,7 +6,7 @@
 @import "add_movie_style.css";
 @import "sign_up_style.css";
 @import "sign_in_style.css";
-
+@import "edit_movie_style.css";
 * {
     box-sizing: border-box;
     list-style: none;

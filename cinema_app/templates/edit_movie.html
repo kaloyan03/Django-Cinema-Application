@@ -1,0 +1,18 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="edit-movie-page">
+        <div id="edit-movie-box">
+            <form method="post" enctype="multipart/form-data" action="{% url 'edit movie' movie.id %}"
+                  class="edit-movie-form">
+                <h1 class="add-movie-title">Edit Movie</h1>
+                {% csrf_token %}
+                {{ form }}
+
+                <input type="submit" class="submit-btn" value="Edit movie">
+
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
