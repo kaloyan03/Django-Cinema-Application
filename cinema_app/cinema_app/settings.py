@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cinema_app.movies',
     'cinema_app.actors',
     'cinema_app.landing_page',
+    'cinema_app.profiles',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

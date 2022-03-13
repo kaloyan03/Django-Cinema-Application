@@ -92,3 +92,17 @@ class Movie(models.Model):
         )
     )
 
+
+class Ticket(models.Model):
+    PRICE_MIN_VALUE = 0
+
+    price = models.FloatField(
+        validators=(
+            MinValueValidator(PRICE_MIN_VALUE),
+        )
+    )
+
+    movie = models.ForeignKey(
+        Movie,
+        on_delete=models.CASCADE,
+    )

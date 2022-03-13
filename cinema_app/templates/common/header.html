@@ -8,7 +8,7 @@
             <li><a href="{% url 'add movie' %}" class="{% if request.path == '/movies/add/' %}active{% endif %}">ADD MOVIE</a></li>
             <li><a href="{% url 'list actors' %}" class="{% if request.path == '/actors/' %}active{% endif %}">ACTORS</a></li>
             {% if request.user.is_authenticated %}
-                <li>{% block nav-profile %}<a href="#" class="{% if request.path == '/auth/profile/' %}active{% endif %}">PROFILE</a>{% endblock %}</li>
+                <li>{% block nav-profile %}<a href="{% url 'profile' request.user.id %}" class="{% if request.path == '/profile/' %}active{% endif %}">PROFILE</a>{% endblock %}</li>
                 <li><a href="{% url 'sign out' %}">SIGN OUT</a></li>
 
 

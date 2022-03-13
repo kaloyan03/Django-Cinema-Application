@@ -1,0 +1,13 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="my-profile-page">
+        {% if profile %}
+            <p>Show profile info</p>
+        {% else %}
+            <p>Render profile form</p>
+        {% endif %}
+
+    </section>
+
+{% endblock %}
