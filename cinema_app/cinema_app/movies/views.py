@@ -52,3 +52,9 @@ class EditMovie(views.UpdateView):
     form_class = EditMovieForm
     context_object_name = 'movie'
     template_name = 'edit_movie.html'
+
+
+class MovieDetails(views.DetailView):
+    model = Movie
+    template_name = 'movie_details.html'
+    context_object_name = 'movie'

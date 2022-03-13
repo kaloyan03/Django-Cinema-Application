@@ -1,0 +1,38 @@
+.movie-details-page {
+    background-color: ghostwhite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 60vh;
+    padding: 30px;
+
+}
+
+.movie-details-title {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.movie-image {
+    display: inline-block;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.movie-image img {
+    width: 100%;
+}
+
+.movie-details-content {
+    color: black;
+    display: inline-block;
+    font-size: 1vw;
+    float: right;
+    margin-right: 50px;
+}
+
+.movie-details-content p, h3 {
+    margin-top: 15px;
+}

@@ -16,7 +16,7 @@
                         <p>Duration: {{ movie.duration|floatformat:0 }} minutes</p>
                         <p>Category: {{ movie.category }}</p>
                         <div class="movie-buttons">
-                            <a href="#" class="details">Details</a>
+                            <a href="{% url 'movie details' movie.id %}" class="details">Details</a>
                             <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
                             <a href="#" class="delete">Delete</a>
                         </div>

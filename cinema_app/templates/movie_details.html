@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="movie-details-page">
+        <h1 class="movie-details-title">Movie Details</h1>
+
+        <article class="movie-image">
+            <img src="{{ movie.image.url }}" alt="Movie Image">
+        </article>
+
+        <article class="movie-details-content">
+            <h3>{{ movie.title }}</h3>
+
+            <p>Movie genre: {{ movie.genre }}</p>
+            <p>Year made: {{ movie.year }}</p>
+            <p>Movie description: {{ movie.description }}</p>
+            <p>Movie duration: {{ movie.duration }} minutes</p>
+            <p>Category: {{ movie.category }}</p>
+
+        </article>
+
+    </section>
+
+{% endblock %}
