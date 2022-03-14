@@ -3,9 +3,24 @@
 {% block content %}
     <section class="my-profile-page">
         {% if profile %}
-            <p>Show profile info</p>
+            <section class="profile-box">
+                <article class="profile-image">
+                    <img src="{{ profile.profile_picture.url }}" alt="Movie Image">
+                </article>
+
+                <article class="profile-details-content">
+                    <h3>{{ profile.first_name }} {{ profile.last_name }}</h3>
+
+                    <p>Age: {{ profile.age }}</p>
+                </article>
+            </section>
+
         {% else %}
-            <p>Render profile form</p>
+            <form method="post" enctype="multipart/form-data" action="{% url 'profile' request.user.id %}">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Complete!">
+            </form>
         {% endif %}
 
     </section>
