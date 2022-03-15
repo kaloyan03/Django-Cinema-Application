@@ -13,7 +13,7 @@
                     <p>Age: {{ profile.age }}</p>
 
                     <div class="buttons">
-                        <a href="#" class="edit-button">Edit</a>
+                        <a href="{% url 'edit profile' profile.id %}" class="edit-button">Edit</a>
                         <a href="{% url 'delete profile' profile.id %}" class="delete-button">Delete</a>
 
                     </div>

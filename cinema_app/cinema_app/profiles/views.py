@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 
 # Create your views here.
-from cinema_app.profiles.forms import ProfileForm
+from cinema_app.profiles.forms import ProfileForm, EditProfileForm
 from cinema_app.profiles.models import Profile
 
 UserModel = get_user_model()
@@ -35,7 +35,11 @@ class DeleteProfileView(views.DeleteView):
 
 
 class EditProfileView(views.UpdateView):
-    pass
+    model = Profile
+    form_class = EditProfileForm
+    template_name = 'profile/edit_profile.html'
+    success_url = reverse_lazy('profile')
+    context_object_name = 'profile'
 
 class CompleteProfileView(views.CreateView):
     model = UserModel
