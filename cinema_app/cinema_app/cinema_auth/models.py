@@ -52,6 +52,10 @@ class CinemaUser(AbstractBaseUser, PermissionsMixin):
         auto_now_add=True,
     )
 
+    has_completed_profile = models.BooleanField(
+        default=False,
+    )
+
     USERNAME_FIELD = 'email'
 
     objects = CinemaUserManager()

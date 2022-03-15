@@ -1,0 +1,17 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section id="complete-profile-page">
+        <article>
+            <form method="post" class="complete-profile-form" enctype="multipart/form-data" action="{% url 'complete profile' %}">
+                <h2 class="complete-profile-title">Complete your profile</h2>
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Complete!">
+            </form>
+        </article>
+    </section>
+
+
+
+{% endblock %}

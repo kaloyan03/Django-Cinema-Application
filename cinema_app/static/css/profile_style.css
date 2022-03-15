@@ -1,7 +1,11 @@
+/*style the form ^^^*/
+
+
+
 .profile-box {
     background-color: white;
     width: 20vw;
-    height: 30vh;
+    height: 40vh;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -27,4 +31,36 @@
 
 .profile-details-content p, h3 {
     margin-top: 15px;
+}
+
+.buttons {
+    margin-top: 60px;
+
+}
+
+.buttons a {
+    margin-right: 12px;
+}
+
+
+.buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 14px;
+}
+
+.edit-button {
+    background-color: orange;
+}
+
+.delete-button {
+    background-color: red;
+}
+
+.edit-button:hover {
+    background-color: #bf8000;
+}
+
+.delete-button:hover {
+    background-color: #b10000;
 }

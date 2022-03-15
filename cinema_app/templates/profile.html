@@ -2,7 +2,6 @@
 
 {% block content %}
     <section class="my-profile-page">
-        {% if profile %}
             <section class="profile-box">
                 <article class="profile-image">
                     <img src="{{ profile.profile_picture.url }}" alt="Movie Image">
@@ -12,17 +11,14 @@
                     <h3>{{ profile.first_name }} {{ profile.last_name }}</h3>
 
                     <p>Age: {{ profile.age }}</p>
+
+                    <div class="buttons">
+                        <a href="#" class="edit-button">Edit</a>
+                        <a href="#" class="delete-button">Delete</a>
+
+                    </div>
                 </article>
             </section>
-
-        {% else %}
-            <form method="post" enctype="multipart/form-data" action="{% url 'profile' request.user.id %}">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Complete!">
-            </form>
-        {% endif %}
-
     </section>
 
 {% endblock %}

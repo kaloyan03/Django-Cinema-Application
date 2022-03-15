@@ -9,6 +9,8 @@
 @import "edit_movie_style.css";
 @import "movie_details_style.css";
 @import "profile_style.css";
+@import "complete_profile_style.css";
+
 
 * {
     box-sizing: border-box;

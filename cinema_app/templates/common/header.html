@@ -3,21 +3,32 @@
         <a href="{% url 'landing page' %}"><h2 class="page-title">Cinema</h2></a>
         {% block nav %}
             <ul>
-            <li><a href="{% url 'landing page' %}" class="{% if request.path == '/' %}active{% endif %}">HOME</a></li>
-            <li><a href="{% url 'list movies' %}" class="{% if request.path == '/movies/' %}active{% endif %}">MOVIES</a></li>
-            <li><a href="{% url 'add movie' %}" class="{% if request.path == '/movies/add/' %}active{% endif %}">ADD MOVIE</a></li>
-            <li><a href="{% url 'list actors' %}" class="{% if request.path == '/actors/' %}active{% endif %}">ACTORS</a></li>
-            {% if request.user.is_authenticated %}
-                <li>{% block nav-profile %}<a href="{% url 'profile' request.user.id %}" class="{% if request.path == '/profile/' %}active{% endif %}">PROFILE</a>{% endblock %}</li>
-                <li><a href="{% url 'sign out' %}">SIGN OUT</a></li>
+                <li><a href="{% url 'landing page' %}" class="{% if request.path == '/' %}active{% endif %}">HOME</a>
+                </li>
+                <li><a href="{% url 'list movies' %}" class="{% if request.path == '/movies/' %}active{% endif %}">MOVIES</a>
+                </li>
+                <li><a href="{% url 'add movie' %}" class="{% if request.path == '/movies/add/' %}active{% endif %}">ADD
+                    MOVIE</a></li>
+                <li><a href="{% url 'list actors' %}" class="{% if request.path == '/actors/' %}active{% endif %}">ACTORS</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="
+{% if request.user.has_completed_profile %}
+{% url 'profile' %}
+{% else %}
+{% url 'complete profile' %}
+{% endif %}" class="{% if request.path == '/profile/' or request.path == '/profile/complete_profile/' %}active{% endif %}">PROFILE</a></li>
+                    <li><a href="{% url 'sign out' %}">SIGN OUT</a></li>
 
 
-            {% else %}
-                 <li><a href="{% url 'sign up' %}" class="{% if request.path == '/auth/sign-up/' %}active{% endif %}">SIGN UP</a></li>
-                 <li><a href="{% url 'sign in' %}" class="{% if request.path == '/auth/sign-in/' %}active{% endif %}">SIGN IN</a></li>
-            {% endif %}
+                {% else %}
+                    <li><a href="{% url 'sign up' %}"
+                           class="{% if request.path == '/auth/sign-up/' %}active{% endif %}">SIGN UP</a></li>
+                    <li><a href="{% url 'sign in' %}"
+                           class="{% if request.path == '/auth/sign-in/' %}active{% endif %}">SIGN IN</a></li>
+                {% endif %}
 
-        </ul>
+            </ul>
         {% endblock %}
     </nav>
 </header>
