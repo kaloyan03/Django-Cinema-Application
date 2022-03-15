@@ -20,7 +20,7 @@ class SignUpView(View):
             'form': form,
         }
 
-        return render(request, 'sign_up.html', context)
+        return render(request, 'auth/sign_up.html', context)
 
     def post(self, request):
         form = SignUpForm(request.POST)
@@ -33,7 +33,7 @@ class SignUpView(View):
         context = {
             'form': form,
         }
-        return render(request, 'sign_up.html', context)
+        return render(request, 'auth/sign_up.html', context)
 
 # class SignUp(CreateView):
 #     template_name = 'sign_up.html'
@@ -42,7 +42,7 @@ class SignUpView(View):
 
 
 class SignInView(LoginView):
-    template_name = 'sign_in.html'
+    template_name = 'auth/sign_in.html'
     form_class = SignInForm
 
 

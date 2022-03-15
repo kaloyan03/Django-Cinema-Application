@@ -1,0 +1,59 @@
+#delete-profile-page {
+    background-color: white;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px 5px orange;
+}
+
+#delete-profile-page .title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#delete-profile-page .buttons a {
+    color: white;
+    text-decoration: none;
+}
+
+#delete-profile-page .buttons {
+    text-align: center;
+}
+
+#delete-profile-page .buttons-delete {
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+#delete-profile-page .buttons-delete:hover {
+    background-color: #b10000;
+}
+
+
+#delete-profile-page .buttons-no {
+    background-color: deepskyblue;
+    border-radius: 6px;
+}
+
+#delete-profile-page .buttons-no:hover{
+    background-color: #00779a;
+
+}
+
+
+
+
+
+/*#delete-profile-page .buttons {*/
+/*    color: white;*/
+/*    padding: 8px 16px;*/
+/*}*/
+
+
+

@@ -11,13 +11,13 @@ from cinema_app.movies.models import Movie
 class ListMovies(views.ListView):
     model = Movie
     context_object_name = 'movies'
-    template_name = 'list_movies.html'
+    template_name = 'movies/list_movies.html'
 
 
 class AddMovie(views.CreateView):
     model = Movie
     form_class = AddMovieForm
-    template_name = 'add_movie.html'
+    template_name = 'movies/add_movie.html'
     success_url = reverse_lazy('list movies')
     #
     # def form_invalid(self, form):
@@ -51,10 +51,10 @@ class EditMovie(views.UpdateView):
     success_url = reverse_lazy('list movies')
     form_class = EditMovieForm
     context_object_name = 'movie'
-    template_name = 'edit_movie.html'
+    template_name = 'movies/edit_movie.html'
 
 
 class MovieDetails(views.DetailView):
     model = Movie
-    template_name = 'movie_details.html'
+    template_name = 'movies/movie_details.html'
     context_object_name = 'movie'

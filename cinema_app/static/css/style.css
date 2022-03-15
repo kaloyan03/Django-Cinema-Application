@@ -3,13 +3,14 @@
 @import "footer_style.css";
 @import "home_page_style.css";
 @import "list_movies_and_actors_style.css";
-@import "add_movie_style.css";
-@import "sign_up_style.css";
-@import "sign_in_style.css";
-@import "edit_movie_style.css";
-@import "movie_details_style.css";
-@import "profile_style.css";
-@import "complete_profile_style.css";
+@import "movies_style/add_movie_style.css";
+@import "auth_style/sign_up_style.css";
+@import "auth_style/sign_in_style.css";
+@import "movies_style/edit_movie_style.css";
+@import "movies_style/movie_details_style.css";
+@import "profile_style/profile_style.css";
+@import "profile_style/complete_profile_style.css";
+@import "profile_style/delete_profile_style.css";
 
 
 * {

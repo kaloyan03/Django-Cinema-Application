@@ -12,7 +12,7 @@ UserModel = get_user_model()
 
 class ShowProfileView(views.TemplateView):
     model = Profile
-    template_name = 'profile.html'
+    template_name = 'profile/profile.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -24,14 +24,22 @@ class ShowProfileView(views.TemplateView):
 
 
 class DeleteProfileView(views.DeleteView):
-    pass
+    model = Profile
+    template_name = 'profile/delete_profile.html'
+    success_url = reverse_lazy('sign in')
+
+    def form_valid(self, form):
+        user = self.request.user
+        user.delete()
+        return super().form_valid(form)
+
 
 class EditProfileView(views.UpdateView):
     pass
 
 class CompleteProfileView(views.CreateView):
     model = UserModel
-    template_name = 'complete_profile.html'
+    template_name = 'profile/complete_profile.html'
     form_class = ProfileForm
     success_url = reverse_lazy('profile')
 

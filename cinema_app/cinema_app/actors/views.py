@@ -8,5 +8,5 @@ from cinema_app.actors.models import Actor
 
 class ListActors(ListView):
     model = Actor
-    template_name = 'list_actors.html'
+    template_name = 'actors/list_actors.html'
     context_object_name = 'actors'

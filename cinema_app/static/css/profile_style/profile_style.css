@@ -11,6 +11,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 2px 2px 10px 2px orange;
+    border-radius: 8px;
 }
 
 .profile-image {
@@ -35,15 +36,11 @@
 
 .buttons {
     margin-top: 60px;
-
 }
 
 .buttons a {
     margin-right: 12px;
-}
-
-
-.buttons a {
+    border-radius: 4px;
     text-decoration: none;
     color: white;
     padding: 8px 14px;
