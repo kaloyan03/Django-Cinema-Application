@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Itim&family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap');
 @import "header_style.css";
 @import "footer_style.css";
 @import "home_page_style.css";
@@ -30,8 +30,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Itim', 'sans-serif';
+    font-family: 'Montserrat', 'sans-serif';
     font-size: 30px;
+    font-weight: bold;
 }
 
 main {

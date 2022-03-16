@@ -1,6 +1,6 @@
 from django import forms
 
-from cinema_app.movies.models import Movie
+from cinema_app.movies.models import Movie, Ticket
 
 
 class AddMovieForm(forms.ModelForm):
@@ -110,4 +110,15 @@ class EditMovieForm(forms.ModelForm):
                 attrs={'class': 'input-field'}
             )
 
+        }
+
+
+class AddTicketForm(forms.ModelForm):
+    class Meta:
+        model = Ticket
+        exclude = ['movie']
+        widgets = {
+            'price': forms.NumberInput(
+                attrs={'class': 'input-field'}
+            )
         }

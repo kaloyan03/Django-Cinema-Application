@@ -70,13 +70,11 @@ body {
   font-size: 16px;
   color: #222;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
 }
 
 #add-movie-box {
   margin: 1% auto;
   width: 550px;
-  height: 800px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -86,7 +84,6 @@ body {
   box-sizing: border-box;
   padding: 40px;
   width: 550px;
-  height: 500px;
 }
 
 .add-movie-form h1 {

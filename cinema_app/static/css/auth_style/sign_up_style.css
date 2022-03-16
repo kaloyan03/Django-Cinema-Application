@@ -15,7 +15,6 @@ body {
 #sign-up-box {
   margin: 5% auto;
   width: 550px;
-  height: 450px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -25,7 +24,6 @@ body {
   box-sizing: border-box;
   padding: 40px;
   width: 550px;
-  height: 450px;
 }
 
 h1 {

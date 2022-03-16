@@ -1,13 +1,14 @@
-.movie-details-page {
+#movie-details-page {
     background-color: ghostwhite;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50vw;
-    height: 60vh;
+    width: 60%;
+    display: inline-block;
     padding: 30px;
-
+    border-radius: 6px;
+    box-shadow: 2px 2px 10px 2px orange;
 }
 
 .movie-details-title {
@@ -22,17 +23,32 @@
 }
 
 .movie-image img {
+    float: left;
     width: 100%;
 }
 
 .movie-details-content {
-    color: black;
     display: inline-block;
+    color: black;
     font-size: 1vw;
-    float: right;
     margin-right: 50px;
+    float: right;
+    width: 60%;
+
 }
 
 .movie-details-content p, h3 {
     margin-top: 15px;
+}
+
+.movie-details-buy p, input {
+    margin-top: 10px;
+}
+
+.movie-details-buy .add-button {
+    display: block;
+}
+
+.movie-details-buy .quantity-input {
+    width: 40px;
 }

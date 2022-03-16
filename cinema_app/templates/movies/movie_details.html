@@ -1,7 +1,7 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-    <section class="movie-details-page">
+    <section id="movie-details-page">
         <h1 class="movie-details-title">Movie Details</h1>
 
         <article class="movie-image">
@@ -14,9 +14,18 @@
             <p>Movie genre: {{ movie.genre }}</p>
             <p>Year made: {{ movie.year }}</p>
             <p>Movie description: {{ movie.description }}</p>
-            <p>Movie duration: {{ movie.duration }} minutes</p>
+            <p>Movie duration: {{ movie.duration|floatformat:0 }} minutes</p>
             <p>Category: {{ movie.category }}</p>
+        </article>
 
+        <article class="movie-details-buy">
+            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
+            <label for="quantity">Quantity</label>
+            <input type="number" value="Quantity" id="quantity" class="quantity-input">
+            <input type="submit" value="Add to cart" class="add-button">
+            </form>
         </article>
 
     </section>

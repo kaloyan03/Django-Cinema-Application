@@ -19,6 +19,7 @@
 {% url 'complete profile' %}
 {% endif %}" class="{% if request.path == '/profile/' or request.path == '/profile/complete_profile/' %}active{% endif %}">PROFILE</a></li>
                     <li><a href="{% url 'sign out' %}">SIGN OUT</a></li>
+                    <li><a href="{% url 'show cart' %}">CART</a></li>
 
 
                 {% else %}

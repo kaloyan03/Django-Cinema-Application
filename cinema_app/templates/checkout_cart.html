@@ -1,0 +1,22 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+{#                <th>Total Price</th>#}
+            </tr>
+            {% for item in cart %}
+                <tr>
+                    <td>{{ item.ticket.price }}</td>
+                    <td>{{ item.quantity }}</td>
+{#                    <td>{{ item.total_price }}</td>#}
+                </tr>
+            {% endfor %}
+        </table>
+
+    </section>
+
+{% endblock %}

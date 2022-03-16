@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic as views
 
-from cinema_app.movies.forms import AddMovieForm, EditMovieForm
-from cinema_app.movies.models import Movie
+from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm
+from cinema_app.movies.models import Movie, Ticket
 
 
 class ListMovies(views.ListView):
@@ -19,6 +19,19 @@ class AddMovie(views.CreateView):
     form_class = AddMovieForm
     template_name = 'movies/add_movie.html'
     success_url = reverse_lazy('list movies')
+
+    def form_valid(self, form):
+        movie = form.save()
+        ticket_price = self.get_form_kwargs()['data']['price']
+        ticket = Ticket(movie=movie, price=ticket_price)
+        ticket.save()
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        ticket_form = AddTicketForm()
+        context['ticket_form'] = ticket_form
+        return context
     #
     # def form_invalid(self, form):
     #     return form
@@ -58,3 +71,10 @@ class MovieDetails(views.DetailView):
     model = Movie
     template_name = 'movies/movie_details.html'
     context_object_name = 'movie'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        movie = self.object
+        ticket = Ticket.objects.get(movie_id=movie.id)
+        context['ticket'] = ticket
+        return context

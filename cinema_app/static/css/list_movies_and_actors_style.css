@@ -1,9 +1,17 @@
 .movie-container, .actor-container {
     background-color: #ececec;
-    display: inline-block;
     padding: 20px;
     color: #3d3939;
+    box-shadow: 0 4px 8px 0 orange;
+    transition: 0.3s;
+    border-radius: 6px;
+    width: 400px;
 }
+
+.movie-container:hover, .actor-container:hover {
+    box-shadow: 0 8px 16px 0 orange;
+}
+
 
 .list-movies-title, .list-actors-title {
     text-align: center;
@@ -22,10 +30,12 @@
 
 .movies-container, .actors-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 34px;
+    justify-content: space-around;
     margin: 0 32px;
+    box-sizing: border-box;
+    height: auto;
 }
 
 .movie-buttons, .actor-buttons {
