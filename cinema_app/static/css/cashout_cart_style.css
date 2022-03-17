@@ -1,0 +1,18 @@
+#cart-page {
+    color: black;
+    background-color: white;
+}
+
+#cart-page .movie-img {
+    width: 200px;
+}
+
+#cart-page table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#cart-page td {
+    padding: 20px;
+}

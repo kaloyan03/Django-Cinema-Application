@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'cart'
 ]
 
+CART_SESSION_ID = 'cart'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [

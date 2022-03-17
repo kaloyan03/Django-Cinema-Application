@@ -117,8 +117,11 @@ class AddTicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
         exclude = ['movie']
+        labels = {
+            'price': 'Ticket price'
+        }
         widgets = {
             'price': forms.NumberInput(
-                attrs={'class': 'input-field'}
+                attrs={'class': 'input-field', 'placeholder': 'Ticket price...'},
             )
         }

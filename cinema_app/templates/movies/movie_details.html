@@ -19,13 +19,18 @@
         </article>
 
         <article class="movie-details-buy">
-            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
-            <label for="quantity">Quantity</label>
-            <input type="number" value="Quantity" id="quantity" class="quantity-input">
-            <input type="submit" value="Add to cart" class="add-button">
-            </form>
+{#            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">#}
+{#                {% csrf_token %}#}
+{#                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>#}
+{#            <label for="quantity">Quantity</label>#}
+{#            <input type="number" value="Quantity" id="quantity" class="quantity-input">#}
+{#            <input type="submit" value="Add to cart" class="add-button">#}
+{#            </form>#}
+
+            <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
+{#            <label for="quantity">Quantity</label>#}
+            {#<input type="number" value="Quantity" id="quantity" class="quantity-input">#}
+            <a href="{% url 'add to cart' id=ticket.id quantity=3 %}" class="add-button">Add to cart</a>
         </article>
 
     </section>

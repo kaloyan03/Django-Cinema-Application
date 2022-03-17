@@ -1,7 +1,8 @@
 from django.urls import path
-from cinema_app.tickets_cart import views
+
+from cinema_app.tickets_cart.views import show_cart, add_to_cart
 
 urlpatterns = (
-    path('cart/', views.ShowCartView.as_view(), name='show cart'),
-    path('add-to-cart/', views.AddToCartView.as_view(), name='add to cart'),
+    path('', show_cart, name='show cart'),
+    path('add/<int:id>/<int:quantity>', add_to_cart, name='add to cart'),
 )

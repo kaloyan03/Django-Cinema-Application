@@ -1,17 +1,23 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-    <section class="cart-page">
+    <section id="cart-page">
         <table>
             <tr>
-                <th>Product</th>
+                <th>Image</th>
+                <th>Movie</th>
                 <th>Quantity</th>
+                <th>Price</th>
+                <th>Total price</th>
 {#                <th>Total Price</th>#}
             </tr>
-            {% for item in cart %}
+            {% for ticket in tickets %}
                 <tr>
-                    <td>{{ item.ticket.price }}</td>
-                    <td>{{ item.quantity }}</td>
+                    <td><img class="movie-img" src="{{ ticket.movie.image.url }}"></td>
+                    <td>{{ ticket.movie.title }}</td>
+                    <td>{{ ticket.quantity }}</td>
+                    <td>{{ ticket.price }}</td>
+                    <td>{{ ticket.total_price }}</td>
 {#                    <td>{{ item.total_price }}</td>#}
                 </tr>
             {% endfor %}

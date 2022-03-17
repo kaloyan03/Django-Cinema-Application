@@ -12,6 +12,7 @@
 @import "profile_style/complete_profile_style.css";
 @import "profile_style/delete_profile_style.css";
 @import "profile_style/edit_profile_style.css";
+@import "cashout_cart_style.css";
 
 
 * {
