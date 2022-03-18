@@ -3,25 +3,41 @@
 {% block content %}
     <section id="cart-page">
         <table>
+            <thead>
             <tr>
                 <th>Image</th>
                 <th>Movie</th>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Total price</th>
-{#                <th>Total Price</th>#}
+                {#                <th>Total Price</th>#}
             </tr>
+            </thead>
             {% for ticket in tickets %}
                 <tr>
                     <td><img class="movie-img" src="{{ ticket.movie.image.url }}"></td>
                     <td>{{ ticket.movie.title }}</td>
                     <td>{{ ticket.quantity }}</td>
-                    <td>{{ ticket.price }}</td>
-                    <td>{{ ticket.total_price }}</td>
-{#                    <td>{{ item.total_price }}</td>#}
+                    <td>{{ ticket.price|floatformat:2 }}$</td>
+                    <td>{{ ticket.total_price|floatformat:2 }}$</td>
+                    {#                    <td>{{ item.total_price }}</td>#}
                 </tr>
             {% endfor %}
+            <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{ total_quantity }}</td>
+                <td></td>
+                <td>{{ total_price }}$</td>
+            </tr>
+            </tfoot>
         </table>
+
+        <article class="checkout">
+            <p>We will send you more information about your order on your email!</p>
+            <a class="buy-button">Buy</a>
+        </article>
 
     </section>
 

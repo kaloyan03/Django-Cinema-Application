@@ -6,10 +6,8 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, FormView
 
 from cinema_app.cinema_auth.forms import SignUpForm, SignInForm
-from cinema_app.cinema_auth.models import CinemaUser
 
 
 class SignUpView(View):
@@ -43,6 +41,7 @@ class SignUpView(View):
 
 class SignInView(LoginView):
     template_name = 'auth/sign_in.html'
+    next_page = reverse_lazy('list movies')
     form_class = SignInForm
 
 
