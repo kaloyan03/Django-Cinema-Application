@@ -28,6 +28,9 @@ body {
     background-color: black;
     color: #ee660f;
     font-family: 'Roboto', 'sans-serif';
+    background-image: url("../images/background-image-example2.jpg");
+    background-repeat: no-repeat;
+    background-position-y: -60px;
 }
 
 h1, h2, h3, h4, h5, h6 {

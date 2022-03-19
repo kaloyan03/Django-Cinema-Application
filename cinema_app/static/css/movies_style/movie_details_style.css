@@ -46,9 +46,20 @@
 }
 
 .movie-details-buy .add-button {
-    display: block;
+    background-color: #ee660f;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
 }
 
-.movie-details-buy .quantity-input {
-    width: 40px;
+.movie-details-buy p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
+
+.movie-details-buy {
+    text-align: center;
+}
+

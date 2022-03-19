@@ -1,12 +1,17 @@
 #cart-page {
-    color: black;
-    background-color: white;
+    color: white;
+    padding: 10px;
+}
+
+#cart-page .items-container {
+    background-color: #5a5757;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
-    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 800px;
 }
 
 #cart-page .movie-img {
@@ -48,3 +53,19 @@
     border-radius: 4px;
 }
 
+#cart-page .empty-cart-message {
+    background-color: black;
+    color: #ee660f;
+}
+
+#cart-page .item-remove-button, .item-add-button {
+    font-size: 30px;
+}
+
+#cart-page .item-remove-button {
+    color: red;
+}
+
+#cart-page .item-add-button {
+    color: mediumseagreen;
+}
