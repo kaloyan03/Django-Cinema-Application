@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'cinema_app.profiles',
     'cinema_app.tickets_cart',
 
-    'cart'
+    'cart',
+    'embed_video',
 ]
 
 CART_SESSION_ID = 'cart'
@@ -75,6 +76,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # vvv for embed video package vvv
+                'django.template.context_processors.request',
             ],
         },
     },

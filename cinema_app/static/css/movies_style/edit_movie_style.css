@@ -16,7 +16,7 @@ body {
 #edit-movie-box {
   margin: 1% auto;
   width: 550px;
-  height: 800px;
+  /*height: 800px;*/
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -25,8 +25,8 @@ body {
 .edit-movie-form {
   box-sizing: border-box;
   padding: 40px;
-  width: 550px;
-  height: 500px;
+  /*width: 550px;*/
+  /*height: 500px;*/
 }
 
 .edit-movie-form h1 {
@@ -36,7 +36,7 @@ body {
 }
 
 input[type="submit"] {
-  margin-top: 15px;
+  margin-top: 10px;
   width: 120px;
   height: 32px;
   padding: 8px 16px;

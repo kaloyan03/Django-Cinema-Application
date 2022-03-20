@@ -1,4 +1,6 @@
 {% extends 'common/base.html' %}
+{% load embed_video_tags %}
+
 
 {% block content %}
     <section id="movie-details-page">
@@ -18,14 +20,20 @@
             <p>Category: {{ movie.category }}</p>
         </article>
 
+        <article class="movie-details-video">
+                {% video movie.trailer_video as trailer_video %}
+                {% video trailer_video '480x360' %}
+                {% endvideo %}
+            </article>
+
         <article class="movie-details-buy">
-{#            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">#}
-{#                {% csrf_token %}#}
-{#                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>#}
-{#            <label for="quantity">Quantity</label>#}
-{#            <input type="number" value="Quantity" id="quantity" class="quantity-input">#}
-{#            <input type="submit" value="Add to cart" class="add-button">#}
-{#            </form>#}
+            {#            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">#}
+            {#                {% csrf_token %}#}
+            {#                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>#}
+            {#            <label for="quantity">Quantity</label>#}
+            {#            <input type="number" value="Quantity" id="quantity" class="quantity-input">#}
+            {#            <input type="submit" value="Add to cart" class="add-button">#}
+            {#            </form>#}
 
             <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
             <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add ticket to cart</a>

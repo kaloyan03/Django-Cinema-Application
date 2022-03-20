@@ -9,7 +9,7 @@
             <form method="post" enctype="multipart/form-data" action="{% url 'add movie' %}" class="add-movie-form">
                 <h1 class="add-movie-title">Add Movie</h1>
                 {% csrf_token %}
-{#                {{ form }}#}
+                {#                {{ form }}#}
                 <div class="form-title">
                     {{ form.errors.title }}
                     {{ form.title.label }}
@@ -22,8 +22,14 @@
                     {{ form.image }}
                 </div>
 
+                <div class="form-video">
+                    {{ form.errors.trailer_video }}
+                    {{ form.trailer_video.label }}
+                    {{ form.trailer_video }}
+                </div>
+
                 <div class="form-genre">
-                {{ form.errors.genre }}
+                    {{ form.errors.genre }}
                     {{ form.genre.label }}
                     <select name="genre" class="selectpicker input-field" data-title="Select Gender"
                             data-style="btn-default btn-block"
@@ -55,7 +61,7 @@
                 </div>
 
                 <div class="form-category">
-                {{ form.errors.category }}
+                    {{ form.errors.category }}
                     {{ form.category.label }}
                     <select name="category" class="selectpicker input-field" data-title="Select Category"
                             data-style="btn-default btn-block"
@@ -68,10 +74,10 @@
                     </select>
                 </div>
 
-            <div class="form-ticket">
-                {{ ticket_form.price.label }}
-                {{ ticket_form.price }}
-            </div>
+                <div class="form-ticket">
+                    {{ ticket_form.price.label }}
+                    {{ ticket_form.price }}
+                </div>
 
                 {#            <div>#}
                 {#                <label for="files" class="btn" style="border: 1px solid black; padding: 2px 4px; color: black; background-color: #f1f1f1">Select Image</label>#}

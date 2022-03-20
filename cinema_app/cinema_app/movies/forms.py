@@ -64,6 +64,9 @@ class AddMovieForm(forms.ModelForm):
             'image': forms.FileInput(
                 attrs={'class': 'input-field'}
             ),
+            'trailer_video': forms.URLInput(
+                attrs={'class': 'input-field', 'placeholder': 'Trailer...'}
+            ),
             'genre': forms.Select(
                 attrs={'class': 'input-field'}
             ),
@@ -93,6 +96,9 @@ class EditMovieForm(forms.ModelForm):
             ),
             'image': forms.FileInput(
                 attrs={'class': 'input-field'}
+            ),
+            'trailer_video': forms.URLInput(
+                attrs={'class': 'input-field', 'placeholder': 'Trailer...'}
             ),
             'genre': forms.Select(
                 attrs={'class': 'input-field'}

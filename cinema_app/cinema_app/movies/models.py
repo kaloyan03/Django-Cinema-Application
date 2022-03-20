@@ -1,6 +1,8 @@
 from datetime import datetime
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
+from embed_video.fields import EmbedVideoField
+
 from cinema_app.movies.validators import validate_word_start_with_capital_letter
 
 
@@ -57,6 +59,9 @@ class Movie(models.Model):
         upload_to='movie_images',
         default='movie_images/default.jpg',
     )
+
+    # vvv Movie trailer vvv
+    trailer_video = EmbedVideoField(null=True, blank=True)
 
     genre = models.CharField(
         max_length=GENRE_MAX_LENGTH,
