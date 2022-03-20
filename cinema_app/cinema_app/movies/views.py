@@ -67,6 +67,7 @@ class EditMovie(views.UpdateView):
     template_name = 'movies/edit_movie.html'
 
 
+
 class MovieDetails(views.DetailView):
     model = Movie
     template_name = 'movies/movie_details.html'

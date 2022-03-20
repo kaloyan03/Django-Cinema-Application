@@ -1,7 +1,10 @@
 from datetime import datetime
+
+from django.contrib.contenttypes.fields import GenericRelation
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
 from embed_video.fields import EmbedVideoField
+from star_ratings.models import Rating
 
 from cinema_app.movies.validators import validate_word_start_with_capital_letter
 

@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 {% load embed_video_tags %}
+{% load ratings %}
 
 
 {% block content %}
@@ -24,6 +25,10 @@
                 {% video movie.trailer_video as trailer_video %}
                 {% video trailer_video '480x360' %}
                 {% endvideo %}
+            </article>
+
+    <article class="movie-details-rate">
+                {% ratings movie %}
             </article>
 
         <article class="movie-details-buy">

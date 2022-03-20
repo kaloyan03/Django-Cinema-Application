@@ -9,75 +9,76 @@
             <form method="post" enctype="multipart/form-data" action="{% url 'add movie' %}" class="add-movie-form">
                 <h1 class="add-movie-title">Add Movie</h1>
                 {% csrf_token %}
-                {#                {{ form }}#}
-                <div class="form-title">
-                    {{ form.errors.title }}
-                    {{ form.title.label }}
-                    {{ form.title }}
-                </div>
-
-                <div class="form-image">
-                    {{ form.errors.image }}
-                    {{ form.image.label }}
-                    {{ form.image }}
-                </div>
-
-                <div class="form-video">
-                    {{ form.errors.trailer_video }}
-                    {{ form.trailer_video.label }}
-                    {{ form.trailer_video }}
-                </div>
-
-                <div class="form-genre">
-                    {{ form.errors.genre }}
-                    {{ form.genre.label }}
-                    <select name="genre" class="selectpicker input-field" data-title="Select Gender"
-                            data-style="btn-default btn-block"
-                            data-menu-style="dropdown-blue">
-                        <option disabled selected hidden>Genre...</option>
-                        {% for x,y in form.fields.genre.choices %}
-                            <option value="{{ x }}"{% if form.fields.genre.value == x %}
-                                    selected{% endif %}>{{ y }}</option>
-                        {% endfor %}
-                    </select>
-
-                </div>
-                <div class="form-year">
-                    {{ form.errors.year }}
-                    {{ form.year.label }}
-                    {{ form.year }}
-                </div>
-
-                <div class="form-description">
-                    {{ form.errors.description }}
-                    {{ form.description.label }}
-                    {{ form.description }}
-                </div>
-
-                <div class="form-duration">
-                    {{ form.errors.duration }}
-                    {{ form.duration.label }}
-                    {{ form.duration }}
-                </div>
-
-                <div class="form-category">
-                    {{ form.errors.category }}
-                    {{ form.category.label }}
-                    <select name="category" class="selectpicker input-field" data-title="Select Category"
-                            data-style="btn-default btn-block"
-                            data-menu-style="dropdown-blue">
-                        <option disabled selected hidden>Category...</option>
-                        {% for x,y in form.fields.category.choices %}
-                            <option value="{{ x }}"{% if form.fields.category.value == x %}
-                                    selected{% endif %}>{{ y }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <div class="form-ticket">
-                    {{ ticket_form.price.label }}
-                    {{ ticket_form.price }}
-                </div>
+                                {{ form }}
+                {{ ticket_form }}
+{#                <div class="form-title">#}
+{#                    {{ form.errors.title }}#}
+{#                    {{ form.title.label }}#}
+{#                    {{ form.title }}#}
+{#                </div>#}
+{##}
+{#                <div class="form-image">#}
+{#                    {{ form.errors.image }}#}
+{#                    {{ form.image.label }}#}
+{#                    {{ form.image }}#}
+{#                </div>#}
+{##}
+{#                <div class="form-video">#}
+{#                    {{ form.errors.trailer_video }}#}
+{#                    {{ form.trailer_video.label }}#}
+{#                    {{ form.trailer_video }}#}
+{#                </div>#}
+{##}
+{#                <div class="form-genre">#}
+{#                    {{ form.errors.genre }}#}
+{#                    {{ form.genre.label }}#}
+{#                    <select name="genre" class="selectpicker input-field" data-title="Select Gender"#}
+{#                            data-style="btn-default btn-block"#}
+{#                            data-menu-style="dropdown-blue">#}
+{#                        <option disabled selected hidden>Genre...</option>#}
+{#                        {% for x,y in form.fields.genre.choices %}#}
+{#                            <option value="{{ x }}"{% if form.fields.genre.value == x %}#}
+{#                                    selected{% endif %}>{{ y }}</option>#}
+{#                        {% endfor %}#}
+{#                    </select>#}
+{##}
+{#                </div>#}
+{#                <div class="form-year">#}
+{#                    {{ form.errors.year }}#}
+{#                    {{ form.year.label }}#}
+{#                    {{ form.year }}#}
+{#                </div>#}
+{##}
+{#                <div class="form-description">#}
+{#                    {{ form.errors.description }}#}
+{#                    {{ form.description.label }}#}
+{#                    {{ form.description }}#}
+{#                </div>#}
+{##}
+{#                <div class="form-duration">#}
+{#                    {{ form.errors.duration }}#}
+{#                    {{ form.duration.label }}#}
+{#                    {{ form.duration }}#}
+{#                </div>#}
+{##}
+{#                <div class="form-category">#}
+{#                    {{ form.errors.category }}#}
+{#                    {{ form.category.label }}#}
+{#                    <select name="category" class="selectpicker input-field" data-title="Select Category"#}
+{#                            data-style="btn-default btn-block"#}
+{#                            data-menu-style="dropdown-blue">#}
+{#                        <option disabled selected hidden>Category...</option>#}
+{#                        {% for x,y in form.fields.category.choices %}#}
+{#                            <option value="{{ x }}"{% if form.fields.category.value == x %}#}
+{#                                    selected{% endif %}>{{ y }}</option>#}
+{#                        {% endfor %}#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <div class="form-ticket">#}
+{#                    {{ ticket_form.price.label }}#}
+{#                    {{ ticket_form.price }}#}
+{#                </div>#}
 
                 {#            <div>#}
                 {#                <label for="files" class="btn" style="border: 1px solid black; padding: 2px 4px; color: black; background-color: #f1f1f1">Select Image</label>#}

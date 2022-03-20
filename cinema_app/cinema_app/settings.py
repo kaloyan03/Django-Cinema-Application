@@ -46,7 +46,10 @@ INSTALLED_APPS = [
 
     'cart',
     'embed_video',
+    'star_ratings',
 ]
+# Rating more than once disabled
+
 
 CART_SESSION_ID = 'cart'
 
@@ -76,7 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # vvv for embed video package vvv
+                # vvv for embed video package and django-star-rating vvv
                 'django.template.context_processors.request',
             ],
         },
@@ -159,5 +162,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'carsforrentdjango@gmail.com'
-EMAIL_HOST_PASSWORD = 'carsforrent12345'
+EMAIL_HOST_USER = 'cinemadjangoapp@gmail.com'
+EMAIL_HOST_PASSWORD = 'cinemadjangoapp123'
