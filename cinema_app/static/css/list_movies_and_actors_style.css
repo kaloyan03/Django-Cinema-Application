@@ -1,5 +1,5 @@
 .movie-container, .actor-container {
-    background-color: #ececec;
+    background-color: #e8e8e8;
     padding: 20px;
     color: #3d3939;
     box-shadow: 0 4px 8px 0 orange;
@@ -81,4 +81,27 @@
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.pagination {
+    background-color: #e8e8e8;
+    position: absolute;
+    bottom: 60px;
+    left:45%;
+    margin-bottom: 20px;
+}
+
+.pagination li {
+    display: inline-block;
+    color: black;
+    padding: 15px;
+}
+
+.pagination li.active {
+    background-color: #ee660f;
+    color: white;
+}
+
+.pagination li a {
+    color: black;
 }

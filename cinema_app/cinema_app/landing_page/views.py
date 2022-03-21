@@ -16,6 +16,7 @@ class ShowLandingPage(View):
 
         for movie in Movie.objects.all():
             if movie.id in top_movies_ids:
+                movie.stars_average = Rating.objects.get(object_id=movie.id).average
                 top_movies.append(movie)
 
         context = {

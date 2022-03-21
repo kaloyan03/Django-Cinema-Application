@@ -27,6 +27,7 @@
                             <p>Genre: {{ movie.genre }}</p>
                             <p>Duration: {{ movie.duration|floatformat:0 }} minutes</p>
                             <p>Category: {{ movie.category }}</p>
+                            <p class="movie-rated">Rated: {{ movie.stars_average|floatformat:2 }} <i class="fa-solid fa-star"></i></p>
                             <div class="movie-buttons">
                                 <a href="{% url 'movie details' movie.id %}" class="details">Details</a>
                                 <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>

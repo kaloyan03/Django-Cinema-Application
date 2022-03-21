@@ -11,6 +11,7 @@ from cinema_app.movies.models import Movie, Ticket
 class ListMovies(views.ListView):
     model = Movie
     context_object_name = 'movies'
+    paginate_by = 3
     template_name = 'movies/list_movies.html'
 
 
