@@ -1,4 +1,4 @@
-#delete-profile-page {
+#delete-movie-page {
     background-color: white;
     width: 800px;
     padding: 30px;
@@ -9,42 +9,47 @@
     color: black;
 }
 
-#delete-profile-page .title {
+#delete-movie-page .title {
     text-align: center;
+    margin-top: 15px;
 }
 
-#delete-profile-page .buttons a {
+
+#delete-movie-page .buttons a {
     color: white;
     text-decoration: none;
 }
 
-#delete-profile-page .buttons {
-    margin-top: 20px;
+#delete-movie-page .buttons {
     text-align: center;
+    margin-top: 20px;
 }
 
-#delete-profile-page .buttons-delete {
+#delete-movie-page .buttons-delete {
     background-color: red;
     color: white;
     border-radius: 6px;
     margin-right: 10px;
 }
 
-#delete-profile-page .buttons-delete:hover {
+#delete-movie-page .buttons-delete:hover {
     background-color: #b10000;
 }
 
 
-#delete-profile-page .buttons-no {
+#delete-movie-page .buttons-no {
     background-color: deepskyblue;
     padding: 6px 14px;
     border-radius: 5px;
 }
 
-#delete-profile-page .buttons-no:hover {
+#delete-movie-page .buttons-no:hover{
     background-color: #00779a;
 
 }
+
+
+
 
 
 /*#delete-profile-page .buttons {*/

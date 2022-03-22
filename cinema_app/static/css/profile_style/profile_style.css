@@ -1,8 +1,9 @@
-/*style the form ^^^*/
+#my-profile-page {
+    color: black;
+}
 
 
-
-.profile-box {
+#my-profile-page .profile-box {
     background-color: white;
     width: 20vw;
     height: 40vh;
@@ -14,31 +15,31 @@
     border-radius: 8px;
 }
 
-.profile-image {
+#my-profile-page .profile-image {
     text-align: center;
     padding-top: 20px;
 }
 
-.profile-image img{
+#my-profile-page .profile-image img{
     height: 12vh;
     width: 6vw;
     border-radius: 50%;
 }
 
-.profile-details-content {
+#my-profile-page .profile-details-content {
     font-size: 1vw;
     text-align: center;
 }
 
-.profile-details-content p, h3 {
+#my-profile-page .profile-details-content p, h3 {
     margin-top: 15px;
 }
 
-.buttons {
+#my-profile-page .buttons {
     margin-top: 60px;
 }
 
-.buttons a {
+#my-profile-page .buttons a {
     margin-right: 12px;
     border-radius: 4px;
     text-decoration: none;
@@ -46,18 +47,18 @@
     padding: 8px 14px;
 }
 
-.edit-button {
+#my-profile-page .edit-button {
     background-color: orange;
 }
 
-.delete-button {
+#my-profile-page .delete-button {
     background-color: red;
 }
 
-.edit-button:hover {
+#my-profile-page .edit-button:hover {
     background-color: #bf8000;
 }
 
-.delete-button:hover {
+#my-profile-page .delete-button:hover {
     background-color: #b10000;
 }

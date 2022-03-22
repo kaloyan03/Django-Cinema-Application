@@ -98,3 +98,15 @@ class MovieDetails(views.DetailView):
         ticket = Ticket.objects.get(movie_id=movie.id)
         context['ticket'] = ticket
         return context
+
+
+class DeleteMovie(views.DeleteView):
+    model = Movie
+    template_name = 'movies/delete_movie.html'
+    success_url = reverse_lazy('list movies')
+
+    def form_valid(self, form):
+        movie = self.object
+        ticket = Ticket.objects.get(movie_id=movie.id)
+        ticket.delete()
+        return super().form_valid(form)
