@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
 from embed_video.fields import EmbedVideoField
@@ -9,10 +9,9 @@ from star_ratings.models import Rating
 from cinema_app.movies.validators import validate_word_start_with_capital_letter
 
 
+UserModel = get_user_model()
 
 # Create your models here.
-
-
 class Movie(models.Model):
     """
     This model is representing movies.
@@ -112,5 +111,17 @@ class Ticket(models.Model):
 
     movie = models.ForeignKey(
         Movie,
+        on_delete=models.CASCADE,
+    )
+
+
+class Comment(models.Model):
+    movie = models.ForeignKey(
+        Movie,
+        on_delete=models.CASCADE,
+    )
+    comment = models.TextField()
+    user = models.ForeignKey(
+        UserModel,
         on_delete=models.CASCADE,
     )

@@ -1,6 +1,6 @@
 from django import forms
 
-from cinema_app.movies.models import Movie, Ticket
+from cinema_app.movies.models import Movie, Ticket, Comment
 
 
 class AddMovieForm(forms.ModelForm):
@@ -131,3 +131,9 @@ class AddTicketForm(forms.ModelForm):
                 attrs={'class': 'input-field', 'placeholder': 'Ticket price...'},
             )
         }
+
+
+class AddCommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        exclude = ('movie', 'user',)

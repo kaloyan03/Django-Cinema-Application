@@ -22,14 +22,31 @@
         </article>
 
         <article class="movie-details-video">
-                {% video movie.trailer_video as trailer_video %}
-                {% video trailer_video '480x360' %}
-                {% endvideo %}
-            </article>
+            {% video movie.trailer_video as trailer_video %}
+            {% video trailer_video '480x360' %}
+            {% endvideo %}
+        </article>
 
-    <article class="movie-details-rate">
-                {% ratings movie %}
-            </article>
+        <article class="movie-details-comment">
+            {% if comments %}
+                <div class="comments-box">
+                    {% for comment in comments %}
+                        <p class="comment"><strong>{{ comment.user.email }}</strong>: {{ comment.comment }}</p>
+
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
+                <h3>Leave a comment!</h3>
+                {% csrf_token %}
+                {{ comment_form }}
+                <input value="Send" type="submit">
+            </form>
+        </article>
+
+        <article class="movie-details-rate">
+            {% ratings movie %}
+        </article>
 
         <article class="movie-details-buy">
             {#            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">#}

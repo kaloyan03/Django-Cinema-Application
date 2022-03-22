@@ -5,8 +5,8 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 from star_ratings.models import Rating
 
-from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm
-from cinema_app.movies.models import Movie, Ticket
+from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm
+from cinema_app.movies.models import Movie, Ticket, Comment
 
 
 class ListMovies(views.ListView):
@@ -97,6 +97,10 @@ class MovieDetails(views.DetailView):
         movie = self.object
         ticket = Ticket.objects.get(movie_id=movie.id)
         context['ticket'] = ticket
+        comment_form = AddCommentForm()
+        context['comment_form'] = comment_form
+        comments = Comment.objects.filter(movie=movie)
+        context['comments'] = comments
         return context
 
 
@@ -110,3 +114,23 @@ class DeleteMovie(views.DeleteView):
         ticket = Ticket.objects.get(movie_id=movie.id)
         ticket.delete()
         return super().form_valid(form)
+
+
+# class AddCommentView(views.CreateView):
+#     model = Comment
+#     form_class = AddCommentForm
+#     success_url = reverse_lazy('movie details', )
+
+def comment_movie(request, pk):
+    movie = Movie.objects.get(pk=pk)
+    form = AddCommentForm(request.POST)
+
+    if form.is_valid():
+        comment = Comment(
+            movie=movie,
+            user_id=request.user.id,
+            comment=form.cleaned_data['comment'],
+        )
+
+        comment.save()
+    return redirect('movie details', movie.id)
