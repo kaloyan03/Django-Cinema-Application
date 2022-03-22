@@ -12,6 +12,10 @@ body {
   font-weight: 300;
 }
 
+#sign-up-page {
+  color: #ee660f;
+}
+
 #sign-up-box {
   margin: 5% auto;
   width: 550px;

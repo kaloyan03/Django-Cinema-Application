@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap');
 @import "header_style.css";
 @import "footer_style.css";
-@import "home_page_style.css";
+@import "landing_page_style.css";
 @import "list_movies_and_actors_style.css";
 @import "movies_style/add_movie_style.css";
 @import "auth_style/sign_up_style.css";
@@ -26,7 +26,7 @@
 
 body {
     background-color: black;
-    color: #ee660f;
+    color: white;
     font-family: 'Roboto', 'sans-serif';
     background-image: url("../images/background-image-example2.jpg");
     background-repeat: no-repeat;

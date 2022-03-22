@@ -3,19 +3,19 @@
 
 {% block content %}
 
-    <section class="home-page">
-        <h2 class="home-page-title">Welcome to the home page!</h2>
+    <section id="landing-page">
+        <h2 class="landing-page-title">Welcome to the home page!</h2>
 
-        <article class="home-page-wallpaper">
-            <img src="{% static 'images/wallpaper-example.jpg' %}">
-        </article>
+{#        <article class="home-page-wallpaper">#}
+{#            <img src="{% static 'images/wallpaper-example.jpg' %}">#}
+{#        </article>#}
 
-        <article class="home-page-content">
-            <p>Welcome to our cinema application! Our mission is to present you the best movies on available prices. You
-                can buy tickets with all of your family members! Enjoy it! </p>
+        <article class="landing-page-content">
+            <p class="landing-page-content-title">Welcome to our cinema application! Our mission is to present you the best movies on available prices. You
+                can buy tickets and watch movies with your friends! Enjoy it! </p>
 
             {% if movies %}
-                <h3>Here are the top 3 rated movies</h3>
+                <h3 class="landing-page-content-subtitle">Top 3 rated movies</h3>
 
                 <div class="movies-container">
                     {% for movie in movies %}
@@ -27,7 +27,7 @@
                             <p>Genre: {{ movie.genre }}</p>
                             <p>Duration: {{ movie.duration|floatformat:0 }} minutes</p>
                             <p>Category: {{ movie.category }}</p>
-                            <p class="movie-rated">Rated: {{ movie.stars_average|floatformat:2 }} <i class="fa-solid fa-star"></i></p>
+                            <p class="movie-rated">Rated: {{ movie.stars_average|floatformat:1 }} <i class="fa-solid fa-star"></i></p>
                             <div class="movie-buttons">
                                 <a href="{% url 'movie details' movie.id %}" class="details">Details</a>
                                 <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>

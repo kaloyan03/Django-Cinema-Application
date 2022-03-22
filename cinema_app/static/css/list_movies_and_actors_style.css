@@ -1,4 +1,4 @@
-.movie-container, .actor-container {
+#list-movies-page .movie-container, .actor-container {
     background-color: #e8e8e8;
     padding: 20px;
     color: #3d3939;
@@ -6,29 +6,39 @@
     transition: 0.3s;
     border-radius: 6px;
     width: 400px;
+    text-align: center;
 }
 
-.movie-container:hover, .actor-container:hover {
+#list-movies-page .movie-container:hover, .actor-container:hover {
     box-shadow: 0 8px 16px 0 orange;
 }
 
 
-.list-movies-title, .list-actors-title {
+#list-movies-page .list-movies-title, .list-actors-title {
     text-align: center;
     margin: 24px;
 }
 
-.movie-image img, .actor-image img {
+#list-movies-page .movie-image img, .actor-image img {
     width: 100%;
     max-width: 300px;
     max-height: 300px;
 }
 
-.movie-title,.actor-title  {
+#list-movies-page .movie-image, .actor-image {
+    display: inline-block;
+}
+
+#list-movies-page .movie-title,.actor-title  {
     color: black;
 }
 
-.movies-container, .actors-container {
+#list-movies-page .movie-info p {
+    margin-top: 10px;
+}
+
+
+#list-movies-page .movies-container, .actors-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -38,13 +48,13 @@
     height: auto;
 }
 
-.movie-buttons, .actor-buttons {
+#list-movies-page .movie-buttons, .actor-buttons {
     margin-top: 22px;
     display: flex;
     justify-content: space-around;
 }
 
-.movie-buttons a, .actor-buttons a {
+#list-movies-page .movie-buttons a, .actor-buttons a {
     padding: 8px 16px;
     border-radius: 8px;
     text-decoration: none;
@@ -52,56 +62,61 @@
     margin-right: 12px;
 }
 
-.movie-buttons .details, .actor-buttons .details {
+#list-movies-page .movie-buttons .details, .actor-buttons .details {
     background-color: deepskyblue;
 }
 
-.movie-buttons .edit, .actor-buttons .edit {
+#list-movies-page .movie-buttons .edit, .actor-buttons .edit {
     background-color: orange;
 }
 
-.movie-buttons .delete, .actor-buttons .delete {
+#list-movies-page .movie-buttons .delete, .actor-buttons .delete {
     background-color: red;
 }
 
-.movie-buttons .details:hover, .actor-buttons .details:hover {
+#list-movies-page .movie-buttons .details:hover, .actor-buttons .details:hover {
     background-color: #0287b1;
 }
 
-.movie-buttons .edit:hover, .actor-buttons .edit:hover {
+#list-movies-page .movie-buttons .edit:hover, .actor-buttons .edit:hover {
     background-color: #bf8000;
 }
 
-.movie-buttons .delete:hover, .actor-buttons .delete:hover {
+#list-movies-page .movie-buttons .delete:hover, .actor-buttons .delete:hover {
     background-color: #b10000;
 }
 
-.no-actors-message, .no-movies-message {
+#list-movies-page .no-actors-message, .no-movies-message {
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.pagination {
+#list-movies-page .pagination {
     background-color: #e8e8e8;
     position: absolute;
     bottom: 60px;
     left:45%;
     margin-bottom: 20px;
+    border-radius: 6px;
 }
 
-.pagination li {
+#list-movies-page .pagination li {
     display: inline-block;
     color: black;
     padding: 15px;
 }
 
-.pagination li.active {
+#list-movies-page .pagination li.active {
     background-color: #ee660f;
     color: white;
 }
 
-.pagination li a {
+#list-movies-page .pagination li a {
     color: black;
+}
+
+.movie-info {
+    font-size: 20px;
 }

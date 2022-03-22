@@ -68,30 +68,33 @@ body {
   padding: 0;
   background: #DDD;
   font-size: 16px;
-  color: #222;
   font-family: 'Roboto', sans-serif;
 }
 
-#add-movie-box {
-  margin: 1% auto;
+#add-movie-page {
+  color: #ee660f;
+}
+
+#add-movie-page #add-movie-box {
+  margin: 15px auto;
   width: 550px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.add-movie-form {
+#add-movie-page .add-movie-form {
   box-sizing: border-box;
   padding: 40px;
 }
 
-.add-movie-form h1 {
+#add-movie-page .add-movie-form h1 {
   margin: 0 0 20px 0;
   font-weight: 300;
   font-size: 28px;
 }
 
-input[type="submit"] {
+#add-movie-page input[type="submit"] {
   margin-top: 15px;
   width: 120px;
   height: 32px;
@@ -107,18 +110,18 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover,
+#add-movie-page input[type="submit"]:hover,
 input[type="submit"]:focus {
   opacity: 0.8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
 }
 
-.add-movie-form .got-profile-aside a {
+#add-movie-page .add-movie-form .got-profile-aside a {
   color: blue;
 }
 
-.add-movie-form .input-field {
+#add-movie-page .add-movie-form .input-field {
   display: block;
   box-sizing: border-box;
   margin-bottom: 20px;
@@ -133,24 +136,24 @@ input[type="submit"]:focus {
   transition: 0.2s ease;
 }
 
-.add-movie-form .input-field:focus {
+#add-movie-page .add-movie-form .input-field:focus {
   border-bottom: 2px solid #ee660f;
   transition: 0.2s ease;
 }
 
-.input-field[type="file"] {
+#add-movie-page .input-field[type="file"] {
   width: 210px;
 }
 
-.input-field[type="number"] {
+#add-movie-page .input-field[type="number"] {
   width: 180px;
 }
 
-select.input-field[name='genre'] {
+#add-movie-page select.input-field[name='genre'] {
   width: 140px;
 }
 
-select.input-field[name='category'] {
+#add-movie-page select.input-field[name='category'] {
   width: 100px;
 }
 

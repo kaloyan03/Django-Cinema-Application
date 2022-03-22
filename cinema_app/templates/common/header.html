@@ -9,8 +9,8 @@
                 </li>
                 <li><a href="{% url 'add movie' %}" class="{% if request.path == '/movies/add/' %}active{% endif %}">ADD
                     MOVIE</a></li>
-                <li><a href="{% url 'list actors' %}" class="{% if request.path == '/actors/' %}active{% endif %}">ACTORS</a>
-                </li>
+{#                <li><a href="{% url 'list actors' %}" class="{% if request.path == '/actors/' %}active{% endif %}">ACTORS</a>#}
+{#                </li>#}
                 {% if request.user.is_authenticated %}
                     <li><a href="
 {% if request.user.has_completed_profile %}

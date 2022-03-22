@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views import generic as views
+from star_ratings.models import Rating
 
 from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm
 from cinema_app.movies.models import Movie, Ticket
@@ -11,8 +12,25 @@ from cinema_app.movies.models import Movie, Ticket
 class ListMovies(views.ListView):
     model = Movie
     context_object_name = 'movies'
+    queryset = Movie.objects.all()
     paginate_by = 3
     template_name = 'movies/list_movies.html'
+
+    # TODO Add rated to the queryset, object lists
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(*args, **kwargs)
+    #     movies = self.object_list
+    #
+    #     for movie in movies:
+    #         current_movie_average_rating = Rating.objects.get(object_id=movie.id).average
+    #         movie.average_rating = current_movie_average_rating
+    #
+    #     self.queryset = movies
+    #
+    #     return context
+
+
 
 
 class AddMovie(views.CreateView):
