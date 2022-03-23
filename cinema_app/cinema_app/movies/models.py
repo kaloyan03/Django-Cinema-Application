@@ -100,6 +100,7 @@ class Movie(models.Model):
     )
 
 
+
 class Ticket(models.Model):
     PRICE_MIN_VALUE = 0
 

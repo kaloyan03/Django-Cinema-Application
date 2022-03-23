@@ -7,60 +7,51 @@
     <section id="movie-details-page">
         <h1 class="movie-details-title">Movie Details</h1>
 
-        <article class="movie-image">
+        <article class="movie-image-and-rate">
             <img src="{{ movie.image.url }}" alt="Movie Image">
+            <article class="movie-details-rate">
+                {% ratings movie %}
+            </article>
         </article>
 
         <article class="movie-details-content">
             <h3>{{ movie.title }}</h3>
 
-            <p>Movie genre: {{ movie.genre }}</p>
-            <p>Year made: {{ movie.year }}</p>
-            <p>Movie description: {{ movie.description }}</p>
-            <p>Movie duration: {{ movie.duration|floatformat:0 }} minutes</p>
-            <p>Category: {{ movie.category }}</p>
+            <p><strong>Movie genre:</strong> {{ movie.genre }}</p>
+            <p><strong>Year made:</strong> {{ movie.year }}</p>
+            <p><strong>Movie description:</strong> {{ movie.description }}</p>
+            <p><strong>Movie duration:</strong> {{ movie.duration|floatformat:0 }} minutes</p>
+            <p><strong>Category:</strong> {{ movie.category }}</p>
+
+
+            <div class="movie-details-content-comment">
+                <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
+                    <h3 class="movie-details-comment-title">Comments</h3>
+                    {% csrf_token %}
+                    {{ comment_form }}
+                    <input value="Send" type="submit">
+                </form>
+                {% if comments %}
+                    <div class="comments-box">
+                        {% for comment in comments %}
+                            <p class="comment"><strong>{{ comment.user.email }}</strong>: {{ comment.comment }}</p>
+
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
         </article>
 
-        <article class="movie-details-video">
+        <article class="movie-details-video-and-buy">
             {% video movie.trailer_video as trailer_video %}
             {% video trailer_video '480x360' %}
             {% endvideo %}
-        </article>
 
-        <article class="movie-details-comment">
-            {% if comments %}
-                <div class="comments-box">
-                    {% for comment in comments %}
-                        <p class="comment"><strong>{{ comment.user.email }}</strong>: {{ comment.comment }}</p>
-
-                    {% endfor %}
-                </div>
-            {% endif %}
-            <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
-                <h3>Leave a comment!</h3>
-                {% csrf_token %}
-                {{ comment_form }}
-                <input value="Send" type="submit">
-            </form>
-        </article>
-
-        <article class="movie-details-rate">
-            {% ratings movie %}
-        </article>
-
-        <article class="movie-details-buy">
-            {#            <form method="post" action="{% url 'add to cart' %}" enctype="multipart/form-data">#}
-            {#                {% csrf_token %}#}
-            {#                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>#}
-            {#            <label for="quantity">Quantity</label>#}
-            {#            <input type="number" value="Quantity" id="quantity" class="quantity-input">#}
-            {#            <input type="submit" value="Add to cart" class="add-button">#}
-            {#            </form>#}
-
-            <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
-            <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add ticket to cart</a>
+            <div class="movie-details-buy">
+                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
+                <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add ticket to cart</a>
+            </div>
         </article>
 
     </section>
-
 {% endblock %}

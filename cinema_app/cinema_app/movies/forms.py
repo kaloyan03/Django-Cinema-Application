@@ -137,3 +137,12 @@ class AddCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         exclude = ('movie', 'user',)
+        labels = {
+            'comment': '',
+        }
+        widgets = {
+            'comment': forms.Textarea(
+
+            attrs={'class': 'comment-area'}
+        ),
+        }
