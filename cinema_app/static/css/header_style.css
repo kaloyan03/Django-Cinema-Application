@@ -1,9 +1,13 @@
 header {
+    background-color: #ee660f;
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
+    /*left: 0;*/
     z-index: 99;
+    align-items: center;
 }
 
 .page-title {
@@ -21,6 +25,11 @@ header {
     display: inline-block;
 }
 
+.navigation li:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
 .navigation li a {
     color: white;
     padding: 14px 20px;
@@ -35,8 +44,91 @@ header {
 }
 
 .navigation {
-    background-color: #ee660f;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*text-align: center;*/
+    margin: 0 auto;
+}
+
+#hamburger-icon {
+    margin: auto 10px;
+    display: none;
+    cursor: pointer;
+}
+
+#hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.open .mobile-menu {
+    height: 200px;
+    width: 263px;
+    margin: 0 auto;
+    /* background-color: #ee660f; */
+    background-color: whitesmoke;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: flex-start;
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px
+}
+
+.open .mobile-menu li {
+    margin-bottom: 10px;
+}
+
+.open .mobile-menu li a{
+    padding: 3px 6px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #ee660f;
+}
+
+.open .mobile-menu li:nth-child(1) {
+    margin-top: 20px;
+}
+
+.open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+    opacity: 0;
+}
+
+
+.open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, 8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    header .navigation {
+        display: none;
+    }
+
+    #hamburger-icon {
+        display: block;
+    }
 }

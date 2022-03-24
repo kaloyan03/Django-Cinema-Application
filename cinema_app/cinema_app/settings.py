@@ -25,6 +25,7 @@ DEBUG = True
 
 SECRET_KEY = config("SECRET_KEY")
 
+
 ALLOWED_HOSTS = []
 
 # Application definition

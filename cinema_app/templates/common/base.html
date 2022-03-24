@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#    VVV For media query#}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {#    vvv fontawesome vvv#}
     <script src="https://kit.fontawesome.com/4bb8eb69e3.js" crossorigin="anonymous"></script>
 {#    VVV JQuery#}
@@ -13,6 +15,8 @@
 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
     <title>Cinema</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block js %}
+    {% endblock %}
 </head>
 <body>
     {% include 'common/header.html' %}
