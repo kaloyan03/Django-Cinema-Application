@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+# VVV For hiding the secret key VVV
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,11 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)k2u2xb8!pa=jaswtid2d-t+yc79ik))9u^c&jksw!juz_jyyq'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+SECRET_KEY = config("SECRET_KEY")
 
 ALLOWED_HOSTS = []
 
