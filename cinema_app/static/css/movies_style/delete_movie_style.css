@@ -59,3 +59,20 @@
 
 
 
+@media only screen and (max-width: 600px) {
+    #delete-profile-page {
+        width: 325px;
+    }
+
+    .footer-position-relative-mobile {
+        display: none;
+    }
+
+    .footer-position-absolute-mobile {
+        display: block;
+    }
+
+    .footer-desktop {
+        display: none;
+    }
+}

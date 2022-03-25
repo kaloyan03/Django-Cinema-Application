@@ -132,4 +132,16 @@
         left: 0;
         border-radius: 0;
     }
+
+    .footer-position-relative-mobile {
+        display: block;
+    }
+
+    .footer-position-absolute-mobile {
+        display: none;
+    }
+
+    .footer-desktop {
+        display: none;
+    }
 }

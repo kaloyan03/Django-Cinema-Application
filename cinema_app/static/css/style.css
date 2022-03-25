@@ -47,3 +47,36 @@ main {
 }
 
 /*style list movies*/
+
+
+/* media queries */
+
+@media only screen and (max-width: 600px) {
+    .input-field[type="file"] {
+        width: 200px;
+    }
+
+    .input-field[type="number"] {
+        width: 180px;
+    }
+
+    select.input-field[name='genre'] {
+        width: 100px;
+    }
+
+    select.input-field[name='category'] {
+        width: 100px;
+    }
+
+    input.input-field[name='text'] {
+        width: 220px;
+    }
+
+    .input-field[type="text"] {
+        width: 220px;
+    }
+
+    .input-field[type="url"] {
+        width: 220px;
+    }
+}

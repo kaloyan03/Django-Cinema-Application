@@ -176,7 +176,7 @@
     width: 570px;
 }
 
-.movie-details-comment-title  {
+.movie-details-comment-title {
     margin-bottom: 15px;
 }
 
@@ -193,7 +193,7 @@
     border-radius: 4px;
 }
 
-    .movie-details-buy p {
+.movie-details-buy p {
     margin-bottom: 20px;
 }
 
@@ -207,23 +207,72 @@
     background-color: white;
 }
 
+.movie-details-video-and-buy .movie-video-mobile {
+    display: none;
+}
+
+.movie-details-content-title-mobile {
+    display: none;
+}
+
+
 @media only screen and (max-width: 600px) {
     #movie-details-page {
         width: 350px;
     }
 
     #movie-details-page .comment-area {
-        width: 220px;
+        width: 200px;
     }
 
     #sign-in-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
         width: 220px;
     }
 
-    footer {
-        position: relative;
-        bottom: 0;
+
+    .movie-details-video-and-buy .movie-video-mobile {
+        display: inline-block;
     }
 
+    .movie-details-video-and-buy .movie-video-desktop {
+        display: none;
+    }
+
+    .movie-details-content-comment {
+        border: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .movie-details-content {
+        width: 250px;
+    }
+
+
+    .movie-details-content-title-mobile {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .movie-details-content-title-desktop {
+        display: none;
+    }
+
+    .movie-details-rate {
+        margin-left: 45px;
+    }
+
+    .footer-position-relative-mobile {
+        display: block;
+    }
+
+    .footer-position-absolute-mobile {
+        display: none;
+    }
+
+    .footer-desktop {
+        display: none;
+    }
 
 }

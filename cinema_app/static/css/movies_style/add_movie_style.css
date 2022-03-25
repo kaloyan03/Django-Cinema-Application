@@ -189,6 +189,18 @@ input[type="submit"]:focus {
     #add-movie-page .input-field[type="url"] {
         width: 220px;
     }
+
+    .footer-position-relative-mobile {
+        display: block;
+    }
+
+    .footer-position-absolute-mobile {
+        display: none;
+    }
+
+    .footer-desktop {
+        display: none;
+    }
 }
 
 

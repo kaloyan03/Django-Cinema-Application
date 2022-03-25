@@ -1,9 +1,5 @@
-footer {
-    background-color: #ee660f;
-    color: white;
+footer .footer-desktop {
     position: fixed;
-    bottom: 0;
-    width: 100%;
     z-index: 99;
 }
 
@@ -12,9 +8,28 @@ footer {
     padding: 20px;
 }
 
+.footer-position-absolute-mobile {
+    position: absolute;
+    display: none;
+}
+
+.footer-position-relative-mobile {
+    position: relative;
+    display: none;
+
+}
+
+
+footer {
+    background-color: #ee660f;
+    color: white;
+    width: 100%;
+    bottom: 0;
+
+
+}
+
+
 @media only screen and (max-width: 600px) {
-    footer {
-        position: relative;
- bottom: 0;
-    }
+
 }

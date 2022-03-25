@@ -82,10 +82,6 @@ input[type="submit"]:focus {
     transition: 0.2s ease;
 }
 
-.input-field[name="password1"] {
-}
-
-
 @media only screen and (max-width: 600px) {
     #sign-up-box {
         width: 300px;
@@ -96,9 +92,7 @@ input[type="submit"]:focus {
     }
 
     footer {
-        position: absolute;
-        bottom: 0;
+        /*position: absolute;*/
+        /*bottom: 0;*/
     }
-
-
 }
