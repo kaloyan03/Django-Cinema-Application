@@ -26,7 +26,6 @@ body {
 .sign-in-form {
   box-sizing: border-box;
   padding: 40px;
-  width: 550px;
 }
 
 h1 {
@@ -84,3 +83,19 @@ input[type="submit"]:focus {
 
 
 
+@media only screen and (max-width: 600px) {
+    #sign-in-box {
+        width: 300px;
+    }
+
+    #sign-in-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
+        width: 220px;
+    }
+
+    /*footer {*/
+    /*    position: absolute;*/
+    /*    bottom: 0;*/
+    /*}*/
+
+
+}

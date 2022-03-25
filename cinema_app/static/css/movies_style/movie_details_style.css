@@ -206,3 +206,24 @@
     text-align: center;
     background-color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    #movie-details-page {
+        width: 350px;
+    }
+
+    #movie-details-page .comment-area {
+        width: 220px;
+    }
+
+    #sign-in-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
+        width: 220px;
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+    }
+
+
+}
