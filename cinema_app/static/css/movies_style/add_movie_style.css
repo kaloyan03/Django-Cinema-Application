@@ -121,85 +121,44 @@ input[type="submit"]:focus {
     color: blue;
 }
 
-#add-movie-page .add-movie-form .input-field {
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    padding: 4px;
-    width: 450px;
-    height: 32px;
-    border: none;
-    border-bottom: 1px solid #AAA;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    transition: 0.2s ease;
-}
+/*#add-movie-page .add-movie-form .input-field {*/
+/*    display: block;*/
+/*    box-sizing: border-box;*/
+/*    margin-bottom: 20px;*/
+/*    padding: 4px;*/
+/*    width: 450px;*/
+/*    height: 32px;*/
+/*    border: none;*/
+/*    border-bottom: 1px solid #AAA;*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    font-weight: 400;*/
+/*    transition: 0.2s ease;*/
+/*}*/
 
-#add-movie-page .add-movie-form .input-field:focus {
-    border-bottom: 2px solid #ee660f;
-    transition: 0.2s ease;
-}
+/*#add-movie-page .add-movie-form .input-field:focus {*/
+/*    border-bottom: 2px solid #ee660f;*/
+/*    transition: 0.2s ease;*/
+/*}*/
 
-#add-movie-page .input-field[type="file"] {
-    width: 210px;
-}
+/*#add-movie-page .input-field[type="file"] {*/
+/*    width: 210px;*/
+/*}*/
 
-#add-movie-page .input-field[type="number"] {
-    width: 180px;
-}
+/*#add-movie-page .input-field[type="number"] {*/
+/*    width: 180px;*/
+/*}*/
 
-#add-movie-page select.input-field[name='genre'] {
-    width: 140px;
-}
+/*#add-movie-page select.input-field[name='genre'] {*/
+/*    width: 140px;*/
+/*}*/
 
-#add-movie-page select.input-field[name='category'] {
-    width: 100px;
-}
+/*#add-movie-page select.input-field[name='category'] {*/
+/*    width: 100px;*/
+/*}*/
 
 @media only screen and (max-width: 600px) {
     #add-movie-page #add-movie-box {
         width: 310px;
-    }
-
-    #add-movie-page .input-field[type="file"] {
-        width: 200px;
-    }
-
-    #add-movie-page .input-field[type="number"] {
-        width: 180px;
-    }
-
-    #add-movie-page select.input-field[name='genre'] {
-        width: 100px;
-    }
-
-    #add-movie-page select.input-field[name='category'] {
-        width: 100px;
-    }
-
-    #add-movie-page input.input-field[name='text'] {
-        width: 220px;
-    }
-
-    #add-movie-page .input-field[type="text"] {
-        width: 220px;
-    }
-
-    #add-movie-page .input-field[type="url"] {
-        width: 220px;
-    }
-
-    .footer-position-relative-mobile {
-        display: block;
-    }
-
-    .footer-position-absolute-mobile {
-        display: none;
-    }
-
-    .footer-desktop {
-        display: none;
     }
 }
 

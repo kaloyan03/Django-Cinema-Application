@@ -262,17 +262,4 @@
     .movie-details-rate {
         margin-left: 45px;
     }
-
-    .footer-position-relative-mobile {
-        display: block;
-    }
-
-    .footer-position-absolute-mobile {
-        display: none;
-    }
-
-    .footer-desktop {
-        display: none;
-    }
-
 }

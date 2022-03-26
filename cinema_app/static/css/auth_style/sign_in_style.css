@@ -91,11 +91,4 @@ input[type="submit"]:focus {
     #sign-in-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
         width: 220px;
     }
-
-    /*footer {*/
-    /*    position: absolute;*/
-    /*    bottom: 0;*/
-    /*}*/
-
-
 }

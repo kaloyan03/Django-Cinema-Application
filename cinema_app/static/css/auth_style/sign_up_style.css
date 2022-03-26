@@ -91,8 +91,4 @@ input[type="submit"]:focus {
         width: 220px;
     }
 
-    footer {
-        /*position: absolute;*/
-        /*bottom: 0;*/
-    }
 }

@@ -23,6 +23,7 @@ header {
 
 .navigation li {
     display: inline-block;
+    margin-right: 10px;
 }
 
 .navigation li:hover {
@@ -65,8 +66,8 @@ header {
 }
 
 .open .mobile-menu {
-    height: 200px;
-    width: 263px;
+    height: 300px;
+    width: 225px;
     margin: 0 auto;
     /* background-color: #ee660f; */
     background-color: whitesmoke;

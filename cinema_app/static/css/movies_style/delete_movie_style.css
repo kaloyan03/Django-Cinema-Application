@@ -43,13 +43,10 @@
     border-radius: 5px;
 }
 
-#delete-movie-page .buttons-no:hover{
+#delete-movie-page .buttons-no:hover {
     background-color: #00779a;
 
 }
-
-
-
 
 
 /*#delete-profile-page .buttons {*/
@@ -58,21 +55,16 @@
 /*}*/
 
 
-
 @media only screen and (max-width: 600px) {
-    #delete-profile-page {
+    #delete-movie-page {
         width: 325px;
     }
 
-    .footer-position-relative-mobile {
-        display: none;
-    }
-
-    .footer-position-absolute-mobile {
-        display: block;
-    }
-
-    .footer-desktop {
-        display: none;
+    #delete-movie-page .buttons-no {
+        display: inline-block;
+        margin-top: 16px;
+        margin-right: 8px;
+        font-size: 18px;
+        font-weight: bold;
     }
 }

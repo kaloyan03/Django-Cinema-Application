@@ -1,4 +1,4 @@
-footer .footer-desktop {
+footer.footer-desktop {
     position: fixed;
     z-index: 99;
 }
@@ -8,15 +8,14 @@ footer .footer-desktop {
     padding: 20px;
 }
 
-.footer-position-absolute-mobile {
+footer.footer-position-absolute-mobile {
     position: absolute;
     display: none;
 }
 
-.footer-position-relative-mobile {
+footer.footer-position-relative-mobile {
     position: relative;
     display: none;
-
 }
 
 
@@ -25,11 +24,22 @@ footer {
     color: white;
     width: 100%;
     bottom: 0;
-
-
+    margin-top: 20px;
 }
 
 
 @media only screen and (max-width: 600px) {
+    /*.footer-position-relative-mobile {*/
+    /*    display: block;*/
+    /*}*/
+
+    /*.footer-position-absolute-mobile {*/
+    /*    display: none;*/
+    /*}*/
+
+    /*.footer-desktop {*/
+    /*    display: none;*/
+    /*}*/
+
 
 }

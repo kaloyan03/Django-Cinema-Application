@@ -35,7 +35,7 @@ body {
   font-size: 28px;
 }
 
-input[type="submit"] {
+#edit-profile-page input[type="submit"] {
   margin-top: 15px;
   width: 120px;
   height: 32px;
@@ -51,7 +51,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover,
+#edit-profile-page input[type="submit"]:hover,
 input[type="submit"]:focus {
   opacity: 0.8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -86,12 +86,8 @@ input[type="submit"]:focus {
   width: 180px;
 }
 
-select.input-field[name='genre'] {
+#edit-profile-page select.input-field[name='genre'] {
   width: 140px;
-}
-
-select.input-field[name='category'] {
-  width: 100px;
 }
 
 .edit-profile-title {
