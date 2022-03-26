@@ -3,7 +3,7 @@
 }
 
 
-#my-profile-page .profile-box {
+#my-profile-page {
     background-color: white;
     width: 380px;
     position: absolute;
@@ -62,5 +62,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-
+ #my-profile-page {
+     width: 330px;
+ }
 }

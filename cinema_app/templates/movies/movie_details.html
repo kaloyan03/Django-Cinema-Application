@@ -62,7 +62,7 @@
 
             <div class="movie-details-buy">
                 <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
-                <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add ticket to cart</a>
+                <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>
             </div>
         </article>
 

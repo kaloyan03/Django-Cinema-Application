@@ -14,6 +14,7 @@
 @import "cashout_cart_style.css";
 @import "movies_style/delete_movie_style.css";
 @import "footer_style.css";
+@import "common.css";
 
 
 * {
@@ -35,44 +36,6 @@ body {
     background-position-y: -60px;
 }
 
-/* VVV for all the form input fields VVV */
-
-.input-field {
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    padding: 4px;
-    width: 450px;
-    height: 32px;
-    border: none;
-    border-bottom: 1px solid #AAA;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    transition: 0.2s ease;
-}
-
-.input-field:focus {
-    border-bottom: 2px solid #ee660f;
-    transition: 0.2s ease;
-}
-
-input.input-field[type="file"] {
-    width: 210px;
-}
-
-input.input-field[type="number"] {
-    width: 180px;
-}
-
-input.input-field[name='genre'] {
-    width: 140px;
-}
-
-input.input-field[name='category'] {
-    width: 100px;
-}
-
-/* end form inputs */
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', 'sans-serif';
@@ -94,34 +57,6 @@ main {
 @media only screen and (max-width: 600px) {
     body {
         font-size: 1.8rem;
-    }
-
-    button, a {
-        font-size: 1.5rem;
-    }
-
-    .input-field {
-        font-size: 1.2rem;
-    }
-
-    input.input-field[type="file"] {
-        width: 200px;
-    }
-
-    input.input-field[type="text"] {
-        width: 220px;
-    }
-
-    input.input-field[type="url"] {
-        width: 220px;
-    }
-
-    input.input-field[type="number"] {
-        width: 180px;
-    }
-
-    select.input-field {
-        width: 100px;
     }
 
     main {

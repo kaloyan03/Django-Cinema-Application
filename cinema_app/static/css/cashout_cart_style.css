@@ -52,6 +52,8 @@
 #cart-page .empty-cart-message {
     background-color: black;
     color: #ee660f;
+    text-align: center;
+    margin-top: 10rem;
 }
 
 #cart-page .item-remove-button, .item-add-button {

@@ -13,10 +13,6 @@ body {
 }
 
 #sign-up-page {
-    color: #ee660f;
-}
-
-#sign-up-box {
     margin: 5% auto;
     width: 550px;
     background: #FFF;
@@ -24,70 +20,35 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.sign-up-form {
+#sign-up-page .sign-up-form {
     box-sizing: border-box;
     padding: 40px;
 }
 
-h1 {
+#sign-up-page h1 {
     margin: 0 0 20px 0;
     font-weight: 300;
     font-size: 28px;
 }
 
-input[type="submit"] {
-    margin-top: 15px;
-    width: 120px;
-    height: 32px;
-    padding: 8px 16px;
-    background: #ee660f;
-    border: none;
-    border-radius: 2px;
-    color: #FFF;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: 0.1s ease;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover,
+#sign-up-page input[type="submit"]:hover,
 input[type="submit"]:focus {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
 }
 
-.sign-up-form .got-profile-aside a {
+#sign-up-page .sign-up-form .got-profile-aside a {
     color: blue;
 }
 
-.sign-up-form .input-field {
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    padding: 4px;
-    width: 450px;
-    height: 32px;
-    border: none;
-    border-bottom: 1px solid #AAA;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    transition: 0.2s ease;
-}
-
-.sign-up-form .input-field:focus {
-    border-bottom: 2px solid #ee660f;
-    transition: 0.2s ease;
-}
 
 @media only screen and (max-width: 600px) {
-    #sign-up-box {
+    #sign-up-page {
         width: 300px;
     }
 
-    #sign-up-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
+    #sign-up-page .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
         width: 220px;
     }
 

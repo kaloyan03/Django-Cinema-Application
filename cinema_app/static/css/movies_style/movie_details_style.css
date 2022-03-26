@@ -176,6 +176,16 @@
     width: 570px;
 }
 
+.movie-details-content-comment input {
+    padding: 6px 12px;
+    color: white;
+    background: #ee660f;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+
 .movie-details-comment-title {
     margin-bottom: 15px;
 }
@@ -261,5 +271,9 @@
 
     .movie-details-rate {
         margin-left: 45px;
+    }
+
+    .movie-details-content p, h3 {
+        font-size: 1.6rem;
     }
 }

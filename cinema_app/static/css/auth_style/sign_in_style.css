@@ -12,10 +12,6 @@ body {
 }
 
 #sign-in-page {
-  color: #ee660f;
-}
-
-#sign-in-box {
   margin: 5% auto;
   width: 550px;
   background: #FFF;
@@ -23,72 +19,29 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.sign-in-form {
+#sign-in-page .sign-in-form {
   box-sizing: border-box;
   padding: 40px;
 }
 
-h1 {
+#sign-in-page h1 {
   margin: 0 0 20px 0;
   font-weight: 300;
   font-size: 28px;
 }
 
-input[type="submit"] {
-  margin-top: 15px;
-  width: 120px;
-  height: 32px;
-  padding: 8px 16px;
-  background: #ee660f;
-  border: none;
-  border-radius: 2px;
-  color: #FFF;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: 0.1s ease;
-  cursor: pointer;
-}
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-  opacity: 0.8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
-}
-
-.sign-in-form .got-profile-aside a {
+#sign-in-page .sign-in-form .got-profile-aside a {
   color: blue;
 }
 
-.sign-in-form .input-field {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 450px;
-  height: 32px;
-  border: none;
-  border-bottom: 1px solid #AAA;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  transition: 0.2s ease;
-}
-
-.sign-in-form .input-field:focus {
-  border-bottom: 2px solid #ee660f;
-  transition: 0.2s ease;
-}
-
-
 
 @media only screen and (max-width: 600px) {
-    #sign-in-box {
+    #sign-in-page {
         width: 300px;
     }
 
-    #sign-in-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
+    #sign-in-page .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
         width: 220px;
     }
 }
