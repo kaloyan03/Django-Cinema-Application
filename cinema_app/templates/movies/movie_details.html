@@ -27,12 +27,20 @@
 
 
             <div class="movie-details-content-comment">
-                <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
-                    <h3 class="movie-details-comment-title">Comments</h3>
-                    {% csrf_token %}
-                    {{ comment_form }}
-                    <input value="Send" type="submit">
-                </form>
+                {% if request.user.is_authenticated %}
+                    <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
+                        <h3 class="movie-details-comment-title">Comments</h3>
+
+                        {% csrf_token %}
+                        {{ comment_form }}
+                        <input value="Send" type="submit">
+                    </form>
+                {% else %}
+                    <p class="movie-details-comments-no-profile-message">To comment you must be logged in!</p>
+                    <h3 class="movie-details-comment-title">Comments:</h3>
+
+
+                {% endif %}
                 {% if comments %}
                     <div class="comments-box">
                         {% for comment in comments %}
@@ -61,8 +69,12 @@
 
 
             <div class="movie-details-buy">
-                <p>Ticket price: {{ ticket.price|floatformat:0 }}$</p>
+                <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>
+                    {% else %}
+                    <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>
+                {% endif %}
             </div>
         </article>
 

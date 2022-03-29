@@ -6,12 +6,13 @@
     <section id="landing-page">
         <h2 class="landing-page-title">Welcome to the home page!</h2>
 
-{#        <article class="home-page-wallpaper">#}
-{#            <img src="{% static 'images/wallpaper-example.jpg' %}">#}
-{#        </article>#}
+        {#        <article class="home-page-wallpaper">#}
+        {#            <img src="{% static 'images/wallpaper-example.jpg' %}">#}
+        {#        </article>#}
 
         <article class="landing-page-content">
-            <p class="landing-page-content-title">Welcome to our cinema application! Our mission is to present you the best movies at <strong>AFFORDABLE</strong> prices</p>
+            <p class="landing-page-content-title">Welcome to our cinema application! Our mission is to present you the
+                best movies at <strong>AFFORDABLE</strong> prices</p>
 
             {% if movies %}
                 <h3 class="landing-page-content-subtitle">Top 3 rated movies</h3>
@@ -26,11 +27,14 @@
                             <p>Genre: {{ movie.genre }}</p>
                             <p>Duration: {{ movie.duration|floatformat:0 }} minutes</p>
                             <p>Category: {{ movie.category }}</p>
-                            <p class="movie-rated">Rated: {{ movie.stars_average|floatformat:1 }} <i class="fa-solid fa-star"></i></p>
+                            <p class="movie-rated">Rated: {{ movie.stars_average|floatformat:1 }} <i
+                                    class="fa-solid fa-star"></i></p>
                             <div class="movie-buttons">
                                 <a href="{% url 'movie details' movie.id %}" class="details">Details</a>
-                                <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
+                                {% if user_is_staff %}
+                                    <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
+                                    <a href="{% url 'delete movie' movie.id %}" class="delete">Delete</a>
+                                {% endif %}
                             </div>
 
                         </article>

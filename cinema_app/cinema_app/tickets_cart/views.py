@@ -1,12 +1,15 @@
 from cart.cart import Cart
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.utils.decorators import method_decorator
+
 from cinema_app.movies.models import Ticket
 from cinema_app.settings import EMAIL_HOST_USER
 
-
+@method_decorator(login_required, name='dispatch')
 def cart_view(request):
     cart = Cart(request)
     items = cart.cart.item_set.all()
@@ -40,14 +43,14 @@ def cart_view(request):
     }
     return render(request, 'checkout_cart.html', context)
 
-
+@method_decorator(login_required, name='dispatch')
 def add_to_cart(request, id, quantity):
     ticket = Ticket.objects.get(id=id)
     cart = Cart(request)
     cart.add(ticket, ticket.price, quantity)
     return redirect('cart view')
 
-
+@method_decorator(login_required, name='dispatch')
 def remove_from_cart(request, id):
     cart = Cart(request)
     items = cart.cart.item_set.all()
@@ -59,7 +62,7 @@ def remove_from_cart(request, id):
     cart.update(ticket, current_item_quantity - 1, item_price)
     return redirect('cart view')
 
-
+@method_decorator(login_required, name='dispatch')
 def send_email(email, tickets, total_price, total_quantity):
     subject = 'Thank you for your order'
     message = '\n'.join([

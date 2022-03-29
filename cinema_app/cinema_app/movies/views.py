@@ -1,7 +1,10 @@
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views import generic as views
 from star_ratings.models import Rating
 
@@ -18,21 +21,25 @@ class ListMovies(views.ListView):
 
     # TODO Add rated to the queryset, object lists
 
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super().get_context_data(*args, **kwargs)
-    #     movies = self.object_list
-    #
-    #     for movie in movies:
-    #         current_movie_average_rating = Rating.objects.get(object_id=movie.id).average
-    #         movie.average_rating = current_movie_average_rating
-    #
-    #     self.queryset = movies
-    #
-    #     return context
+    def get_queryset(self):
+        movies = super().get_queryset()
 
+        for movie in movies:
+            try:
+                current_movie_average_rating = Rating.objects.get(object_id=movie.id).average
+                movie.average_rating = current_movie_average_rating
+            except:
+                movie.average_rating = 'Not rated yet'
 
+        return movies
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
 
+        context['user_is_staff'] = True if self.request.user.is_staff else False
+        return context
+
+@method_decorator(staff_member_required, name='dispatch')
 class AddMovie(views.CreateView):
     model = Movie
     form_class = AddMovieForm
@@ -78,13 +85,16 @@ class AddMovie(views.CreateView):
     #     return render(request, 'add_movie.html', context)
 
 
+@method_decorator(staff_member_required, name='dispatch')
 class EditMovie(views.UpdateView):
     model = Movie
-    success_url = reverse_lazy('list movies')
     form_class = EditMovieForm
     context_object_name = 'movie'
     template_name = 'movies/edit_movie.html'
 
+    def get_success_url(self, **kwargs):
+        movie = self.object
+        return reverse_lazy('movie details', kwargs={'pk': movie.pk})
 
 
 class MovieDetails(views.DetailView):
@@ -104,6 +114,7 @@ class MovieDetails(views.DetailView):
         return context
 
 
+@method_decorator(staff_member_required, name='dispatch')
 class DeleteMovie(views.DeleteView):
     model = Movie
     template_name = 'movies/delete_movie.html'
@@ -121,6 +132,7 @@ class DeleteMovie(views.DeleteView):
 #     form_class = AddCommentForm
 #     success_url = reverse_lazy('movie details', )
 
+@method_decorator(login_required, name='dispatch')
 def comment_movie(request, pk):
     movie = Movie.objects.get(pk=pk)
     form = AddCommentForm(request.POST)

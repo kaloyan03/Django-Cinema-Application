@@ -117,6 +117,11 @@
     color: black;
 }
 
+#list-movies-page .movie-info i {
+    color: #ffff00;
+
+}
+
 .movie-info {
     font-size: 20px;
 }

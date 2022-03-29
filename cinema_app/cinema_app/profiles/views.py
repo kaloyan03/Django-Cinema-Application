@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views import generic as views
 
 # Create your views here.
@@ -10,6 +12,8 @@ from cinema_app.profiles.models import Profile
 
 UserModel = get_user_model()
 
+
+@method_decorator(login_required, name='dispatch')
 class ShowProfileView(views.TemplateView):
     model = Profile
     template_name = 'profile/profile.html'
@@ -22,7 +26,7 @@ class ShowProfileView(views.TemplateView):
         return context
 
 
-
+@method_decorator(login_required, name='dispatch')
 class DeleteProfileView(views.DeleteView):
     model = Profile
     template_name = 'profile/delete_profile.html'
@@ -33,7 +37,7 @@ class DeleteProfileView(views.DeleteView):
         user.delete()
         return super().form_valid(form)
 
-
+@method_decorator(login_required, name='dispatch')
 class EditProfileView(views.UpdateView):
     model = Profile
     form_class = EditProfileForm
@@ -41,6 +45,7 @@ class EditProfileView(views.UpdateView):
     success_url = reverse_lazy('profile')
     context_object_name = 'profile'
 
+@method_decorator(login_required, name='dispatch')
 class CompleteProfileView(views.CreateView):
     model = UserModel
     template_name = 'profile/complete_profile.html'

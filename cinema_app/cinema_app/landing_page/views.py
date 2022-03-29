@@ -21,6 +21,7 @@ class ShowLandingPage(View):
 
         context = {
             'movies': top_movies,
+            'user_is_staff': True if request.user.is_staff else False
         }
 
         return render(request, 'landing_page.html', context)

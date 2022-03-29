@@ -225,6 +225,17 @@
     display: none;
 }
 
+#movie-details-page .movie-details-comments-no-profile-message {
+    font-size: 24px;
+    color: #ee660f;
+}
+
+#movie-details-page .movie-details-buy-no-profile-message {
+    color: #ee660f;
+    font-size: 24px;
+
+}
+
 
 @media only screen and (max-width: 600px) {
     #movie-details-page {

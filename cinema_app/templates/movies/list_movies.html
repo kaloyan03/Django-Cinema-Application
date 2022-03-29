@@ -16,12 +16,14 @@
                             <p>Genre: {{ movie.genre }}</p>
                             <p>Duration: {{ movie.duration|floatformat:0 }} minutes</p>
                             <p>Category: {{ movie.category }}</p>
-{#                            <p class="movie-rated">Rated: {{ movie.average_rating|floatformat:1 }} <i class="fa-solid fa-star"></i></p>#}
+                            <p class="movie-rated">Rated: {% if movie.average_rating != 'Not rated yet' %}{{ movie.average_rating|floatformat:1 }}{% else %}{{ movie.average_rating }}{% endif %} <i class="fa-solid fa-star"></i></p>
                         </article>
                         <div class="movie-buttons">
                             <a href="{% url 'movie details' movie.id %}" class="details">Details</a>
-                            <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
-                            <a href="{% url 'delete movie' movie.id %}" class="delete">Delete</a>
+                            {% if user_is_staff %}
+                                    <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
+                                    <a href="{% url 'delete movie' movie.id %}" class="delete">Delete</a>
+                                {% endif %}
                         </div>
                     </article>
                 {% endfor %}
