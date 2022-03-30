@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 from cinema_app.cinema_auth.models import CinemaUser
+from cinema_app.validators import validate_start_with_capital_letter
 
 
 class Profile(models.Model):
@@ -17,6 +18,7 @@ class Profile(models.Model):
         max_length=FIRST_NAME_MAX_LENGTH,
         validators=(
             MinLengthValidator(FIRST_NAME_MIN_LENGTH),
+            validate_start_with_capital_letter,
         )
     )
 
@@ -24,6 +26,7 @@ class Profile(models.Model):
         max_length=LAST_NAME_MAX_LENGTH,
         validators=(
             MinLengthValidator(LAST_NAME_MIN_LENGTH),
+            validate_start_with_capital_letter,
         )
     )
 
