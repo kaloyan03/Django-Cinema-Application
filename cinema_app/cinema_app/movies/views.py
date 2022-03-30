@@ -39,6 +39,7 @@ class ListMovies(views.ListView):
         context['user_is_staff'] = True if self.request.user.is_staff else False
         return context
 
+
 @method_decorator(staff_member_required, name='dispatch')
 class AddMovie(views.CreateView):
     model = Movie
@@ -132,7 +133,6 @@ class DeleteMovie(views.DeleteView):
 #     form_class = AddCommentForm
 #     success_url = reverse_lazy('movie details', )
 
-@method_decorator(login_required, name='dispatch')
 def comment_movie(request, pk):
     movie = Movie.objects.get(pk=pk)
     form = AddCommentForm(request.POST)
