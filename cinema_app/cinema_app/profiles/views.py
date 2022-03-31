@@ -45,7 +45,6 @@ class EditProfileView(views.UpdateView):
     success_url = reverse_lazy('profile')
     context_object_name = 'profile'
 
-@method_decorator(login_required, name='dispatch')
 class CompleteProfileView(views.CreateView):
     model = UserModel
     template_name = 'profile/complete_profile.html'

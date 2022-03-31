@@ -28,14 +28,29 @@ class ProfileModelTests(django_test.TestCase):
         UserModel.objects.create(**self.VALID_USER_CREDENTIALS)
 
     def test_post__when_first_name_starts_with_capital_letter__expect_success(self):
-        profile = Profile.objects.create(**self.VALID_PROFILE_DATA)
+        user = UserModel.objects.first()
+        profile = Profile.objects.create(
+            first_name=self.VALID_PROFILE_DATA['first_name'],
+            last_name=self.VALID_PROFILE_DATA['last_name'],
+            profile_picture=self.VALID_PROFILE_DATA['profile_picture'],
+            age=self.VALID_PROFILE_DATA['age'],
+            user=user
+        )
         self.assertIsNotNone(profile)
 
     def test_post__when_last_name_starts_with_capital_letter__expect_success(self):
-        profile = Profile.objects.create(**self.VALID_PROFILE_DATA)
+        user = UserModel.objects.first()
+        profile = Profile.objects.create(
+            first_name=self.VALID_PROFILE_DATA['first_name'],
+            last_name=self.VALID_PROFILE_DATA['last_name'],
+            profile_picture=self.VALID_PROFILE_DATA['profile_picture'],
+            age=self.VALID_PROFILE_DATA['age'],
+            user=user
+        )
         self.assertIsNotNone(profile)
 
     def test_post__when_first_name_is_not_starting_with_capital_letter__expect_fail(self):
+        user = UserModel.objects.first()
         profile = Profile.objects.create(first_name='kaloyan',
                                          last_name='Tsvetkov',
                                          profile_picture=SimpleUploadedFile(name='test_image.jpg',
@@ -44,7 +59,8 @@ class ProfileModelTests(django_test.TestCase):
                                                                                 'rb').read(),
                                                                             content_type='image/jpeg'),
                                          age=18,
-                                         user=UserModel.objects.first(), )
+                                         user=user,
+                                         )
 
         with self.assertRaises(ValidationError) as error_message:
             profile.full_clean()

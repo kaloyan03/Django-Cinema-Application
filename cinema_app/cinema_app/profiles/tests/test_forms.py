@@ -3,7 +3,7 @@ from io import BytesIO
 
 from django import test as django_test
 from django.contrib.auth import get_user_model
-from django.core.files.uploadedfile import SimpleUploadedFile, InMemoryUploadedFile
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from cinema_app.profiles.forms import ProfileForm
 from cinema_app.profiles.models import Profile
