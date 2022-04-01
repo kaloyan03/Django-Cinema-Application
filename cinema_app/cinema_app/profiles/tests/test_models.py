@@ -25,7 +25,7 @@ class ProfileModelTests(django_test.TestCase):
     }
 
     def setUp(self) -> None:
-        UserModel.objects.create(**self.VALID_USER_CREDENTIALS)
+        UserModel.objects.create_user(**self.VALID_USER_CREDENTIALS)
 
     def test_post__when_first_name_starts_with_capital_letter__expect_success(self):
         user = UserModel.objects.first()
