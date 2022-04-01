@@ -1,1 +1,2 @@
-web: gunicorn cinema_app cinema_app.wsgi
+web: gunicorn --pythonpath cinema_app cinema_app.wsgi
+release: python cinema_app/manage.py migrate
