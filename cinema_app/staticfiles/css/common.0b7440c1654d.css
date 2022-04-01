@@ -1,0 +1,152 @@
+/* VVV for all the form input fields VVV */
+
+.input-field {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 450px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    transition: 0.2s ease;
+    font-size: 1rem;
+}
+
+.input-field:focus {
+    border-bottom: 2px solid #ee660f;
+    transition: 0.2s ease;
+}
+
+input.input-field[type="file"] {
+    width: 210px;
+}
+
+input.input-field[type="number"] {
+    width: 180px;
+}
+
+input.input-field[name='genre'] {
+    width: 140px;
+}
+
+input.input-field[name='category'] {
+    width: 100px;
+}
+
+/* end form inputs */
+
+/* pages with forms text colour */
+#edit-profile-page,
+#edit-movie-page,
+#complete-profile-page,
+#add-movie-page,
+#sign-up-page,
+#sign-in-page {
+    color: #ee660f;
+}
+
+/* end pages text color*/
+
+/* pages with form input style */
+#edit-profile-page input[type="submit"],
+#edit-movie-page input[type="submit"],
+#complete-profile-page input[type="submit"],
+#add-movie-page input[type="submit"],
+#sign-up-page input[type="submit"],
+#sign-in-page input[type="submit"] {
+    margin-top: 15px;
+    width: 120px;
+    height: 32px;
+    padding: 8px 16px;
+    background: #ee660f;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+}
+
+#edit-profile-page input[type="submit"]:hover,
+input[type="submit"]:focus,
+#edit-movie-page input[type="submit"]:hover,
+input[type="submit"]:focus,
+#complete-profile-page input[type="submit"]:hover,
+input[type="submit"]:focus,
+#add-movie-page input[type="submit"]:hover,
+input[type="submit"]:focus,
+#sign-up-page input[type="submit"]:hover,
+input[type="submit"]:focus,
+#sign-in-page input[type="submit"]:hover,
+input[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+/* end pages form input */
+
+#delete-movie-page .buttons-delete, #delete-profile-page .buttons-delete {
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+    margin-right: 10px;
+    padding: 8px 20px;
+    border: none;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    button, a {
+        font-size: 1.5rem;
+    }
+
+    .input-field {
+        font-size: 1.4rem;
+    }
+
+    input.input-field[type="file"] {
+        width: 200px;
+    }
+
+    input.input-field[type="text"] {
+        width: 220px;
+    }
+
+    input.input-field[type="url"] {
+        width: 220px;
+    }
+
+    input.input-field[type="number"] {
+        width: 180px;
+    }
+
+    select.input-field {
+        width: 100px;
+    }
+
+    #delete-profile-page,
+    #delete-movie-page {
+        width: 325px;
+    }
+
+    #delete-profile-page .buttons-delete,
+    #delete-movie-page .buttons-delete {
+        font-size: 26px;
+        padding: 4px 12px;
+        margin-bottom: 16px;
+        border: none;
+        font-weight: bold;
+    }
+
+    #delete-profile-page .buttons-no,
+    #delete-movie-page .buttons-no{
+        display: inline-block;
+    }
+}
+

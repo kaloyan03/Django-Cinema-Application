@@ -1,0 +1,46 @@
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #DDD;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+#edit-movie-page {
+  margin: 1% auto;
+  width: 550px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#edit-movie-page .edit-movie-form {
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+#edit-movie-page .edit-movie-form h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+
+#edit-movie-page .edit-movie-form .got-profile-aside a {
+  color: blue;
+}
+
+@media only screen and (max-width: 600px) {
+    #edit-movie-page {
+      width: 330px;
+      margin-top: 20px;
+    }
+}
+

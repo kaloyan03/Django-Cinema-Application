@@ -1,0 +1,42 @@
+#delete-movie-page {
+    background-color: white;
+    width: 800px;
+    padding: 30px;
+    margin: 35vh auto 0;
+    transform: translateY(-50%);
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px 5px orange;
+    color: black;
+}
+
+#delete-movie-page .title {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+#delete-movie-page .buttons a {
+    color: white;
+    text-decoration: none;
+}
+
+#delete-movie-page .buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#delete-movie-page .buttons-delete:hover {
+    background-color: #b10000;
+}
+
+
+#delete-movie-page .buttons-no {
+    background-color: deepskyblue;
+    padding: 6px 14px;
+    border-radius: 5px;
+}
+
+#delete-movie-page .buttons-no:hover {
+    background-color: #00779a;
+
+}

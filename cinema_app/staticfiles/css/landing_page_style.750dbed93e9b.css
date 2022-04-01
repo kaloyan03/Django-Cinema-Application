@@ -1,0 +1,140 @@
+/*.landing-page-wallpaper img {*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    max-height: 200px;*/
+/*    object-fit: cover;*/
+/*}*/
+
+#landing-page .landing-page-title {
+    /*position: absolute;*/
+    color: white;
+    text-align: center;
+    margin: 30px;
+    /*z-index: 1;*/
+    /*top: 12%;*/
+    /*left: 50%;*/
+    /*margin-right: -50%;*/
+    /*transform: translate(-50%, -50%)*/
+}
+
+#landing-page .landing-page-content {
+    text-align: center;
+    color: white;
+}
+
+#landing-page .landing-page-content p {
+    font-size: 20px;
+}
+
+#landing-page .movie-rated i {
+    color: #ffff00;
+}
+
+#landing-page .landing-page-content-title {
+    margin: 20px;
+    font-size: 20px;
+}
+
+#landing-page .landing-page-content-subtitle {
+    margin: 40px;
+    margin-top: 30px;
+}
+
+#landing-page .movie-container {
+    background-color: #e8e8e8;
+    padding: 20px;
+    color: #3d3939;
+    box-shadow: 0 4px 8px 0 orange;
+    transition: 0.3s;
+    border-radius: 6px;
+    width: 400px;
+}
+
+#landing-page .movie-container:hover {
+    box-shadow: 0 8px 16px 0 orange;
+}
+
+
+#landing-page .list-movies-title {
+    text-align: center;
+    margin: 24px;
+}
+
+#landing-page .movie-image img {
+    width: 100%;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#landing-page .movie-image {
+    display: inline-block;
+}
+
+#landing-page .movie-title {
+    color: black;
+}
+
+#landing-page .movies-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 32px;
+    box-sizing: border-box;
+    height: auto;
+    margin-bottom: 45px;
+}
+
+#landing-page .movie-buttons {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#landing-page .movie-buttons a {
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    margin-right: 12px;
+}
+
+#landing-page .movie-buttons .details {
+    background-color: deepskyblue;
+}
+
+#landing-page .movie-buttons .edit {
+    background-color: orange;
+}
+
+#landing-page .movie-buttons .delete {
+    background-color: red;
+}
+
+#landing-page .movie-buttons .details:hover {
+    background-color: #0287b1;
+}
+
+#landing-page .movie-buttons .edit:hover {
+    background-color: #bf8000;
+}
+
+#landing-page .movie-buttons .delete:hover {
+    background-color: #b10000;
+}
+
+#landing-page .no-movies-message {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media only screen and (max-width: 600px) {
+    #landing-page .movie-container {
+        margin-bottom: 60px;
+    }
+
+
+}
