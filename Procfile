@@ -1,1 +1,1 @@
-web: gunicorn cinema_app.wsgi
+web: gunicorn cinema_app cinema_app.wsgi
