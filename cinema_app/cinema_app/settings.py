@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'cinema_app.profiles',
     'cinema_app.tickets_cart',
 
-    'cart',
     'embed_video',
     'star_ratings',
 ]
