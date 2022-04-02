@@ -25,7 +25,7 @@
                             <td>{{ ticket.quantity }} tickets</td>
                             <td>{{ ticket.price|floatformat:2 }}$</td>
                             <td>{{ ticket.total_price|floatformat:2 }}$</td>
-                            <td><a href="{% url 'remove from cart' ticket.cart_item_id %}" class="item-remove-button"><i
+                            <td><a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button"><i
                                     class="fa-solid fa-circle-minus"></i></a></td>
                             <td><a href="{% url 'add to cart' ticket.id 1 %}" class="item-add-button"><i
                                     class="fa-solid fa-circle-plus"></i></a></td>
@@ -38,7 +38,7 @@
                         <td></td>
                         <td>{{ total_quantity }} tickets</td>
                         <td></td>
-                        <td>{{ total_price }}$</td>
+                        <td>{{ total_price|floatformat:2 }}$</td>
                         <td></td>
                         <td></td>
                     </tr>

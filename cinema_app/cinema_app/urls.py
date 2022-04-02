@@ -18,6 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from cinema_app.tickets_cart import signals
+
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('movies/', include('cinema_app.movies.urls')),
