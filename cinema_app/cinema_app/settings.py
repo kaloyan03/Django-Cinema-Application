@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'cinema_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cinema_app',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'NAME': 'ddml0gs1acub4g',
+        'USER': 'prbpflzuqdvhqe',
+        'PASSWORD': 'e73dc54b8f6019726dd9a85a16c966909408ec61f88ff96fb031a74af7bf3e0e',
+        'HOST': 'ec2-99-80-170-190.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
