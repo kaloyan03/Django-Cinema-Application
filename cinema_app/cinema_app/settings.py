@@ -27,6 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'localhost',
     'cinema-app-django.herokuapp.com'
 ]
 
