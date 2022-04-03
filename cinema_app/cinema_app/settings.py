@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
     'embed_video',
     'star_ratings',
+    'whitenoise',
 ]
 # Rating more than once disabled
 
