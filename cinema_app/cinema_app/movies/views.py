@@ -40,7 +40,7 @@ class ListMovies(views.ListView):
         return context
 
 
-@method_decorator(staff_member_required, name='dispatch')
+# @method_decorator(staff_member_required, name='dispatch')
 class AddMovie(views.CreateView):
     model = Movie
     form_class = AddMovieForm
