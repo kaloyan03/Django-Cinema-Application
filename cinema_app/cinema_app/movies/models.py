@@ -5,6 +5,7 @@ from django.core.validators import MinLengthValidator, MinValueValidator, MaxVal
 from django.db import models
 from embed_video.fields import EmbedVideoField
 from star_ratings.models import Rating
+from cloudinary import models as cloudinary_models
 
 from cinema_app.movies.validators import validate_word_start_with_capital_letter
 
@@ -57,10 +58,7 @@ class Movie(models.Model):
         )
     )
 
-    image = models.ImageField(
-        upload_to='movie_images',
-        default='movie_images/default.jpg',
-    )
+    image = cloudinary_models.CloudinaryField('image')
 
     # vvv Movie trailer vvv
     trailer_video = EmbedVideoField(null=True, blank=True)

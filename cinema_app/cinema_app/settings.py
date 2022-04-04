@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 # VVV For hiding the secret key VVV
+import cloudinary
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,16 +22,37 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-"""
-'False' == 'True' => False
-'True' == 'True' => True
-"""
 
 
+APP_ENVIRONMENT = os.getenv('APP_ENVIRONMENT')
 
+if APP_ENVIRONMENT != 'Production':
+    DEBUG = True
+else:
+    DEBUG = False
 
+if APP_ENVIRONMENT != 'Production':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'cinema_app',
+            'USER': 'postgres',
+            'PASSWORD': 'postgres',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'ddml0gs1acub4g',
+            'USER': 'prbpflzuqdvhqe',
+            'PASSWORD': 'e73dc54b8f6019726dd9a85a16c966909408ec61f88ff96fb031a74af7bf3e0e',
+            'HOST': 'ec2-99-80-170-190.eu-west-1.compute.amazonaws.com',
+            'PORT': '5432',
+        }
+    }
 
 SECRET_KEY = config("SECRET_KEY")
 
@@ -60,7 +82,6 @@ INSTALLED_APPS = [
 
     'embed_video',
     'star_ratings',
-    'whitenoise',
 ]
 # Rating more than once disabled
 
@@ -113,16 +134,6 @@ WSGI_APPLICATION = 'cinema_app.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddml0gs1acub4g',
-        'USER': 'prbpflzuqdvhqe',
-        'PASSWORD': 'e73dc54b8f6019726dd9a85a16c966909408ec61f88ff96fb031a74af7bf3e0e',
-        'HOST': 'ec2-99-80-170-190.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -166,9 +177,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -187,3 +197,11 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'cinemadjangoapp@gmail.com'
 EMAIL_HOST_PASSWORD = 'cinemadjangoapp123'
+
+
+# Cloudinary settings
+cloudinary.config(
+  cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME', None),
+  api_key = os.getenv('CLOUDINARY_API_KEY', None),
+  api_secret = os.getenv('CLOUDINARY_API_SECRET', None)
+)

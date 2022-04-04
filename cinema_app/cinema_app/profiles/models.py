@@ -1,5 +1,6 @@
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
+from cloudinary import models as cloudinary_models
 
 # Create your models here.
 from cinema_app.cinema_auth.models import CinemaUser
@@ -30,9 +31,7 @@ class Profile(models.Model):
         )
     )
 
-    profile_picture = models.ImageField(
-        upload_to='profile_pictures',
-    )
+    profile_picture = cloudinary_models.CloudinaryField('image')
 
     age = models.IntegerField(
         validators=(
