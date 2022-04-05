@@ -31,11 +31,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 APP_ENVIRONMENT = os.getenv('APP_ENVIRONMENT')
 
-if is_production():
-    DEBUG = False
-else:
-    DEBUG = True
+# if is_production():
+#     DEBUG = False
+# else:
+#     DEBUG = True
 
+DEBUG = True
 
 # In the production and development for DB is used PostgreSQL, only data is changed.
 DATABASES = {
@@ -199,4 +200,3 @@ cloudinary.config(
     api_secret=os.getenv('CLOUDINARY_API_SECRET', None)
 )
 
-print(os.getenv('CLOUDINARY_CLOUD_NAME', None),)
