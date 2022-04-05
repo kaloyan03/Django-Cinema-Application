@@ -31,12 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 APP_ENVIRONMENT = os.getenv('APP_ENVIRONMENT')
 
-# if is_production():
-#     DEBUG = False
-# else:
-#     DEBUG = True
-
-DEBUG = True
+if is_production():
+    DEBUG = False
+else:
+    DEBUG = True
 
 # In the production and development for DB is used PostgreSQL, only data is changed.
 DATABASES = {
