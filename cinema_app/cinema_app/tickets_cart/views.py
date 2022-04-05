@@ -81,7 +81,6 @@ def remove_from_cart(request, id):
     item.save()
     return redirect('cart view')
 
-@login_required
 def send_email(email, tickets, total_price, total_quantity):
     subject = 'Thank you for your order'
     message = '\n'.join([
