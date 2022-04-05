@@ -46,7 +46,7 @@
 }
 
 #my-profile-page .edit-button {
-    background-color: orange;
+    background-color: #ee660f;
 }
 
 #my-profile-page .delete-button {
@@ -54,7 +54,7 @@
 }
 
 #my-profile-page .edit-button:hover {
-    background-color: #bf8000;
+    background-color: #c24800;
 }
 
 #my-profile-page .delete-button:hover {

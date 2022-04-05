@@ -67,7 +67,7 @@
 }
 
 #list-movies-page .movie-buttons .edit, .actor-buttons .edit {
-    background-color: orange;
+    background-color: #ee660f;
 }
 
 #list-movies-page .movie-buttons .delete, .actor-buttons .delete {
@@ -79,7 +79,7 @@
 }
 
 #list-movies-page .movie-buttons .edit:hover, .actor-buttons .edit:hover {
-    background-color: #bf8000;
+    background-color: #c24800;
 }
 
 #list-movies-page .movie-buttons .delete:hover, .actor-buttons .delete:hover {

@@ -43,10 +43,16 @@
 
 
 #cart-page .checkout .buy-button {
-    background-color: orange;
+    background-color: #ee660f;
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
+    border: none;
+}
+
+#cart-page .checkout .buy-button:hover {
+    background-color: #c24800;
+    cursor: pointer;
 }
 
 #cart-page .empty-cart-message {

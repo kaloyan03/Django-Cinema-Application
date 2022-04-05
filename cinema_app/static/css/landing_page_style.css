@@ -104,7 +104,7 @@
 }
 
 #landing-page .movie-buttons .edit {
-    background-color: orange;
+    background-color: #ee660f;
 }
 
 #landing-page .movie-buttons .delete {
@@ -116,7 +116,7 @@
 }
 
 #landing-page .movie-buttons .edit:hover {
-    background-color: #bf8000;
+    background-color: #c24800;
 }
 
 #landing-page .movie-buttons .delete:hover {
