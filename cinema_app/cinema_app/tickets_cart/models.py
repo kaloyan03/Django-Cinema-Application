@@ -49,10 +49,6 @@ class Cart(models.Model):
         auto_now=True,
     )
 
-    date_created = models.DateTimeField(
-        default=datetime.now(),
-    )
-
     objects = CartManager
 
     @property
