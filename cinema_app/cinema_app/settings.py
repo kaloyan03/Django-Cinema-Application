@@ -14,9 +14,12 @@ from pathlib import Path
 # VVV For hiding the secret key VVV
 import cloudinary
 from decouple import config
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from cinema_app.utils import is_production
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,7 +37,6 @@ else:
     DEBUG = True
 
 
-
 # In the production and development for DB is used PostgreSQL, only data is changed.
 DATABASES = {
     'default': {
@@ -43,9 +45,10 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
-        'PORT': '5432',
+        'PORT': os.getenv('DB_PORT'),
     }
 }
+
 
 SECRET_KEY = config("SECRET_KEY")
 
@@ -186,6 +189,7 @@ LOGGING = {
         }
     }
 }
+
 
 
 # Cloudinary settings
