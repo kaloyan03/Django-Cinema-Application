@@ -31,9 +31,14 @@ body {
 }
 
 
-#sign-in-page .sign-in-form .got-profile-aside a {
-  color: blue;
+#sign-in-page .forgot_password a,.got-profile-aside a {
+    color: blue;
 }
+
+#sign-in-page .got-profile-aside {
+    margin-bottom: 5px;
+}
+
 
 
 @media only screen and (max-width: 600px) {

@@ -48,6 +48,11 @@ class CinemaUser(AbstractBaseUser, PermissionsMixin):
         default=False,
     )
 
+    # solution for the reset password functionality
+    is_active = models.BooleanField(
+        default=True,
+    )
+
     date_joined = models.DateTimeField(
         auto_now_add=True,
     )
@@ -56,7 +61,9 @@ class CinemaUser(AbstractBaseUser, PermissionsMixin):
         default=False,
     )
 
+    # solution to the reset password functionality
+    # is_active = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'email'
 
     objects = CinemaUserManager()
-

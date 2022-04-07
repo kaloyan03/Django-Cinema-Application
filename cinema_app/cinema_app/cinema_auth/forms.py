@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model, login, authenticate
-from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm, PasswordResetForm
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import capfirst
 from django.utils.translation import gettext_lazy as _
@@ -84,3 +84,8 @@ class SignInForm(AuthenticationForm):
         widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "class": "input-field", "placeholder": "Password"}),
     )
 
+class ResetPasswordForm(PasswordResetForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].label = ""
+        self.fields['email'].widget = forms.EmailInput(attrs={"placeholder": "Email Address"})

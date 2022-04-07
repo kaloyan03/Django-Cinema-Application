@@ -44,7 +44,8 @@ input.input-field[name='category'] {
 #complete-profile-page,
 #add-movie-page,
 #sign-up-page,
-#sign-in-page {
+#sign-in-page,
+#password-reset-page {
     color: #666160;
 }
 
