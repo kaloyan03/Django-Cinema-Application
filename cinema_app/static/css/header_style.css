@@ -67,9 +67,7 @@ header {
 }
 
 .open .mobile-menu {
-    height: 300px;
-    width: 225px;
-    margin: 0 auto;
+    opacity: 0.9;
     /* background-color: #ee660f; */
     background-color: whitesmoke;
     display: flex;
@@ -80,23 +78,24 @@ header {
     right: 0;
     margin-top: 10px;
     border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px
+    border-bottom-right-radius: 30px;
+    transition: 1s;
 }
 
 .open .mobile-menu li {
-    margin-bottom: 10px;
+    margin-bottom: 45px;
 }
 
 .open .mobile-menu li a{
-    padding: 3px 6px;
+    padding: 8px 16px;
     text-decoration: none;
     color: white;
     border-radius: 5px;
-    background-color: #ee660f;
+    background-color: #666160;
 }
 
 .open .mobile-menu li:nth-child(1) {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .open .bar1 {

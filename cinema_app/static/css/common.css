@@ -16,7 +16,7 @@
 }
 
 .input-field:focus {
-    border-bottom: 2px solid #ee660f;
+    border-bottom: 2px solid #666160;
     transition: 0.2s ease;
 }
 
@@ -45,7 +45,7 @@ input.input-field[name='category'] {
 #add-movie-page,
 #sign-up-page,
 #sign-in-page {
-    color: #ee660f;
+    color: #666160;
 }
 
 /* end pages text color*/
@@ -61,7 +61,7 @@ input.input-field[name='category'] {
     width: 120px;
     height: 32px;
     padding: 8px 16px;
-    background: #ee660f;
+    background: #666160;
     border: none;
     border-radius: 2px;
     color: #FFF;
