@@ -71,12 +71,75 @@
             <div class="movie-details-buy">
                 <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>
                 {% if request.user.is_authenticated %}
-                <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>
-                    {% else %}
+                    <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>
+                {% else %}
                     <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>
                 {% endif %}
             </div>
         </article>
 
+    </section>
+
+    <section id="movie-details-mobile">
+        <h2>{{ movie.title }}</h2>
+
+        <article class="movie-details-mobile-video">
+            {% video movie.trailer_video as trailer_video %}
+
+            {% video trailer_video '330x300' %}
+            {% endvideo %}
+        </article>
+
+        <article class="movie-details-mobile-info">
+            <p>{{ movie.duration|floatformat:0 }} mins; {{ movie.year }} year made</p>
+        </article>
+
+        <hr>
+
+        <article class="movie-details-mobile-description">
+            <p>{{ movie.description }}</p>
+        </article>
+
+        <hr>
+
+        <article class='movie-details-mobile-comments'>
+            <div class="movie-details-content-comment">
+                {% if request.user.is_authenticated %}
+                    <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
+                        <h3 class="movie-details-comment-title">Comments</h3>
+
+                        {% csrf_token %}
+                        {{ comment_form }}
+                        <input value="Send" type="submit">
+                    </form>
+                {% else %}
+                    <p class="movie-details-comments-no-profile-message">To comment you must be logged in!</p>
+                    <h3 class="movie-details-comment-title">Comments:</h3>
+
+
+                {% endif %}
+                {% if comments %}
+                    <div class="comments-box">
+                        {% for comment in comments %}
+                            <p class="comment"><strong>{{ comment.user.email }}</strong>: {{ comment.comment }}</p>
+
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+        </article>
+
+            <hr>
+
+
+        <article class="movie-details-mobile-buy">
+            <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>
+            {% else %}
+                <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>
+            {% endif %}
+        </article>
     </section>
 {% endblock %}

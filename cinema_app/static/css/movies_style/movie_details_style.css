@@ -122,7 +122,7 @@
 
 .movie-details-title {
     text-align: center;
-    color: #ee660f;
+    color: #666160;
 }
 
 #movie-details-page .movie-image-and-rate {
@@ -179,7 +179,7 @@
 .movie-details-content-comment input {
     padding: 6px 12px;
     color: white;
-    background: #ee660f;
+    background: #666160;
     border: none;
     border-radius: 4px;
     margin-top: 10px;
@@ -196,7 +196,7 @@
 }
 
 .movie-details-buy .add-button {
-    background-color: #ee660f;
+    background-color: #666160;
     padding: 6px 12px;
     margin-bottom: 20px;
     color: white;
@@ -225,15 +225,48 @@
     display: none;
 }
 
+.movie-details-mobile-buy {
+    margin: 20px ;
+}
+
+.movie-details-mobile-buy p  {
+    margin-bottom: 20px ;
+}
+
+.movie-details-comments-no-profile-message {
+    text-decoration: underline;
+}
+
 #movie-details-page .movie-details-comments-no-profile-message {
     font-size: 24px;
-    color: #ee660f;
+    color: #666160;
 }
 
 #movie-details-page .movie-details-buy-no-profile-message {
-    color: #ee660f;
+    color: #666160;
     font-size: 24px;
 
+}
+
+#movie-details-mobile {
+        display: none;
+}
+
+#movie-details-mobile {
+    text-align: center;
+    margin: 20px;
+}
+
+#movie-details-mobile .movie-details-mobile-info p {
+    color: #c9c9c9;
+    font-size: 20px;
+    text-align: start;
+    margin: 10px;
+}
+
+#movie-details-mobile .movie-details-mobile-description p {
+    text-align: start;
+    margin: 10px;
 }
 
 
@@ -287,4 +320,15 @@
     .movie-details-content p, h3 {
         font-size: 1.6rem;
     }
+
+    #movie-details-page {
+        display: none;
+    }
+
+    #movie-details-mobile {
+        display: block;
+    }
+
+
+
 }

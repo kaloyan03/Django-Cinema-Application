@@ -57,6 +57,14 @@ main {
 @media only screen and (max-width: 600px) {
     body {
         font-size: 1.8rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
     }
 
     main {
