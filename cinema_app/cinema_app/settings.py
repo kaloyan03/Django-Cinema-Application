@@ -67,14 +67,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-
     'cinema_app.cinema_auth',
     'cinema_app.movies',
-    'cinema_app.actors',
     'cinema_app.landing_page',
     'cinema_app.profiles',
     'cinema_app.tickets_cart',
-
     'embed_video',
     'star_ratings',
 ]

@@ -23,7 +23,6 @@ from cinema_app.tickets_cart import signals
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('movies/', include('cinema_app.movies.urls')),
-                  path('actors/', include('cinema_app.actors.urls')),
                   path('auth/', include('cinema_app.cinema_auth.urls')),
                   path('profile/', include('cinema_app.profiles.urls')),
                   path('cart/', include("cinema_app.tickets_cart.urls")),
