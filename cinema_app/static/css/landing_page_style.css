@@ -99,6 +99,11 @@
     margin-right: 12px;
 }
 
+#landing-page .no-rated-movies-message {
+    margin: 4em 10px;
+    text-align: center;
+}
+
 #landing-page .movie-buttons .details {
     background-color: deepskyblue;
 }

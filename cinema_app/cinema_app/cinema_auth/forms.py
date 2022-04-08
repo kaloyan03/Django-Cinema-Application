@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model, login, authenticate
-from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm, PasswordResetForm, \
+    SetPasswordForm
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import capfirst
 from django.utils.translation import gettext_lazy as _
@@ -84,8 +85,18 @@ class SignInForm(AuthenticationForm):
         widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "class": "input-field", "placeholder": "Password"}),
     )
 
+
 class ResetPasswordForm(PasswordResetForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].label = ""
-        self.fields['email'].widget = forms.EmailInput(attrs={"placeholder": "Email Address"})
+        self.fields['email'].widget = forms.EmailInput(attrs={"placeholder": "E-mail", 'class': 'input-field'})
+
+
+class PasswordSetForm(SetPasswordForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['new_password1'].label = ""
+        self.fields['new_password2'].label = ""
+        self.fields['new_password1'].widget = forms.PasswordInput(attrs={"placeholder": "Password", 'class': 'input-field'})
+        self.fields['new_password2'].widget = forms.PasswordInput(attrs={"placeholder": "Repeat password", 'class': 'input-field'})

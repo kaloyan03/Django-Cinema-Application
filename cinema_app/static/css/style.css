@@ -15,6 +15,9 @@
 @import "movies_style/delete_movie_style.css";
 @import "footer_style.css";
 @import "auth_style/password_reset_style.css";
+@import "auth_style/password_reset_sent_style.css";
+@import "auth_style/password_reset_form_style.css";
+@import "auth_style/password_reset_complete_style.css";
 @import "common.css";
 
 

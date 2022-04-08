@@ -45,7 +45,10 @@ input.input-field[name='category'] {
 #add-movie-page,
 #sign-up-page,
 #sign-in-page,
-#password-reset-page {
+#password-reset-page,
+#password-reset-sent-page,
+#password-reset-form-page,
+#password-reset-complete-page{
     color: #666160;
 }
 
@@ -57,9 +60,10 @@ input.input-field[name='category'] {
 #complete-profile-page input[type="submit"],
 #add-movie-page input[type="submit"],
 #sign-up-page input[type="submit"],
-#sign-in-page input[type="submit"] {
+#sign-in-page input[type="submit"],
+#password-reset-page input[type="submit"],
+#password-reset-form-page input[type='submit']{
     margin-top: 15px;
-    width: 120px;
     height: 32px;
     padding: 8px 16px;
     background: #666160;
@@ -84,11 +88,17 @@ input[type="submit"]:focus,
 #sign-up-page input[type="submit"]:hover,
 input[type="submit"]:focus,
 #sign-in-page input[type="submit"]:hover,
-input[type="submit"]:focus {
+input[type="submit"]:focus,
+#password-reset-page input[type="submit"]:hover,
+input[type="submit"]:focus,
+#password-reset-form-page input[type='submit']:hover,
+input[type="submit"]:focus
+{
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
 }
+
 
 /* end pages form input */
 
@@ -146,8 +156,18 @@ input[type="submit"]:focus {
     }
 
     #delete-profile-page .buttons-no,
-    #delete-movie-page .buttons-no{
+    #delete-movie-page .buttons-no {
         display: inline-block;
+    }
+
+    #edit-profile-page p, a,
+    #edit-movie-page p, a,
+    #complete-profile-page p, a,
+    #add-movie-page p, a,
+    #sign-up-page p, a,
+    #sign-in-page p, a,
+    #password-reset-page p, a {
+        font-size: 22px;
     }
 }
 

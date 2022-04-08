@@ -16,14 +16,16 @@
                             <p>Genre: {{ movie.genre }}</p>
                             <p>Duration: {{ movie.duration|floatformat:0 }} minutes</p>
                             <p>Category: {{ movie.category }}</p>
-                            <p class="movie-rated">Rated: {% if movie.average_rating != 'Not rated yet' %}{{ movie.average_rating|floatformat:1 }}{% else %}{{ movie.average_rating }}{% endif %} <i class="fa-solid fa-star"></i></p>
+                            <p class="movie-rated">Rated: {% if movie.average_rating != 'Not rated yet' %}
+                                {{ movie.average_rating|floatformat:1 }}{% else %}{{ movie.average_rating }}{% endif %}
+                                <i class="fa-solid fa-star"></i></p>
                         </article>
                         <div class="movie-buttons">
                             <a href="{% url 'movie details' movie.id %}" class="details">Details</a>
                             {% if user_is_staff %}
-                                    <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
-                                    <a href="{% url 'delete movie' movie.id %}" class="delete">Delete</a>
-                                {% endif %}
+                                <a href="{% url 'edit movie' movie.id %}" class="edit">Edit</a>
+                                <a href="{% url 'delete movie' movie.id %}" class="delete">Delete</a>
+                            {% endif %}
                         </div>
                     </article>
                 {% endfor %}
@@ -32,28 +34,28 @@
             {% endif %}
 
         </section>
-
-    </section>
-
-    <ul class="pagination">
-            {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-                <li class="disabled"><span>&laquo;</span></li>
-            {% endif %}
-            {% for i in paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% if movies %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
                 {% else %}
-                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                    <li class="disabled"><span>&laquo;</span></li>
                 {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-            {% else %}
-                <li class="disabled"><span>&raquo;</span></li>
-            {% endif %}
-        </ul>
+                {% for i in paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                    <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </section>
 
 
 {% endblock %}

@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 
-from cinema_app.cinema_auth.forms import SignUpForm, SignInForm, ResetPasswordForm
+from cinema_app.cinema_auth.forms import SignUpForm, SignInForm, ResetPasswordForm, PasswordSetForm
 
 
 class SignUpView(View):
@@ -53,6 +53,7 @@ class SignOutView(views.LogoutView):
 
 class ResetPasswordView(views.PasswordResetView):
     template_name = 'auth/password_reset.html'
+    form_class = ResetPasswordForm
 
 
 class ResetPasswordSentView(views.PasswordResetDoneView):
@@ -61,6 +62,7 @@ class ResetPasswordSentView(views.PasswordResetDoneView):
 
 class ResetPasswordConfirmView(views.PasswordResetConfirmView):
     template_name = 'auth/password_reset_form.html'
+    form_class = PasswordSetForm
 
 
 class ResetPasswordCompleteView(views.PasswordResetCompleteView):
