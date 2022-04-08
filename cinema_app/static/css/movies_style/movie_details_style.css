@@ -1,198 +1,94 @@
-/*#movie-details-page {*/
-/*    background-color: ghostwhite;*/
-/*    position: absolute;*/
-/*    transform: translate(-50%, -50%);*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    min-width: 1400px;*/
-/*    max-width: 1600px;*/
-
-/*    min-height: 720px;*/
-/*    padding: 30px;*/
-/*    border-radius: 6px;*/
-/*    box-shadow: 2px 2px 10px 2px orange;*/
-/*    color: black;*/
-
-/*}*/
-
-/*#movie-details-page .movie-details-title {*/
-/*    text-align: center;*/
-/*    font-size: 2vw;*/
-/*}*/
-
-/*#movie-details-page .movie-image {*/
-/*    display: inline-block;*/
-/*    margin-left: 10px;*/
-/*    vertical-align: top;*/
-/*    margin-right: 30px;*/
-/*}*/
-
-/*#movie-details-page .movie-image img {*/
-/*    float: left;*/
-/*    width: 100%;*/
-/*    max-width: 300px;*/
-/*    max-height: 420px;*/
-/*}*/
-
-/*#movie-details-page .movie-details-content {*/
-/*    display: inline-block;*/
-/*    color: black;*/
-/*    font-size: 1vw;*/
-/*    margin-right: 20px;*/
-/*    width: 40%;*/
-/*}*/
-
-/*#movie-details-page .movie-details-content p, h3 {*/
-/*    margin-top: 15px;*/
-/*}*/
-
-/*#movie-details-page .movie-details-buy p {*/
-/*    margin-top: 30px;*/
-/*}*/
-
-/*#movie-details-page .movie-details-buy .add-button {*/
-/*    background-color: #ee660f;*/
-/*    padding: 8px 16px;*/
-/*    border-radius: 5px;*/
-/*    color: white;*/
-/*}*/
-
-/*#movie-details-page .movie-details-buy p {*/
-/*    margin-bottom: 20px;*/
-/*    font-size: 18px;*/
-/*    font-weight: bold;*/
-/*    letter-spacing: 1px;*/
-/*}*/
-
-/*#movie-details-page .movie-details-buy {*/
-/*    position: absolute;*/
-/*    left: 0;*/
-/*    top: 650px;*/
-
-/*    margin-left: 90px;*/
-
-/*    text-align: center;*/
-/*    z-index: 1;*/
-
-/*}*/
-
-/*#movie-details-page .movie-details-video {*/
-/*    !*    float: right;*!*/
-/*    !*vertical-align: top;*!*/
-/*    position: absolute;*/
-/*    right: 10px;*/
-/*    top: 100px;*/
-/*}*/
-
-/*#movie-details-page .movie-details-rate {*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    top: 525px;*/
-/*    margin-left: 55px;*/
-/*    text-align: center;*/
-/*    z-index: 3;*/
-/*}*/
-
-/*#movie-details-page .movie-details-comment {*/
-/*    position: absolute;*/
-/*    z-index: 2;*/
-/*    right: 0;*/
-/*    top: 30px;*/
-/*    margin: 20px;*/
-/*    display: none;*/
-/*}*/
-
-/*#movie-details-page .movie-details-comment h3 {*/
-/*    text-align: center;*/
-/*}*/
-
-/*#movie-details-page .comment-area {*/
-/*    resize: none;*/
-/*}*/
-
-#movie-details-page {
+#movie-details-desktop-page {
     position: relative;
-    background-color: ghostwhite;
-    width: 1600px;
+    width: 62vw;
     color: black;
-    margin: 20px auto;
-    padding: 40px;
-    border-radius: 6px;
+    margin: 2vw auto;
+    background-color: ghostwhite;
+    padding: 36px;
+    border-radius: 4px;
 }
 
-.movie-details-title {
-    text-align: center;
-    color: #666160;
-}
-
-#movie-details-page .movie-image-and-rate {
-    display: inline-block;
-}
-
-#movie-details-page .movie-image-and-rate .movie-details-rate {
-    margin-top: 20px;
-}
-
-
-#movie-details-page .movie-image-and-rate img {
+#movie-details-desktop-page .movie-details-image-rate-comments img {
     width: 100%;
-    max-width: 330px;
-
 }
 
-.movie-details-content {
+#movie-details-desktop-page .movie-details-image-rate-comments {
+    width: 20vw;
     display: inline-block;
-    width: 40%;
+}
+
+#movie-details-desktop-page .movie-details-image-rate-comments .movie-details-rate {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#movie-details-desktop-page .movie-details-content {
+    font-size: 1vw;
+    width: 30vw;
+    display: inline-block;
+    margin-left: 2vw;
     vertical-align: top;
 }
 
-.movie-details-video-and-buy {
+#movie-details-desktop-page .movie-details-content .movie-details-content-title {
+    font-size: 2vw;
+}
+
+#movie-details-desktop-page .separate-info-and-description {
+    margin: 20px 0;
+}
+
+#movie-details-desktop-page .movie-details-content-info {
+    margin-top: 4px;
+    font-size: 0.9vw;
+    color: #454545;
+}
+
+#movie-details-desktop-page .separate-info-and-description {
+    border: 1px solid #b0b0b0;
+}
+
+#movie-details-desktop-page .movie-details-trailer {
     display: inline-block;
-    vertical-align: top;
-}
-
-.movie-details-content {
-    margin: 0 40px;
-}
-
-.movie-details-content p, h3 {
-    font-size: 20px;
     margin-top: 20px;
 }
 
-.movie-details-content-comment {
-    margin-top: 30px;
-}
-
-.movie-details-content-comment {
-    margin-top: 30px;
+#movie-details-desktop-page .movie-details-comments {
+    display: inline-block;
+    color: black;
+    vertical-align: top;
+    width: 20vw;
+    margin-left: 6px;
+    margin-top: 24px;
+    border-radius: 4px;
     border: 1px solid black;
-    border-radius: 7px;
-    padding: 19px;
+    padding: 16px;
 }
 
-.movie-details-content-comment .comment-area {
+#movie-details-desktop-page .movie-details-comments .comment-area {
+    width: 18vw;
     height: 50px;
-    width: 570px;
 }
 
-.movie-details-content-comment input, .movie-details-mobile-content-comment input {
+#movie-details-desktop-page .movie-details-comments input, .movie-details-mobile-comment-form input {
     padding: 6px 12px;
     color: white;
     background: #666160;
     border: none;
     border-radius: 4px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-
-.movie-details-comment-title {
-    margin-bottom: 15px;
+#movie-details-desktop-page .movie-details-comments input:hover {
+    background: #909090;
+    cursor: pointer;
 }
 
-
-.movie-details-rate {
-    margin-left: 65px;
+#movie-details-desktop-page .movie-details-comments .comment {
+    margin-bottom: 10px;
 }
 
 .movie-details-buy .add-button {
@@ -212,40 +108,17 @@
     padding: 25px;
     border-radius: 9px;
     width: 250px;
-    margin: 60px auto;
+    margin: 20px auto;
     text-align: center;
     background-color: white;
 }
 
-.movie-details-video-and-buy .movie-video-mobile {
+#movie-details-desktop-page .movie-details-trailer.smaller {
     display: none;
 }
 
-.movie-details-content-title-mobile {
+#movie-details-desktop-page .movie-details-trailer.smallest {
     display: none;
-}
-
-.movie-details-mobile-buy {
-    margin: 20px;
-}
-
-.movie-details-mobile-buy p {
-    margin-bottom: 20px;
-}
-
-.movie-details-comments-no-profile-message {
-    text-decoration: underline;
-}
-
-#movie-details-page .movie-details-comments-no-profile-message {
-    font-size: 24px;
-    color: #666160;
-}
-
-#movie-details-page .movie-details-buy-no-profile-message {
-    color: #666160;
-    font-size: 24px;
-
 }
 
 #movie-details-mobile {
@@ -255,6 +128,7 @@
 #movie-details-mobile {
     text-align: center;
     margin: 20px;
+    margin-top: 10vw;
 }
 
 #movie-details-mobile .movie-details-mobile-info p {
@@ -269,8 +143,48 @@
     margin: 10px;
 }
 
+#movie-details-mobile .movie-details-mobile-content-comment .comment {
+    margin-bottom: 24px;
+}
+
+
+#movie-details-mobile .movie-details-mobile-buy {
+    margin-top: 5vw;
+}
+
+#movie-details-mobile .movie-details-mobile-buy p {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1600px) {
+    #movie-details-desktop-page .movie-details-trailer.smaller {
+        display: block;
+    }
+
+    #movie-details-desktop-page .movie-details-trailer.bigger {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #movie-details-desktop-page .movie-details-trailer.smallest {
+        display: block;
+    }
+
+    #movie-details-desktop-page .movie-details-trailer.smaller {
+        display: none;
+    }
+}
 
 @media only screen and (max-width: 600px) {
+    #movie-details-desktop-page {
+        display: none;
+    }
+
+    #movie-details-mobile {
+        display: block;
+    }
+
     #movie-details-page {
         width: 350px;
     }
@@ -279,15 +193,13 @@
         width: 200px;
     }
 
+
+
     .movie-details-video-and-buy .movie-video-mobile {
         display: inline-block;
     }
 
-    .movie-details-video-and-buy .movie-video-desktop {
-        display: none;
-    }
-
-    .movie-details-content-comment {
+    .movie-details-comments {
         border: none;
         padding: 0;
         margin-bottom: 20px;
@@ -324,10 +236,12 @@
         display: block;
     }
 
-    #movie-details-mobile .movie-details-mobile-comment-form textarea {
+    #movie-details-mobile .movie-details-mobile-comment-form .comment-area {
         width: 300px;
         height: 50px;
     }
+
+
 
     #movie-details-mobile .movie-details-mobile-comment-form input {
         margin-bottom: 20px;
@@ -339,7 +253,7 @@
         background: #666160;
         border: none;
         border-radius: 4px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     .movie-details-mobile-description p {
@@ -351,6 +265,7 @@
         margin-bottom: 10px;
     }
 
-
-
+    #movie-details-mobile hr {
+        margin: 10px;
+    }
 }

@@ -2,34 +2,20 @@
 {% load embed_video_tags %}
 {% load ratings %}
 
-
 {% block content %}
-    <section id="movie-details-page">
-        <h1 class="movie-details-title">Movie Details</h1>
+    <section id="movie-details-desktop-page">
+        <article class="movie-details-image-rate-comments">
+            <img src="{{ movie.image.url }}" alt="movie image">
 
-        <h2 class="movie-details-content-title-mobile">{{ movie.title }}</h2>
-
-        <article class="movie-image-and-rate">
-            <img src="{{ movie.image.url }}" alt="Movie Image">
             <article class="movie-details-rate">
                 {% ratings movie %}
             </article>
-        </article>
 
-        <article class="movie-details-content">
-            <h3 class="movie-details-content-title-desktop">{{ movie.title }}</h3>
-
-            <p><strong>Movie genre:</strong> {{ movie.genre }}</p>
-            <p><strong>Year made:</strong> {{ movie.year }}</p>
-            <p><strong>Movie description:</strong> {{ movie.description }}</p>
-            <p><strong>Movie duration:</strong> {{ movie.duration|floatformat:0 }} minutes</p>
-            <p><strong>Category:</strong> {{ movie.category }}</p>
-
-
-            <div class="movie-details-content-comment">
+            <article class="movie-details-comments">
                 {% if request.user.is_authenticated %}
-                    <form method="post" class="movie-details-comment-form" action="{% url 'comment movie' movie.id %}">
-                        <h3 class="movie-details-comment-title">Comments</h3>
+                    <form method="post" class="movie-details-comments-form"
+                          action="{% url 'comment movie' movie.id %}">
+                        <h3 class="movie-details-comments-title">Comments</h3>
 
                         {% csrf_token %}
                         {{ comment_form }}
@@ -48,35 +34,56 @@
 
                         {% endfor %}
                     </div>
+
+                {% else %}
+                    <p class="no-comments-message">There are no comments yet.</p>
                 {% endif %}
-            </div>
+
+            </article>
         </article>
 
-        <article class="movie-details-video-and-buy">
-            <div class="movie-video-desktop">
+        <article class="movie-details-content">
+            <h1 class="movie-details-content-title">{{ movie.title }}</h1>
+
+            <p class="movie-details-content-info">{{ movie.duration }} mins | {{ movie.category }} category
+                | {{ movie.genre }} genre | Made {{ movie.year }} year</p>
+
+            <hr class="separate-info-and-description">
+
+            <p class="movie-details-content-description">{{ movie.description }}</p>
+
+            <article class="movie-details-trailer bigger">
                 {% video movie.trailer_video as trailer_video %}
 
-                {% video trailer_video '480x360' %}
+                {% video trailer_video '600x360' %}
                 {% endvideo %}
-            </div>
+            </article>
 
-            <div class="movie-video-mobile">
+            <article class="movie-details-trailer smaller">
                 {% video movie.trailer_video as trailer_video %}
 
-                {% video trailer_video '280x300' %}
+                {% video trailer_video '400x300' %}
                 {% endvideo %}
-            </div>
+            </article>
 
+            <article class="movie-details-trailer smallest">
+                {% video movie.trailer_video as trailer_video %}
 
-            <div class="movie-details-buy">
+                {% video trailer_video '300x200' %}
+                {% endvideo %}
+            </article>
+
+            <article class="movie-details-buy">
                 <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>
                 {% if request.user.is_authenticated %}
                     <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>
                 {% else %}
                     <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>
                 {% endif %}
-            </div>
+            </article>
+
         </article>
+
 
     </section>
 
@@ -105,7 +112,8 @@
         <article class='movie-details-mobile-comments'>
             <div class="movie-details-mobile-content-comment">
                 {% if request.user.is_authenticated %}
-                    <form method="post" class="movie-details-mobile-comment-form" action="{% url 'comment movie' movie.id %}">
+                    <form method="post" class="movie-details-mobile-comment-form"
+                          action="{% url 'comment movie' movie.id %}">
                         <h3 class="movie-details-comment-title">Comments</h3>
 
                         {% csrf_token %}
@@ -130,7 +138,7 @@
 
         </article>
 
-            <hr>
+        <hr>
 
 
         <article class="movie-details-mobile-buy">
@@ -142,4 +150,6 @@
             {% endif %}
         </article>
     </section>
+
+
 {% endblock %}
