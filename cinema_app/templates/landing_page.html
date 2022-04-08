@@ -4,15 +4,15 @@
 {% block content %}
 
     <section id="landing-page">
-        <h2 class="landing-page-title">Welcome to the home page!</h2>
+{#        <h2 class="landing-page-title">Welcome to the home page!</h2>#}
 
         {#        <article class="home-page-wallpaper">#}
         {#            <img src="{% static 'images/wallpaper-example.jpg' %}">#}
         {#        </article>#}
 
         <article class="landing-page-content">
-            <p class="landing-page-content-title">Welcome to our cinema application! Our mission is to present you the
-                best movies at <strong>AFFORDABLE</strong> prices</p>
+            <h1 class="landing-page-content-title">Welcome to our cinema application! Our mission is to present you the
+                best movies at <span class="underlined-word">AFFORDABLE</span> prices</h1>
 
             {% if movies %}
                 <h3 class="landing-page-content-subtitle">Top 3 rated movies</h3>

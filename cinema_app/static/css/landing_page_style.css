@@ -31,8 +31,12 @@
 }
 
 #landing-page .landing-page-content-title {
-    margin: 20px;
-    font-size: 20px;
+    margin: 45px;
+    font-size: 26px;
+}
+
+#landing-page .landing-page-content-title .underlined-word {
+    text-decoration: underline;
 }
 
 #landing-page .landing-page-content-subtitle {
