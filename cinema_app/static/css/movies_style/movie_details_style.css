@@ -176,7 +176,7 @@
     width: 570px;
 }
 
-.movie-details-content-comment input {
+.movie-details-content-comment input, .movie-details-mobile-content-comment input {
     padding: 6px 12px;
     color: white;
     background: #666160;
@@ -226,11 +226,11 @@
 }
 
 .movie-details-mobile-buy {
-    margin: 20px ;
+    margin: 20px;
 }
 
-.movie-details-mobile-buy p  {
-    margin-bottom: 20px ;
+.movie-details-mobile-buy p {
+    margin-bottom: 20px;
 }
 
 .movie-details-comments-no-profile-message {
@@ -249,7 +249,7 @@
 }
 
 #movie-details-mobile {
-        display: none;
+    display: none;
 }
 
 #movie-details-mobile {
@@ -278,11 +278,6 @@
     #movie-details-page .comment-area {
         width: 200px;
     }
-
-    #sign-in-box .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
-        width: 220px;
-    }
-
 
     .movie-details-video-and-buy .movie-video-mobile {
         display: inline-block;
@@ -327,6 +322,33 @@
 
     #movie-details-mobile {
         display: block;
+    }
+
+    #movie-details-mobile .movie-details-mobile-comment-form textarea {
+        width: 300px;
+        height: 50px;
+    }
+
+    #movie-details-mobile .movie-details-mobile-comment-form input {
+        margin-bottom: 20px;
+    }
+
+    .movie-details-mobile-buy .add-button-mobile {
+        padding: 6px 12px;
+        color: white;
+        background: #666160;
+        border: none;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+    .movie-details-mobile-description p {
+        font-size: 20px;
+    }
+
+    #movie-details-mobile .comment {
+        font-size: 22px;
+        margin-bottom: 10px;
     }
 
 

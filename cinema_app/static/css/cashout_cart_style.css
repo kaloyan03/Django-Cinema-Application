@@ -43,7 +43,7 @@
 
 
 #cart-page .checkout .buy-button {
-    background-color: #ee660f;
+    background-color: #646361;
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
@@ -81,6 +81,15 @@
     #cart-page .items-container {
         overflow-x: auto;
         width: 24rem;
+    }
+
+    #cart-page .checkout {
+        padding: 20px;
+        text-align: center;
+    }
+
+    #cart-page .checkout p {
+        font-size: 22px;
     }
 
 }
