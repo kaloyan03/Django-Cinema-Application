@@ -20,20 +20,20 @@ VALID_MOVIE_DATA = {
     'category': 'B',
 }
 
-UserModel = get_user_model()
-
-class CartViewTests(django_test.TestCase):
-    USER_CREDENTIALS = {
+USER_CREDENTIALS = {
         'email': 'testtest@abv.bg',
         'password': '1312231321qwe',
     }
 
+UserModel = get_user_model()
+
+class CartViewTests(django_test.TestCase):
     def setUp(self) -> None:
         movie = Movie.objects.create(**VALID_MOVIE_DATA)
         Ticket.objects.create(movie=movie, price=15)
 
-        UserModel.objects.create_user(**self.USER_CREDENTIALS)
-        self.client.login(**self.USER_CREDENTIALS)
+        UserModel.objects.create_user(**USER_CREDENTIALS)
+        self.client.login(**USER_CREDENTIALS)
 
 
     def test_get__context__expect_to_have_tickets_total_price_total_quantity(self):
@@ -65,10 +65,55 @@ class CartViewTests(django_test.TestCase):
         cart = Cart.objects.get(user=user)
         Item.objects.create(ticket=ticket, cart=cart, quantity=1)
 
-
-
         self.client.post(reverse('cart view'))
 
         cart = Cart.objects.first()
         self.assertIsNone(cart)
         self.assertEqual(len(mail.outbox), 1)
+
+
+class AddToCartTests(django_test.TestCase):
+    def setUp(self) -> None:
+        movie = Movie.objects.create(**VALID_MOVIE_DATA)
+        Ticket.objects.create(movie=movie, price=15)
+
+        UserModel.objects.create_user(**USER_CREDENTIALS)
+        self.client.login(**USER_CREDENTIALS)
+
+    def test_post__add_ticket_to_cart__expect_ticket_to_be_added(self):
+        self.client.post(reverse('add to cart', kwargs={
+            'id': Movie.objects.first().id,
+            'quantity': 1,
+        }))
+
+        cart = Cart.objects.first()
+        items_in_cart = cart.item_set.all()
+
+        self.assertIsNotNone(items_in_cart)
+
+
+class RemoveFromCartTests(django_test.TestCase):
+    def setUp(self) -> None:
+        movie = Movie.objects.create(**VALID_MOVIE_DATA)
+        Ticket.objects.create(movie=movie, price=15)
+
+        UserModel.objects.create_user(**USER_CREDENTIALS)
+        self.client.login(**USER_CREDENTIALS)
+
+    def test_post__remove_ticket_from_cart__expect_ticket_to_be_removed(self):
+        self.client.post(reverse('add to cart', kwargs={
+            'id': Movie.objects.first().id,
+            'quantity': 1,
+        }))
+
+        item = Cart.objects.first().item_set.first()
+
+        self.client.post(reverse('remove from cart', kwargs={
+            'id': item.id,
+        }))
+
+        cart = Cart.objects.first()
+        items_in_cart = cart.item_set.all()
+
+        self.assertEqual(items_in_cart[0].quantity, 0)
+
