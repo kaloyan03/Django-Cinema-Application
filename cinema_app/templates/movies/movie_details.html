@@ -82,6 +82,16 @@
                 {% endif %}
             </article>
 
+            <article class="movie-details-projections">
+                {% if movie_projections %}
+                    <ul class="movie-details-projections-list">
+                        {% for projection in movie_projections %}
+                            <li><a href="">{{ projection.day_of_the_week }} at {{ projection.time }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </article>
+
         </article>
 
 

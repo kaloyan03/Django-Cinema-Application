@@ -9,7 +9,7 @@ from django.views import generic as views
 from star_ratings.models import Rating
 
 from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm
-from cinema_app.movies.models import Movie, Ticket, Comment
+from cinema_app.movies.models import Movie, Ticket, Comment, Projections
 
 
 class ListMovies(views.ListView):
@@ -112,6 +112,9 @@ class MovieDetails(views.DetailView):
         context['comment_form'] = comment_form
         comments = Comment.objects.filter(movie=movie)
         context['comments'] = comments
+        movie_projections = Projections.objects.filter(movie=movie, day_of_the_week='Monday')
+
+        context['movie_projections'] = movie_projections
         return context
 
 

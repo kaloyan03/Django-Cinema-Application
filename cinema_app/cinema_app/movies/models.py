@@ -126,3 +126,33 @@ class Comment(models.Model):
         UserModel,
         on_delete=models.CASCADE,
     )
+
+
+class Projections(models.Model):
+    MONDAY = 'Monday'
+    TUESDAY = 'Tuesday'
+    WEDNESDAY = 'Wednesday'
+    THURSDAY = 'Thursday'
+    FRIDAY = 'Friday'
+    SATURDAY = 'Saturday'
+    SUNDAY = 'Sunday'
+
+    DAY_OF_THE_WEEK_CHOICES = [(x, x) for x in (MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY)]
+    DAY_OF_THE_WEEK_MIN_LENGTH = min(len(x) for x, _ in DAY_OF_THE_WEEK_CHOICES)
+    DAY_OF_THE_WEEK_MAX_LENGTH = max(len(x) for x, _ in DAY_OF_THE_WEEK_CHOICES)
+
+    day_of_the_week = models.CharField(
+        choices=DAY_OF_THE_WEEK_CHOICES,
+        max_length=DAY_OF_THE_WEEK_MAX_LENGTH,
+        validators=(
+            MinLengthValidator(DAY_OF_THE_WEEK_MIN_LENGTH),
+        )
+    )
+
+    time = models.TimeField(
+
+    )
+
+    movie = models.ManyToManyField(
+        Movie,
+    )
