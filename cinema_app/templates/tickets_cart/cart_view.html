@@ -29,8 +29,16 @@
                             <td>{{ ticket.total_price|floatformat:2 }}$</td>
                             <td><a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button"><i
                                     class="fa-solid fa-circle-minus"></i></a></td>
-                            <td><a href="{% url 'add to cart' ticket.id 1 ticket.projection.id %}" class="item-add-button"><i
-                                    class="fa-solid fa-circle-plus"></i></a></td>
+{#                            <td><a href="{% url 'add to cart' ticket.id 1 ticket.projection.id %}" class="item-add-button"><i#}
+{#                                    class="fa-solid fa-circle-plus"></i></a></td>#}
+
+                            <td>
+                                <form id="form-id" method="post" action="{% url 'add to cart' ticket.id 1 ticket.projection.id %}">
+                                    {% csrf_token %}
+                                    <a href="#" onclick="document.forms['form-id'].submit();" class="item-add-button"><i
+                                    class="fa-solid fa-circle-plus"></i></a>
+                                </form>
+                            </td>
                             {#                    <td>{{ item.total_price }}</td>#}
                         </tr>
                     {% endfor %}
@@ -41,6 +49,7 @@
                         <td>{{ total_quantity }} tickets</td>
                         <td></td>
                         <td>{{ total_price|floatformat:2 }}$</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>

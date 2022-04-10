@@ -25,6 +25,9 @@ def cart_view(request):
             item_index = items_tickets_id.index(ticket.id)
             item_id = items[item_index].ticket_id
             item = [i for i in items if i.ticket_id == item_id][0]
+            if item.quantity == 0:
+                item.delete()
+                break
             ticket.quantity = item.quantity
             ticket.total_price = item.ticket.price * item.quantity
             ticket.item_id = item.id
@@ -33,7 +36,11 @@ def cart_view(request):
 
     if request.method == 'POST':
         send_email(request.user.email, tickets, total_price, total_quantity)
-        cart.delete()
+
+        cart_items = cart.item_set.all()
+        for item in cart_items:
+            item.delete()
+
         return redirect('list movies')
 
     context = {
@@ -89,10 +96,10 @@ def remove_from_cart(request, id):
 def send_email(email, tickets, total_price, total_quantity):
     subject = 'Thank you for your order'
     message = '\n'.join([
-        f'{ticket.movie.title} with duration {ticket.movie.duration} minutes at {ticket.projection.time} on price {ticket.price}$'
+        f'Ticket for {ticket.movie.title} with duration {ticket.movie.duration} minutes at {ticket.projection.time.strftime("%H:%M")} on price {ticket.price:.2f}$'
         for ticket in tickets])
     message += '\n'
-    message += f'There is total quantity for your order: {total_quantity}.\n'
-    message += f'There is total price for your order: {total_price}$.'
+    message += f'There is total tickets for your order: {total_quantity}.\n'
+    message += f'There is total price for your order: {total_price:.2f}$.'
     recipient = email
     send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently=False)
