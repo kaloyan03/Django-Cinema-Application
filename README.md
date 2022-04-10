@@ -1,2 +1,2 @@
 # Django-Cinema-Application
-Cinema application, developed for the last exam in SoftUni.
+Cinema application, developed for the Python Web Framework course exam in SoftUni.
