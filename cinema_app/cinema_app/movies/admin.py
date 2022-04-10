@@ -12,7 +12,7 @@ admin.site.register(Movie, MovieAdmin)
 
 
 class ProjectionsAdmin(admin.ModelAdmin):
-    list_display = ['time']
+    list_display = ['id','time']
     filter_horizontal = ['movie']
 
 

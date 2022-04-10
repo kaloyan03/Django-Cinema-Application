@@ -97,6 +97,9 @@ class Movie(models.Model):
         )
     )
 
+    def __str__(self):
+        return f"{self.title}"
+
     class Meta:
         ordering = ['id']
 
@@ -123,9 +126,13 @@ class Projections(models.Model):
         Movie,
     )
 
+    def __str__(self):
+        return f'{self.movie} at {self.time}'
+
     class Meta:
         verbose_name = 'Projection'
         verbose_name_plural = 'Projections'
+
 
 
 class Ticket(models.Model):
