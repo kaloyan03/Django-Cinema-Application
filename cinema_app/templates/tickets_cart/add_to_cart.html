@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section id="add-to-cart-page">
+        <form method="post" action="{% url 'add to cart' ticket_id=ticket.id quantity=1 projection_id=projection.id %}">
+            {% csrf_token %}
+            <h3 class="add-to-cart-page-title">Are you sure you want to add ticket for
+                <span class="add-to-cart-movie">{{ ticket.movie.title }}</span> at {{ projection.time|time:'G:i' }} to
+                your cart?</h3>
+            <a class="back-button" href="javascript:history.back()">No, go back</a>
+            <input value="Get ticket" type="submit" class="add-to-cart-button">
+        </form>
+    </section>
+
+{% endblock %}

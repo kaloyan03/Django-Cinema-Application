@@ -7,7 +7,7 @@ from django.db import models
 # Create your models here.
 from django.db.models import Sum, F
 
-from cinema_app.movies.models import Ticket
+from cinema_app.movies.models import Ticket, Projections
 
 UserModel = get_user_model()
 
@@ -62,6 +62,12 @@ class Item(models.Model):
     ticket = models.ForeignKey(
         Ticket,
         on_delete=models.CASCADE,
+    )
+
+    projection = models.ForeignKey(
+        Projections,
+        on_delete=models.CASCADE,
+        default=1,
     )
 
     cart = models.ForeignKey(

@@ -107,10 +107,14 @@
     border: 1px solid black;
     padding: 25px;
     border-radius: 9px;
-    width: 250px;
+    width: 16vw;
     margin: 20px auto;
     text-align: center;
     background-color: white;
+}
+
+#movie-details-desktop-page .movie-details-projections-list input[type='radio'] {
+
 }
 
 #movie-details-desktop-page .movie-details-trailer.smaller {
@@ -119,6 +123,55 @@
 
 #movie-details-desktop-page .movie-details-trailer.smallest {
     display: none;
+}
+
+#movie-details-desktop-page .movie-details-projections-list input[type='radio'] {
+    visibility: hidden;
+    padding: 6px 12px;
+}
+
+#movie-details-desktop-page .movie-details-projections-list li {
+    display: inline-block;
+    margin: 10px;
+}
+
+#movie-details-desktop-page .movie-details-projections-list a {
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+}
+
+#movie-details-desktop-page .movie-details-projections-list a:hover {
+    background: #939393;
+    color: white;
+}
+
+#movie-details-mobile .movie-details-projections-list a {
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+    background-color: white;
+}
+
+#movie-details-mobile .movie-details-projections-list a:hover {
+    background: #939393;
+    color: white;
+}
+
+
+
+#movie-details-desktop-page .movie-details-projections-list label {
+    cursor: pointer;
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#movie-details-desktop-page .movie-details-projections-list input[type='radio']:checked + label {
+    background: #939393;
+    color: white;
 }
 
 #movie-details-mobile {
@@ -194,7 +247,6 @@
     }
 
 
-
     .movie-details-video-and-buy .movie-video-mobile {
         display: inline-block;
     }
@@ -240,7 +292,6 @@
         width: 300px;
         height: 50px;
     }
-
 
 
     #movie-details-mobile .movie-details-mobile-comment-form input {

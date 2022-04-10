@@ -112,7 +112,7 @@ class MovieDetails(views.DetailView):
         context['comment_form'] = comment_form
         comments = Comment.objects.filter(movie=movie)
         context['comments'] = comments
-        movie_projections = Projections.objects.filter(movie=movie, day_of_the_week='Monday')
+        movie_projections = Projections.objects.filter(movie=movie)
 
         context['movie_projections'] = movie_projections
         return context

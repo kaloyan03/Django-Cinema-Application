@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.utils.decorators import method_decorator
 
-from cinema_app.movies.models import Ticket
+from cinema_app.movies.models import Ticket, Projections
 from cinema_app.settings import EMAIL_HOST_USER
 
 @login_required
@@ -28,6 +28,7 @@ def cart_view(request):
             ticket.quantity = item.quantity
             ticket.total_price = item.ticket.price * item.quantity
             ticket.item_id = item.id
+            ticket.projection= item.projection
             tickets.append(ticket)
 
     if request.method == 'POST':
@@ -41,38 +42,42 @@ def cart_view(request):
         'total_price': total_price,
         'total_quantity': total_quantity,
     }
-    return render(request, 'checkout_cart.html', context)
+    return render(request, 'auth/../../templates/tickets_cart/cart_view.html', context)
 
 from cinema_app.tickets_cart.models import Cart, Item
 
 
 @login_required
-def add_to_cart(request, id, quantity):
-    ticket = Ticket.objects.get(id=id)
-    user = request.user
-    cart = Cart.objects.get(user=user)
+def add_to_cart(request, ticket_id, quantity, projection_id):
+    ticket = Ticket.objects.get(id=ticket_id)
+    projection = Projections.objects.get(id=projection_id)
+    if request.method == 'POST':
+        user = request.user
+        cart = Cart.objects.get(user=user)
 
-    cart_items_ticket_ids = [item.ticket_id for item in Item.objects.filter(cart=cart)]
+        cart_items_ticket_ids = [item.ticket_id for item in Item.objects.filter(cart=cart)]
 
-    if ticket.id not in cart_items_ticket_ids:
-        Item.objects.create(
-            ticket=ticket,
-            quantity=quantity,
-            cart=cart,
-        )
+        if ticket.id not in cart_items_ticket_ids:
+            Item.objects.create(
+                ticket=ticket,
+                quantity=quantity,
+                projection=projection,
+                cart=cart,
+            )
+        else:
+            item = Item.objects.get(ticket=ticket, cart=cart)
+            item.quantity += quantity
+            item.save()
+
+        return redirect('cart view')
+
     else:
-        item = Item.objects.get(ticket=ticket, cart=cart)
-        item.quantity += quantity
-        item.save()
+        context = {
+            'projection': projection,
+            'ticket': ticket,
+        }
 
-
-    # Item.objects.create(
-    #     ticket=ticket,
-    #     cart=cart,
-    #     quantity=quantity,
-    # )
-
-    return redirect('cart view')
+        return render(request, 'tickets_cart/add_to_cart.html', context)
 
 @login_required
 def remove_from_cart(request, id):
@@ -84,10 +89,10 @@ def remove_from_cart(request, id):
 def send_email(email, tickets, total_price, total_quantity):
     subject = 'Thank you for your order'
     message = '\n'.join([
-        f'{ticket.movie.title} with duration {ticket.movie.duration} minutes on price {ticket.price}$'
+        f'{ticket.movie.title} with duration {ticket.movie.duration} minutes at {ticket.projection.time} on price {ticket.price}$'
         for ticket in tickets])
     message += '\n'
-    message += f'There is total quantity for your order: {total_quantity}$.\n'
+    message += f'There is total quantity for your order: {total_quantity}.\n'
     message += f'There is total price for your order: {total_price}$.'
     recipient = email
     send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently=False)

@@ -10,6 +10,7 @@
                         <th>Image</th>
                         <th>Movie</th>
                         <th>Quantity</th>
+                        <th>Time</th>
                         <th>Price</th>
                         <th>Total price</th>
                         <th></th>
@@ -23,11 +24,12 @@
                             <td><img class="movie-img" alt="movie image" src="{{ ticket.movie.image.url }}"></td>
                             <td>{{ ticket.movie.title }}</td>
                             <td>{{ ticket.quantity }} tickets</td>
+                            <td>{{ ticket.projection.time|time:'G:i' }}</td>
                             <td>{{ ticket.price|floatformat:2 }}$</td>
                             <td>{{ ticket.total_price|floatformat:2 }}$</td>
                             <td><a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button"><i
                                     class="fa-solid fa-circle-minus"></i></a></td>
-                            <td><a href="{% url 'add to cart' ticket.id 1 %}" class="item-add-button"><i
+                            <td><a href="{% url 'add to cart' ticket.id 1 ticket.projection.id %}" class="item-add-button"><i
                                     class="fa-solid fa-circle-plus"></i></a></td>
                             {#                    <td>{{ item.total_price }}</td>#}
                         </tr>
