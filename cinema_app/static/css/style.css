@@ -61,7 +61,7 @@ main {
 
 @media only screen and (max-width: 600px) {
     body {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
@@ -72,8 +72,23 @@ main {
         width: 100%;
     }
 
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.7rem;
+    }
+
     main {
         padding-top: 60px;
         padding-bottom: 120px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2rem;
+    }
+
+
+    body, a {
+        font-size: 1.2rem;
     }
 }

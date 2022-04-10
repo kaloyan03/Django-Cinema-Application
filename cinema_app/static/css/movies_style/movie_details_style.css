@@ -209,6 +209,11 @@
     margin-bottom: 20px;
 }
 
+#movie-details-mobile .movie-details-mobile-buy li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
 @media only screen and (max-width: 1600px) {
     #movie-details-desktop-page .movie-details-trailer.smaller {
         display: block;
@@ -317,6 +322,10 @@
     }
 
     #movie-details-mobile hr {
+        margin: 10px;
+    }
+
+    #movie-details-mobile  {
         margin: 10px;
     }
 }

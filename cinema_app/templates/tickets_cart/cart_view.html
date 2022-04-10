@@ -29,14 +29,15 @@
                             <td>{{ ticket.total_price|floatformat:2 }}$</td>
                             <td><a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button"><i
                                     class="fa-solid fa-circle-minus"></i></a></td>
-{#                            <td><a href="{% url 'add to cart' ticket.id 1 ticket.projection.id %}" class="item-add-button"><i#}
-{#                                    class="fa-solid fa-circle-plus"></i></a></td>#}
+                            {#                            <td><a href="{% url 'add to cart' ticket.id 1 ticket.projection.id %}" class="item-add-button"><i#}
+                            {#                                    class="fa-solid fa-circle-plus"></i></a></td>#}
 
                             <td>
-                                <form id="form-id" method="post" action="{% url 'add to cart' ticket.id 1 ticket.projection.id %}">
+                                <form id="form-id" method="post"
+                                      action="{% url 'add to cart' ticket.id 1 ticket.projection.id %}">
                                     {% csrf_token %}
                                     <a href="#" onclick="document.forms['form-id'].submit();" class="item-add-button"><i
-                                    class="fa-solid fa-circle-plus"></i></a>
+                                            class="fa-solid fa-circle-plus"></i></a>
                                 </form>
                             </td>
                             {#                    <td>{{ item.total_price }}</td>#}
@@ -61,7 +62,7 @@
                         <p>After your purchase is confirmed, you will receive an e-mail from us with more information
                             about your order.</p>
                         {% csrf_token %}
-                        <input class='buy-button' type="submit" value="Buy">
+                        <input class='buy-button' type="submit" value="Get tickets">
                     </form>
                 </article>
             </section>
@@ -71,6 +72,63 @@
 
     </section>
 
+    <section id="cart-page-mobile">
+        <h2 class="cart-page-mobile-title">Cart</h2>
 
+        <hr>
+
+        <ul class="cart-page-mobile-items-list">
+            {% for ticket in tickets %}
+                <li>
+                    <article class="cart-item">
+                        <article class="cart-item-img">
+                            <img src="{{ ticket.movie.image.url }}" alt="Movie image">
+                        </article>
+
+                        <article class="cart-item-description">
+                            <h3>{{ ticket.movie.title }}</h3>
+                            <p>Time: {{ ticket.projection.time }}</p>
+                            <p>{{ ticket.price|floatformat:2 }}$ each.</p>
+                            <p>{{ ticket.quantity }} {% if ticket.quantity == 1 %}ticket{% else %}tickets{% endif %}
+                                .</p>
+                            <p>{{ ticket.total_price }}$ total.</p>
+                        </article>
+
+                        <article class="cart-item-add-remove">
+                            <a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button-first">Remove</a>
+
+                            <article class="cart-item-add-remove-couple">
+                                <a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button-second"><i
+                                        class="fa-solid fa-circle-minus"></i></a>
+
+                                <form id="form-id" method="post"
+                                      action="{% url 'add to cart' ticket.id 1 ticket.projection.id %}">
+                                    {% csrf_token %}
+                                    <a href="#" onclick="document.forms['form-id'].submit();" class="item-add-button"><i
+                                            class="fa-solid fa-circle-plus"></i></a>
+                                </form>
+                            </article>
+                        </article>
+                    </article>
+                </li>
+
+                <hr>
+
+            {% endfor %}
+
+        </ul>
+
+
+        <article class="cart-page-mobile-checkout">
+            <form method="post" action="{% url 'cart view' %}">
+                <p>After your purchase is confirmed, you will receive an e-mail from us with more information
+                    about your order.</p>
+                {% csrf_token %}
+                <input class='buy-button' type="submit" value="Get tickets">
+            </form>
+        </article>
+
+
+    </section>
 
 {% endblock %}
