@@ -8,8 +8,8 @@ from django.utils.decorators import method_decorator
 from django.views import generic as views
 from star_ratings.models import Rating
 
-from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm
-from cinema_app.movies.models import Movie, Ticket, Comment, Projections
+from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm, AddProjectionForm
+from cinema_app.movies.models import Movie, Ticket, Comment, Projection
 
 
 class ListMovies(views.ListView):
@@ -112,7 +112,7 @@ class MovieDetails(views.DetailView):
         context['comment_form'] = comment_form
         comments = Comment.objects.filter(movie=movie)
         context['comments'] = comments
-        movie_projections = Projections.objects.filter(movie=movie)
+        movie_projections = Projection.objects.filter(movie=movie)
 
         context['movie_projections'] = movie_projections
         return context
@@ -130,6 +130,12 @@ class DeleteMovie(views.DeleteView):
         ticket.delete()
         return super().form_valid(form)
 
+@method_decorator(staff_member_required, name='dispatch')
+class AddProjection(views.CreateView):
+    model = Projection
+    template_name = 'movies/add_projection.html'
+    success_url = reverse_lazy('movie details')
+    form_class = AddProjectionForm
 
 # class AddCommentView(views.CreateView):
 #     model = Comment

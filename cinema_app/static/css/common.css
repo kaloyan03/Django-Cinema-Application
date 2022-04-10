@@ -48,7 +48,8 @@ input.input-field[name='category'] {
 #password-reset-page,
 #password-reset-sent-page,
 #password-reset-form-page,
-#password-reset-complete-page{
+#password-reset-complete-page,
+#add-projection-page{
     color: #666160;
 }
 
@@ -63,7 +64,8 @@ input.input-field[name='category'] {
 #sign-in-page input[type="submit"],
 #password-reset-page input[type="submit"],
 #password-reset-form-page input[type='submit'],
-#add-to-cart-page input[type='submit'] {
+#add-to-cart-page input[type='submit'],
+#add-projection-page input[type='submit']{
     margin-top: 15px;
     height: 32px;
     padding: 8px 16px;
@@ -95,7 +97,9 @@ input[type="submit"]:focus,
 #password-reset-form-page input[type='submit']:hover,
 input[type="submit"]:focus,
 #add-to-cart-page input[type="submit"]:hover,
-input[type="submit"]:focus
+input[type="submit"]:focus,
+#add-projection-page input[type='submit']:hover,
+#add-projection-page[type='submit']:focus
 {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);

@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.utils.decorators import method_decorator
 
-from cinema_app.movies.models import Ticket, Projections
+from cinema_app.movies.models import Ticket, Projection
 from cinema_app.settings import EMAIL_HOST_USER
 
 @login_required
@@ -57,7 +57,7 @@ from cinema_app.tickets_cart.models import Cart, Item
 @login_required
 def add_to_cart(request, ticket_id, quantity, projection_id):
     ticket = Ticket.objects.get(id=ticket_id)
-    projection = Projections.objects.get(id=projection_id)
+    projection = Projection.objects.get(id=projection_id)
     if request.method == 'POST':
         user = request.user
         cart = Cart.objects.get(user=user)

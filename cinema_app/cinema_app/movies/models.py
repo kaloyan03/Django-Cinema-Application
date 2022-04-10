@@ -117,7 +117,7 @@ class Comment(models.Model):
     )
 
 
-class Projections(models.Model):
+class Projection(models.Model):
     time = models.TimeField(
 
     )

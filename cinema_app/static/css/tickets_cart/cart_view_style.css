@@ -96,6 +96,8 @@
     display: inline-block;
     vertical-align: top;
     margin-left: 16px;
+    margin-top: 10px;
+    color: #efefef;
 }
 
 #cart-page-mobile .cart-item-description h3 {
@@ -148,6 +150,18 @@
     margin-top: 16px;
     background-color: #686868;
     color: #ffffff;
+}
+
+#cart-page-mobile .cart-item-description-movie-title {
+    text-decoration: underline;
+    font-size: 26px;
+    color: white;
+}
+
+#cart-page .cart-item-description-movie-title {
+    text-decoration: underline;
+    color: black;
+    font-size: 18px;
 }
 
 @media only screen and (max-width: 600px) {

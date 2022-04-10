@@ -22,8 +22,8 @@
                     {% for ticket in tickets %}
                         <tr>
                             <td><img class="movie-img" alt="movie image" src="{{ ticket.movie.image.url }}"></td>
-                            <td>{{ ticket.movie.title }}</td>
-                            <td>{{ ticket.quantity }} tickets</td>
+                            <td><a class="cart-item-description-movie-title" href="{% url 'movie details' ticket.movie.id %}">{{ ticket.movie.title }}</a></td>
+                            <td>{{ ticket.quantity }} {% if ticket.quantity != 1 %}tickets{% else %}ticket{% endif %}</td>
                             <td>{{ ticket.projection.time|time:'G:i' }}</td>
                             <td>{{ ticket.price|floatformat:2 }}$</td>
                             <td>{{ ticket.total_price|floatformat:2 }}$</td>
@@ -47,7 +47,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>{{ total_quantity }} tickets</td>
+                        <td>{{ total_quantity }} {% if total_quantity != 1 %}tickets{% else %}ticket{% endif %}</td>
                         <td></td>
                         <td>{{ total_price|floatformat:2 }}$</td>
                         <td></td>
@@ -86,7 +86,7 @@
                         </article>
 
                         <article class="cart-item-description">
-                            <h3>{{ ticket.movie.title }}</h3>
+                            <a class="cart-item-description-movie-title" href="{% url 'movie details' ticket.movie.id %}">{{ ticket.movie.title }}</a>
                             <p>Time: {{ ticket.projection.time }}</p>
                             <p>{{ ticket.price|floatformat:2 }}$ each.</p>
                             <p>{{ ticket.quantity }} {% if ticket.quantity == 1 %}ticket{% else %}tickets{% endif %}

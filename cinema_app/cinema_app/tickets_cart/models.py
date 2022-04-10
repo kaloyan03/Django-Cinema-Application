@@ -7,7 +7,7 @@ from django.db import models
 # Create your models here.
 from django.db.models import Sum, F
 
-from cinema_app.movies.models import Ticket, Projections
+from cinema_app.movies.models import Ticket, Projection
 
 UserModel = get_user_model()
 
@@ -65,7 +65,7 @@ class Item(models.Model):
     )
 
     projection = models.ForeignKey(
-        Projections,
+        Projection,
         on_delete=models.CASCADE,
         default=1,
     )

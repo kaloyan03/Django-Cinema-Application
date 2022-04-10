@@ -150,7 +150,7 @@
 #movie-details-mobile .movie-details-projections-list a {
     padding: 4px 8px;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 26px;
     color: black;
     background-color: white;
 }
@@ -159,7 +159,6 @@
     background: #939393;
     color: white;
 }
-
 
 
 #movie-details-desktop-page .movie-details-projections-list label {
@@ -213,6 +212,20 @@
     display: inline-block;
     margin-right: 10px;
 }
+
+#movie-details-desktop-page .movie-details-buy .add-projection-button {
+    color: #000000;
+    background-color: #d2d2d2;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+#movie-details-desktop-page .movie-details-buy .add-projection-button:hover {
+    color: #ffffff;
+    background-color: #505050;
+
+}
+
 
 @media only screen and (max-width: 1600px) {
     #movie-details-desktop-page .movie-details-trailer.smaller {
@@ -300,7 +313,8 @@
 
 
     #movie-details-mobile .movie-details-mobile-comment-form input {
-        margin-bottom: 20px;
+        display: block;
+        margin: 12px auto;
     }
 
     .movie-details-mobile-buy .add-button-mobile {
@@ -325,7 +339,7 @@
         margin: 10px;
     }
 
-    #movie-details-mobile  {
+    #movie-details-mobile {
         margin: 10px;
     }
 }

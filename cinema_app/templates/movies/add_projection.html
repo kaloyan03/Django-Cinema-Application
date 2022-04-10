@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section id="add-projection-page">
+        <h1>Add Projection</h1>
+        <form method="post" action="{% url 'add projection' %}">
+            {{ form }}
+            <input type="submit" value="Add projection">
+        </form>
+
+    </section>
+
+
+{% endblock %}
