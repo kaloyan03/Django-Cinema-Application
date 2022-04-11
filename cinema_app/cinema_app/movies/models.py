@@ -30,7 +30,7 @@ class Movie(models.Model):
     GENRE_COMEDY = 'Comedy'
     GENRE_CRIMINAL = 'Criminal'
     GENRE_THRILLER = 'Thriller'
-    GENRE_HORROR = 'Action'
+    GENRE_HORROR = 'Horror'
     GENRE_FANTASY = 'Fantasy'
     GENRE_DRAMA = 'Drama'
     GENRE_ADVENTURE = 'Adventure'
