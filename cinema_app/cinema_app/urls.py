@@ -26,6 +26,7 @@ urlpatterns = [
                   path('auth/', include('cinema_app.cinema_auth.urls')),
                   path('profile/', include('cinema_app.profiles.urls')),
                   path('cart/', include("cinema_app.tickets_cart.urls")),
+                  path('projections/', include("cinema_app.projections.urls")),
                   path('', include('cinema_app.landing_page.urls')),
                   path('ratings/', include('star_ratings.urls', namespace='ratings')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

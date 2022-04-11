@@ -77,24 +77,38 @@
 
             <article class="movie-details-buy">
                 <article class="movie-details-projections">
-                    {% if movie_projections %}
-                        <p>Please, select the projection that you want to buy tickets for.</p>
-                        <ul class="movie-details-projections-list">
-                            {% for projection in movie_projections %}
-                                <li>
-                                    <a href="{% url 'add to cart' ticket_id=ticket.id quantity=1 projection_id=projection.id %}">{{ projection.time|time:'G:i' }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
+{#                    {% if movie_projections %}#}
+{#                        <p>Please, select the projection that you want to buy tickets for.</p>#}
+{#                        <ul class="movie-details-projections-list">#}
+{#                            {% for projection in movie_projections %}#}
+{#                                <li>#}
+{#                                    <a href="{% url 'add to cart' ticket_id=ticket.id quantity=1 projection_id=projection.id %}">{{ projection.time|time:'G:i' }}</a>#}
+{#                                </li>#}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+{#                    {% else %}#}
+{#                        <p>There is no projections for this movie today.</p>#}
+{#                    {% endif %}#}
+{##}
+{#                    {% if request.user.is_staff %}#}
+{#                        <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>#}
+{#                    {% endif %}#}
+
+                    <p>Please, select the projection that you want to buy tickets for.</p>
+                        <form method="post">
+                            {% for day in movie_projection_days %}
+                                <a href="{% url 'show projections' day movie.id %}">{{ day }}</a>
+
+                        {% endfor %}
+                        </form>
+{#                    {% else %}#}
                         <p>There is no projections for this movie today.</p>
-                    {% endif %}
+{#                    {% endif %}#}
 
-                    {% if request.user.is_staff %}
-                        <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>
-
-                    {% endif %}
+{#                    {% if request.user.is_staff %}#}
+{#                        <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>#}
                 </article>
+{#                {% endif %}#}
 
                 {#                <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>#}
                 {#                {% if request.user.is_authenticated %}#}

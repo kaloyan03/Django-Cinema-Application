@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.utils.decorators import method_decorator
 
-from cinema_app.movies.models import Ticket, Projection
+from cinema_app.movies.models import Ticket
+from cinema_app.projections.models import Projection
 from cinema_app.settings import EMAIL_HOST_USER
 
 @login_required

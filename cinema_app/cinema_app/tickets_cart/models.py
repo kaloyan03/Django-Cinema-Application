@@ -7,7 +7,9 @@ from django.db import models
 # Create your models here.
 from django.db.models import Sum, F
 
-from cinema_app.movies.models import Ticket, Projection
+from cinema_app.movies.models import Ticket
+from cinema_app.projections.models import Projection
+
 
 UserModel = get_user_model()
 

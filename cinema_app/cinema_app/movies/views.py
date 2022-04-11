@@ -9,7 +9,8 @@ from django.views import generic as views
 from star_ratings.models import Rating
 
 from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm, AddProjectionForm
-from cinema_app.movies.models import Movie, Ticket, Comment, Projection
+from cinema_app.movies.models import Movie, Ticket, Comment
+from cinema_app.projections.models import Projection
 
 
 class ListMovies(views.ListView):
@@ -113,9 +114,25 @@ class MovieDetails(views.DetailView):
         comments = Comment.objects.filter(movie=movie)
         context['comments'] = comments
         movie_projections = Projection.objects.filter(movie=movie)
-
-        context['movie_projections'] = movie_projections
+        movie_projection_days = [projection.day_of_the_week for projection in movie_projections]
+        projection_days_no_repeating = self.get_no_repeating_projection_days(movie_projection_days)
+        projection_days_sorted = self.sort_days_of_the_week(projection_days_no_repeating)
+        context['movie_projection_days'] = projection_days_sorted
         return context
+
+    @staticmethod
+    def get_no_repeating_projection_days(days):
+        no_repeating_days = []
+        for day in days:
+            if day not in no_repeating_days:
+                no_repeating_days.append(day)
+        return no_repeating_days
+
+    @staticmethod
+    def sort_days_of_the_week(days_unsorted):
+        days_of_the_week_correct_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        return sorted(days_unsorted, key=days_of_the_week_correct_order.index)
+
 
 
 @method_decorator(staff_member_required, name='dispatch')
@@ -130,12 +147,6 @@ class DeleteMovie(views.DeleteView):
         ticket.delete()
         return super().form_valid(form)
 
-@method_decorator(staff_member_required, name='dispatch')
-class AddProjection(views.CreateView):
-    model = Projection
-    template_name = 'movies/add_projection.html'
-    success_url = reverse_lazy('movie details')
-    form_class = AddProjectionForm
 
 # class AddCommentView(views.CreateView):
 #     model = Comment

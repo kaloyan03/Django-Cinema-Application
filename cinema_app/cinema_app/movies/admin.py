@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from cinema_app.movies.models import Movie, Projection, Ticket
+from cinema_app.movies.models import Movie, Ticket
 
 
 class MovieAdmin(admin.ModelAdmin):
@@ -9,14 +9,6 @@ class MovieAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Movie, MovieAdmin)
-
-
-class ProjectionsAdmin(admin.ModelAdmin):
-    list_display = ['id','time']
-    filter_horizontal = ['movie']
-
-
-admin.site.register(Projection, ProjectionsAdmin)
 
 
 class TicketAdmin(admin.ModelAdmin):

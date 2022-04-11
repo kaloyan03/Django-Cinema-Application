@@ -117,24 +117,6 @@ class Comment(models.Model):
     )
 
 
-class Projection(models.Model):
-    time = models.TimeField(
-
-    )
-
-    movie = models.ManyToManyField(
-        Movie,
-    )
-
-    def __str__(self):
-        return f'{self.movie} at {self.time}'
-
-    class Meta:
-        verbose_name = 'Projection'
-        verbose_name_plural = 'Projections'
-
-
-
 class Ticket(models.Model):
     PRICE_MIN_VALUE = 0
 

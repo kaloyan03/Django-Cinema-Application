@@ -1,6 +1,7 @@
 from django import forms
 
-from cinema_app.movies.models import Movie, Ticket, Comment, Projection
+from cinema_app.movies.models import Movie, Ticket, Comment
+from cinema_app.projections.models import Projection
 
 
 class AddMovieForm(forms.ModelForm):
