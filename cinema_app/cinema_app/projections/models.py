@@ -2,7 +2,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 
 # Create your models here.
-from cinema_app.movies.models import Movie
+from cinema_app.movies.models import Movie, Ticket
 
 
 class Projection(models.Model):
@@ -31,12 +31,12 @@ class Projection(models.Model):
 
     )
 
-    movie = models.ManyToManyField(
-        Movie,
+    ticket = models.ManyToManyField(
+        Ticket,
     )
 
     def __str__(self):
-        return f'{self.movie} at {self.time}'
+        return f'{self.day_of_the_week} at {self.time}'
 
     class Meta:
         verbose_name = 'Projection'

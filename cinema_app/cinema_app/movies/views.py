@@ -113,11 +113,12 @@ class MovieDetails(views.DetailView):
         context['comment_form'] = comment_form
         comments = Comment.objects.filter(movie=movie)
         context['comments'] = comments
-        movie_projections = Projection.objects.filter(movie=movie)
-        movie_projection_days = [projection.day_of_the_week for projection in movie_projections]
-        projection_days_no_repeating = self.get_no_repeating_projection_days(movie_projection_days)
-        projection_days_sorted = self.sort_days_of_the_week(projection_days_no_repeating)
-        context['movie_projection_days'] = projection_days_sorted
+        movie_projections = Projection.objects.filter(ticket=ticket)
+        if movie_projections:
+            movie_projection_days = [projection.day_of_the_week for projection in movie_projections]
+            projection_days_no_repeating = self.get_no_repeating_projection_days(movie_projection_days)
+            projection_days_sorted = self.sort_days_of_the_week(projection_days_no_repeating)
+            context['movie_projection_days'] = projection_days_sorted
         return context
 
     @staticmethod
@@ -132,7 +133,6 @@ class MovieDetails(views.DetailView):
     def sort_days_of_the_week(days_unsorted):
         days_of_the_week_correct_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
         return sorted(days_unsorted, key=days_of_the_week_correct_order.index)
-
 
 
 @method_decorator(staff_member_required, name='dispatch')

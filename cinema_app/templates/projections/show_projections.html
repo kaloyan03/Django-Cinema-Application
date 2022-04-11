@@ -1,8 +1,12 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-    {% for projection in projections %}
-        <a>{{ projection.time|time:'G:i' }}</a>
+    <section id="show-projections-page">
 
-    {% endfor %}
+        <h2>Select hour for projection in {{ day }}</h2>
+        {% for projection in projections %}
+            <a href="{% url 'add to cart' projection.movie_ticket.id 1 projection.id %}">{{ projection.time|time:'G:i' }}</a>
+
+        {% endfor %}
+    </section>
 {% endblock %}

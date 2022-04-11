@@ -8,6 +8,8 @@ from django.utils.decorators import method_decorator
 from cinema_app.movies.models import Ticket
 from cinema_app.projections.models import Projection
 from cinema_app.settings import EMAIL_HOST_USER
+from cinema_app.tickets_cart.models import Cart, Item
+
 
 @login_required
 def cart_view(request):
@@ -52,7 +54,6 @@ def cart_view(request):
     }
     return render(request, 'auth/../../templates/tickets_cart/cart_view.html', context)
 
-from cinema_app.tickets_cart.models import Cart, Item
 
 
 @login_required
@@ -97,7 +98,7 @@ def remove_from_cart(request, id):
 def send_email(email, tickets, total_price, total_quantity):
     subject = 'Thank you for your order'
     message = '\n'.join([
-        f'Ticket for {ticket.movie.title} with duration {ticket.movie.duration} minutes at {ticket.projection.time.strftime("%H:%M")} on price {ticket.price:.2f}$'
+        f'Ticket for {ticket.movie.title} with duration {ticket.movie.duration:.0f}mins minutes on price {ticket.price:.2f}$'
         for ticket in tickets])
     message += '\n'
     message += f'There is total tickets for your order: {total_quantity}.\n'

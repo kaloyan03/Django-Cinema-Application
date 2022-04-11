@@ -24,7 +24,9 @@
 }
 
 #add-to-cart-page .add-to-cart-page-title {
-    margin-bottom: 10px;
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
 }
 
 #add-to-cart-page .back-button:hover {

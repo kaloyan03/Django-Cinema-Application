@@ -9,7 +9,6 @@ from cloudinary import models as cloudinary_models
 
 from cinema_app.movies.validators import validate_word_start_with_capital_letter
 
-
 UserModel = get_user_model()
 
 # Create your models here.
@@ -130,3 +129,6 @@ class Ticket(models.Model):
         Movie,
         on_delete=models.CASCADE,
     )
+
+    def __str__(self):
+        return f"Ticket for {self.movie} for {self.price}$"

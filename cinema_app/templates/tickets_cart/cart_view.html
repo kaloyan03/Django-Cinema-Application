@@ -10,7 +10,6 @@
                         <th>Image</th>
                         <th>Movie</th>
                         <th>Quantity</th>
-                        <th>Time</th>
                         <th>Price</th>
                         <th>Total price</th>
                         <th></th>
@@ -24,7 +23,6 @@
                             <td><img class="movie-img" alt="movie image" src="{{ ticket.movie.image.url }}"></td>
                             <td><a class="cart-item-description-movie-title" href="{% url 'movie details' ticket.movie.id %}">{{ ticket.movie.title }}</a></td>
                             <td>{{ ticket.quantity }} {% if ticket.quantity != 1 %}tickets{% else %}ticket{% endif %}</td>
-                            <td>{{ ticket.projection.time|time:'G:i' }}</td>
                             <td>{{ ticket.price|floatformat:2 }}$</td>
                             <td>{{ ticket.total_price|floatformat:2 }}$</td>
                             <td><a href="{% url 'remove from cart' ticket.item_id %}" class="item-remove-button"><i

@@ -19,7 +19,8 @@
 @import "auth_style/password_reset_form_style.css";
 @import "auth_style/password_reset_complete_style.css";
 @import "tickets_cart/add_to_cart_style.css";
-@import "movies_style/add_projection_style.css";
+@import "projections_style/add_projection_style.css";
+@import "projections_style/show_projections_style.css";
 @import "common.css";
 
 

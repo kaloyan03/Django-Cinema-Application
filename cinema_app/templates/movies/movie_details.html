@@ -77,45 +77,25 @@
 
             <article class="movie-details-buy">
                 <article class="movie-details-projections">
-{#                    {% if movie_projections %}#}
-{#                        <p>Please, select the projection that you want to buy tickets for.</p>#}
-{#                        <ul class="movie-details-projections-list">#}
-{#                            {% for projection in movie_projections %}#}
-{#                                <li>#}
-{#                                    <a href="{% url 'add to cart' ticket_id=ticket.id quantity=1 projection_id=projection.id %}">{{ projection.time|time:'G:i' }}</a>#}
-{#                                </li>#}
-{#                            {% endfor %}#}
-{#                        </ul>#}
-{#                    {% else %}#}
-{#                        <p>There is no projections for this movie today.</p>#}
-{#                    {% endif %}#}
-{##}
-{#                    {% if request.user.is_staff %}#}
-{#                        <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>#}
-{#                    {% endif %}#}
-
-                    <p>Please, select the projection that you want to buy tickets for.</p>
-                        <form method="post">
+                    {% if request.user.is_authenticated %}
+                        {% if movie_projection_days %}
+                            <p>Days of the week that there is projections (Click day to see the hours for that day):</p>
                             {% for day in movie_projection_days %}
                                 <a href="{% url 'show projections' day movie.id %}">{{ day }}</a>
 
-                        {% endfor %}
-                        </form>
-{#                    {% else %}#}
-                        <p>There is no projections for this movie today.</p>
-{#                    {% endif %}#}
+                            {% endfor %}
+                        {% else %}
+                            <p>There is no projections for this movie.</p>
+                        {% endif %}
 
-{#                    {% if request.user.is_staff %}#}
-{#                        <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>#}
+                        {% if request.user.is_staff %}
+                            <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>
+                        {% endif %}
+                    {% else %}
+                        <p>You must be logged in to buy and see available tickets!</p>
+                    {% endif %}
                 </article>
-{#                {% endif %}#}
 
-                {#                <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>#}
-                {#                {% if request.user.is_authenticated %}#}
-                {#                    <a href="{% url 'add to cart' id=ticket.id quantity=1 %}" class="add-button">Add to cart</a>#}
-                {#                {% else %}#}
-                {#                    <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>#}
-                {#                {% endif %}#}
             </article>
         </article>
 
@@ -140,6 +120,12 @@
 
         <article class="movie-details-mobile-description">
             <p>{{ movie.description }}</p>
+        </article>
+
+        <hr>
+
+        <article class="movie-details-rate">
+            {% ratings movie %}
         </article>
 
         <hr>
@@ -180,33 +166,35 @@
 
         <article class="movie-details-mobile-buy">
             <article class="movie-details-projections">
-                {% if movie_projections %}
-                    <p>Please, select the projection that you want to buy tickets for.</p>
-                    <ul class="movie-details-projections-list">
-                        {% for projection in movie_projections %}
-                            <li>
-                                <a href="{% url 'add to cart' ticket_id=ticket.id quantity=1 projection_id=projection.id %}">{{ projection.time|time:'G:i' }}</a>
-                            </li>
+                {% if request.user.is_authenticated %}
+                    {% if movie_projection_days %}
+                        <p>Days of the week that there is projections (Click day to see the hours for that day):</p>
+                        {% for day in movie_projection_days %}
+                            <a href="{% url 'show projections' day movie.id %}">{{ day }}</a>
+
                         {% endfor %}
-                    </ul>
+                    {% else %}
+                        <p>There is no projections for this movie.</p>
+                    {% endif %}
+
+                    {% if request.user.is_staff %}
+                        <a class="add-projection-button" href="{% url 'add projection' %}">Add projection</a>
+                    {% endif %}
                 {% else %}
-                    <p>There is no projections for this movie today.</p>
-                {% endif %}
-
-                {% if request.user.is_staff %}
-                    <a href="{% url 'add projection' %}">Add projection</a>
-
+                    <p>You must be logged in to buy and see available tickets!</p>
                 {% endif %}
             </article>
 
-            {#        <article class="movie-details-mobile-buy">#}
-            {#            <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>#}
-            {#            {% if request.user.is_authenticated %}#}
-            {#                <a href="{% url 'add to cart' ticket_id=ticket.id quantity=1  %}" class="add-button-mobile">Add to cart</a>#}
-            {#            {% else %}#}
-            {#                <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>#}
-            {#            {% endif %}#}
-            {#        </article>#}
+        </article>
+
+        {#        <article class="movie-details-mobile-buy">#}
+        {#            <p>Ticket price: {{ ticket.price|floatformat:2 }}$</p>#}
+        {#            {% if request.user.is_authenticated %}#}
+        {#                <a href="{% url 'add to cart' ticket_id=ticket.id quantity=1  %}" class="add-button-mobile">Add to cart</a>#}
+        {#            {% else %}#}
+        {#                <p class="movie-details-buy-no-profile-message">You must be logged in to buy ticket!</p>#}
+        {#            {% endif %}#}
+        {#        </article>#}
     </section>
 
 
