@@ -80,6 +80,7 @@
 
 #landing-page .movies-container {
     display: flex;
+    gap: 10px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -145,5 +146,8 @@
         margin-bottom: 60px;
     }
 
+    #landing-page .landing-page-content-title {
+        margin: 16px;
+    }
 
 }

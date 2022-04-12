@@ -103,7 +103,7 @@
     </section>
 
     <section id="movie-details-mobile">
-        <h2>{{ movie.title }}</h2>
+        <h2 class="movie-details-title">{{ movie.title }}</h2>
 
         <article class="movie-details-mobile-video">
             {% video movie.trailer_video as trailer_video %}
@@ -156,6 +156,8 @@
 
                         {% endfor %}
                     </div>
+                    {% else %}
+                        <p>There are no comments yet.</p>
                 {% endif %}
             </div>
 
@@ -174,7 +176,7 @@
 
                         {% endfor %}
                     {% else %}
-                        <p>There is no projections for this movie.</p>
+                        <p>There are no projections for this movie.</p>
                     {% endif %}
 
                     {% if request.user.is_staff %}

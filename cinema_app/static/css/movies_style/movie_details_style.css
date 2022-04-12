@@ -199,6 +199,9 @@
     margin-bottom: 24px;
 }
 
+#movie-details-mobile .movie-details-title {
+    margin: 14px;
+}
 
 #movie-details-mobile .movie-details-mobile-buy {
     margin-top: 5vw;

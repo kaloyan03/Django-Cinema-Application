@@ -40,6 +40,7 @@
 
 #list-movies-page .movies-container {
     display: flex;
+    gap: 7vw;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -134,6 +135,6 @@
         position: relative;
         bottom: 0;
         left: 0;
-        border-radius: 0;
+        border-radius: 25px;
     }
 }
