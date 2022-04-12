@@ -79,7 +79,7 @@
                 <article class="movie-details-projections">
                     {% if request.user.is_authenticated %}
                         {% if movie_projection_days %}
-                            <p>Days of the week that there is projections (Click day to see the hours for that day):</p>
+                            <p>Days of the week that there are projections (Click day to see the hours for that day):</p>
                             {% for day in movie_projection_days %}
                                 <a href="{% url 'show projections' day movie.id %}">{{ day }}</a>
 
@@ -170,7 +170,7 @@
             <article class="movie-details-projections">
                 {% if request.user.is_authenticated %}
                     {% if movie_projection_days %}
-                        <p>Days of the week that there is projections (Click day to see the hours for that day):</p>
+                        <p>Days of the week that there are projections (Click day to see the hours for that day):</p>
                         {% for day in movie_projection_days %}
                             <a href="{% url 'show projections' day movie.id %}">{{ day }}</a>
 
