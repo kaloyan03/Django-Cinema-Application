@@ -1,0 +1,14 @@
+#add-projection-page {
+    width: 550px;
+    margin: 5% auto;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+}
+
+#add-projection-page h1 {
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+}

@@ -1,0 +1,36 @@
+#show-projections-page {
+    width: 550px;
+    margin: 10% auto;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+}
+
+#show-projections-page h2 {
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+
+#show-projections-page a {
+    display: inline-block;
+    background-color: #cacaca;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+#show-projections-page a:hover {
+    background-color: #686868;
+    color: #ffffff;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #show-projections-page {
+        width: 80vw;
+    }
+}

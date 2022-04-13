@@ -1,0 +1,56 @@
+*:focus {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #DDD;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+#sign-up-page {
+    margin: 5% auto;
+    width: 550px;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#sign-up-page .sign-up-form {
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+#sign-up-page h1 {
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+#sign-up-page input[type="submit"]:hover,
+input[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+#sign-up-page .sign-up-form .got-profile-aside a {
+    color: blue;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #sign-up-page {
+        width: 300px;
+        margin: 20% auto;
+    }
+
+    #sign-up-page .input-field[type="text"], .input-field[type="password"], .input-field[type="email"] {
+        width: 220px;
+    }
+
+}

@@ -1,0 +1,68 @@
+#my-profile-page {
+    color: black;
+}
+
+
+#my-profile-page {
+    background-color: white;
+    width: 380px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 2px 10px 2px orange;
+    border-radius: 8px;
+}
+
+#my-profile-page .profile-image {
+    padding-top: 20px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+#my-profile-page .profile-image img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+#my-profile-page .profile-details-content {
+    text-align: center;
+}
+
+#my-profile-page .profile-details-content p, h3 {
+    margin-top: 15px;
+}
+
+#my-profile-page .buttons {
+    padding: 50px 0;
+}
+
+#my-profile-page .buttons a {
+    margin-right: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    padding: 8px 14px;
+}
+
+#my-profile-page .edit-button {
+    background-color: #ee660f;
+}
+
+#my-profile-page .delete-button {
+    background-color: red;
+}
+
+#my-profile-page .edit-button:hover {
+    background-color: #c24800;
+}
+
+#my-profile-page .delete-button:hover {
+    background-color: #b10000;
+}
+
+@media only screen and (max-width: 600px) {
+ #my-profile-page {
+     width: 330px;
+ }
+}

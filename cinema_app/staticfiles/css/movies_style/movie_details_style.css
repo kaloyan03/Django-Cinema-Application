@@ -1,0 +1,380 @@
+#movie-details-desktop-page {
+    position: relative;
+    width: 62vw;
+    color: black;
+    margin: 2vw auto;
+    background-color: ghostwhite;
+    padding: 36px;
+    border-radius: 4px;
+}
+
+#movie-details-desktop-page .movie-details-image-rate-comments img {
+    width: 100%;
+}
+
+#movie-details-desktop-page .movie-details-image-rate-comments {
+    width: 20vw;
+    display: inline-block;
+}
+
+#movie-details-desktop-page .movie-details-image-rate-comments .movie-details-rate {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#movie-details-desktop-page .movie-details-content {
+    font-size: 1vw;
+    width: 30vw;
+    display: inline-block;
+    margin-left: 2vw;
+    vertical-align: top;
+}
+
+#movie-details-desktop-page .movie-details-content .movie-details-content-title {
+    font-size: 2vw;
+}
+
+#movie-details-desktop-page .separate-info-and-description {
+    margin: 20px 0;
+}
+
+#movie-details-desktop-page .movie-details-content-info {
+    margin-top: 4px;
+    font-size: 0.9vw;
+    color: #454545;
+}
+
+#movie-details-desktop-page .separate-info-and-description {
+    border: 1px solid #b0b0b0;
+}
+
+#movie-details-desktop-page .movie-details-trailer {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#movie-details-desktop-page .movie-details-comments {
+    display: inline-block;
+    color: black;
+    vertical-align: top;
+    width: 20vw;
+    margin-left: 6px;
+    margin-top: 24px;
+    border-radius: 4px;
+    border: 1px solid black;
+    padding: 16px;
+}
+
+#movie-details-desktop-page .movie-details-comments .comment-area {
+    width: 18vw;
+    height: 50px;
+}
+
+#movie-details-desktop-page .movie-details-comments input, .movie-details-mobile-comment-form input {
+    padding: 6px 12px;
+    color: white;
+    background: #666160;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#movie-details-desktop-page .movie-details-comments input:hover {
+    background: #909090;
+    cursor: pointer;
+}
+
+#movie-details-desktop-page .movie-details-comments .comment {
+    margin-bottom: 10px;
+}
+
+.movie-details-buy .add-button {
+    background-color: #666160;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    color: white;
+    border-radius: 4px;
+}
+
+.movie-details-buy p {
+    margin-bottom: 20px;
+}
+
+.movie-details-buy {
+    border: 1px solid black;
+    padding: 25px;
+    border-radius: 9px;
+    width: 16vw;
+    margin: 20px auto;
+    text-align: center;
+    background-color: white;
+}
+
+#movie-details-desktop-page .movie-details-projections-list input[type='radio'] {
+
+}
+
+#movie-details-desktop-page .movie-details-trailer.smaller {
+    display: none;
+}
+
+#movie-details-desktop-page .movie-details-trailer.smallest {
+    display: none;
+}
+
+#movie-details-desktop-page .movie-details-projections-list input[type='radio'] {
+    visibility: hidden;
+    padding: 6px 12px;
+}
+
+#movie-details-desktop-page .movie-details-projections-list li {
+    display: inline-block;
+    margin: 10px;
+}
+
+#movie-details-desktop-page .movie-details-projections-list a {
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+}
+
+#movie-details-desktop-page .movie-details-projections-list a:hover {
+    background: #939393;
+    color: white;
+}
+
+#movie-details-mobile .movie-details-projections-list a {
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 26px;
+    color: black;
+    background-color: white;
+}
+
+#movie-details-mobile .movie-details-projections-list a:hover {
+    background: #939393;
+    color: white;
+}
+
+
+#movie-details-desktop-page .movie-details-projections-list label {
+    cursor: pointer;
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#movie-details-desktop-page .movie-details-projections-list input[type='radio']:checked + label {
+    background: #939393;
+    color: white;
+}
+
+#movie-details-mobile {
+    display: none;
+}
+
+#movie-details-mobile {
+    text-align: center;
+    margin: 20px;
+    margin-top: 10vw;
+}
+
+#movie-details-mobile .movie-details-mobile-info p {
+    color: #c9c9c9;
+    font-size: 20px;
+    text-align: start;
+    margin: 10px;
+}
+
+#movie-details-mobile .movie-details-mobile-description p {
+    text-align: start;
+    margin: 10px;
+}
+
+#movie-details-mobile .movie-details-mobile-content-comment .comment {
+    margin-bottom: 24px;
+}
+
+#movie-details-mobile .movie-details-title {
+    margin: 14px;
+}
+
+#movie-details-mobile .movie-details-mobile-buy {
+    margin-top: 5vw;
+}
+
+#movie-details-mobile .movie-details-mobile-buy p {
+    margin-bottom: 20px;
+}
+
+#movie-details-mobile .movie-details-mobile-buy li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#movie-details-desktop-page .movie-details-buy {
+    width: 25vw;
+}
+
+#movie-details-desktop-page .movie-details-buy .add-projection-button {
+    color: #000000;
+    background-color: #c4c4c4;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+#movie-details-desktop-page .movie-details-buy .add-projection-button:hover {
+    color: #ffffff;
+    background-color: #505050;
+}
+
+#movie-details-desktop-page .movie-details-buy a {
+    display: inline-block;
+    background-color: #cacaca;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+#movie-details-desktop-page .movie-details-buy a:hover {
+    background-color: #686868;
+    color: #ffffff;
+}
+
+#movie-details-mobile .movie-details-projections a {
+    background-color: whitesmoke;
+    padding: 4px 8px;
+    color: black;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+#movie-details-mobile .movie-details-projections .add-projection-button {
+    width: 50vw;
+    margin-top: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+#movie-details-mobile .movie-details-rate {
+    text-align: center;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 1600px) {
+    #movie-details-desktop-page .movie-details-trailer.smaller {
+        display: block;
+    }
+
+    #movie-details-desktop-page .movie-details-trailer.bigger {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #movie-details-desktop-page .movie-details-trailer.smallest {
+        display: block;
+    }
+
+    #movie-details-desktop-page .movie-details-trailer.smaller {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #movie-details-desktop-page {
+        display: none;
+    }
+
+    #movie-details-mobile {
+        display: block;
+    }
+
+    #movie-details-page {
+        width: 350px;
+    }
+
+    #movie-details-page .comment-area {
+        width: 200px;
+    }
+
+
+    .movie-details-video-and-buy .movie-video-mobile {
+        display: inline-block;
+    }
+
+    .movie-details-comments {
+        border: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .movie-details-content {
+        width: 250px;
+    }
+
+
+    .movie-details-content-title-mobile {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .movie-details-content-title-desktop {
+        display: none;
+    }
+
+    .movie-details-content p, h3 {
+        font-size: 1.6rem;
+    }
+
+    #movie-details-page {
+        display: none;
+    }
+
+    #movie-details-mobile {
+        display: block;
+    }
+
+    #movie-details-mobile .movie-details-mobile-comment-form .comment-area {
+        width: 300px;
+        height: 50px;
+    }
+
+
+    #movie-details-mobile .movie-details-mobile-comment-form input {
+        display: block;
+        margin: 12px auto;
+    }
+
+    .movie-details-mobile-buy .add-button-mobile {
+        padding: 6px 12px;
+        color: white;
+        background: #666160;
+        border: none;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    .movie-details-mobile-description p {
+        font-size: 20px;
+    }
+
+    #movie-details-mobile .comment {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    #movie-details-mobile hr {
+        margin: 10px;
+    }
+
+    #movie-details-mobile {
+        margin: 10px;
+    }
+}
