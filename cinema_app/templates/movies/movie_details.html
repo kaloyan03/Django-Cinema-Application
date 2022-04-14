@@ -47,7 +47,7 @@
         <article class="movie-details-content">
             <h1 class="movie-details-content-title">{{ movie.title }}</h1>
 
-            <p class="movie-details-content-info">{{ movie.duration }} mins | {{ movie.category }} category
+            <p class="movie-details-content-info">{{ movie.duration|floatformat:0 }} mins | {{ movie.category }} category
                 | {{ movie.genre }} genre | Made {{ movie.year }} year</p>
 
             <hr class="separate-info-and-description">

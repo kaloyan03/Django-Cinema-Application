@@ -72,7 +72,7 @@
     height: 50px;
 }
 
-#movie-details-desktop-page .movie-details-comments input, .movie-details-mobile-comment-form input {
+#movie-details-desktop-page .movie-details-comments input, .movie-details-comments-form input {
     padding: 6px 12px;
     color: white;
     background: #666160;
@@ -80,6 +80,14 @@
     border-radius: 4px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#movie-details-desktop-page .movie-details-comments .movie-details-comments-title {
+    font-size: 2vw;
+}
+
+#movie-details-desktop-page .movie-details-comments .comment {
+    font-size: 0.9vw;
 }
 
 #movie-details-desktop-page .movie-details-comments input:hover {
@@ -286,7 +294,7 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 820px) {
     #movie-details-desktop-page {
         display: none;
     }

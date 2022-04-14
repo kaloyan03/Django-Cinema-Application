@@ -8,15 +8,6 @@ footer.footer-desktop {
     padding: 20px;
 }
 
-footer.footer-position-absolute-mobile {
-    position: absolute;
-    display: none;
-}
-
-footer.footer-position-relative-mobile {
-    position: relative;
-    display: none;
-}
 
 
 footer {
@@ -32,18 +23,10 @@ footer {
     footer {
         font-size: 20px;
     }
+}
 
-    /*.footer-position-relative-mobile {*/
-    /*    display: block;*/
-    /*}*/
-
-    /*.footer-position-absolute-mobile {*/
-    /*    display: none;*/
-    /*}*/
-
-    /*.footer-desktop {*/
-    /*    display: none;*/
-    /*}*/
-
-
+@media only screen and (max-width: 400px) {
+    footer {
+        font-size: 16px;
+    }
 }
