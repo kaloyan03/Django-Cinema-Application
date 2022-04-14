@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 #When i test the app it requires manage.py collectstatic which is copy of the static
-staticfiles/
+.staticfiles/
 
