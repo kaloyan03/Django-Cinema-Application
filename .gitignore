@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # when i test the app it requires manage.py collectstatic which is copy of the static
-cinema_app/staticfiles/
+/staticfiles
 
