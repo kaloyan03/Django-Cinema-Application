@@ -80,7 +80,7 @@
 
 #landing-page .movies-container {
     display: flex;
-    gap: 10px;
+    gap: 7vw;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;

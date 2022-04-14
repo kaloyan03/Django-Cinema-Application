@@ -65,7 +65,6 @@ input.input-field[name='category'] {
 #sign-in-page input[type="submit"],
 #password-reset-page input[type="submit"],
 #password-reset-form-page input[type='submit'],
-#add-to-cart-page input[type='submit'],
 #add-projection-page input[type='submit']{
     margin-top: 15px;
     height: 32px;
@@ -96,8 +95,6 @@ input[type="submit"]:focus,
 #password-reset-page input[type="submit"]:hover,
 input[type="submit"]:focus,
 #password-reset-form-page input[type='submit']:hover,
-input[type="submit"]:focus,
-#add-to-cart-page input[type="submit"]:hover,
 input[type="submit"]:focus,
 #add-projection-page input[type='submit']:hover,
 #add-projection-page[type='submit']:focus

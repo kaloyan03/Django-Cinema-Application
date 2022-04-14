@@ -31,7 +31,7 @@ def show_movie_projections(request, day, movie_id):
 
     context = {
         'projections': movie_projections_that_day,
-        'day': day.lower(),
+        'day': day,
     }
     return render(request, 'projections/show_projections.html', context)
 
