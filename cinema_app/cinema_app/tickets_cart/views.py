@@ -13,16 +13,24 @@ from cinema_app.tickets_cart.models import Cart, Item
 
 @login_required
 def cart_view(request):
+    """
+    FBV
+    GET request - shows cart on the authenticated user.
+    POST request - sending email with information for the order.
+
+    """
     user = request.user
     cart = Cart.objects.get(user=user)
     items = cart.item_set.all()
     items_tickets_id = [item.ticket_id for item in items]
 
     total_price = cart.total_price
+    # total_quantity of tickets added in cart
     total_quantity = sum([i.quantity for i in items])
 
     tickets = []
 
+    # attaching quantity, total_price, projection and item_id to the tickets.
     for ticket in Ticket.objects.all():
         if ticket.id in items_tickets_id:
             item_index = items_tickets_id.index(ticket.id)
@@ -40,6 +48,7 @@ def cart_view(request):
     if request.method == 'POST':
         send_email(request.user.email, tickets, total_price, total_quantity)
 
+        # deleting items in cart.
         cart_items = cart.item_set.all()
         for item in cart_items:
             item.delete()
@@ -58,6 +67,10 @@ def cart_view(request):
 
 @login_required
 def add_to_cart(request, ticket_id, quantity, projection_id):
+    """
+    FBV
+    POST request - add ticket to the cart.
+    """
     ticket = Ticket.objects.get(id=ticket_id)
     projection = Projection.objects.get(id=projection_id)
     if request.method == 'POST':
@@ -66,6 +79,7 @@ def add_to_cart(request, ticket_id, quantity, projection_id):
 
         cart_items_ticket_ids = [item.ticket_id for item in Item.objects.filter(cart=cart)]
 
+        # if ticket.id in cart items already only the quantity will be increased, if not Item will be created.
         if ticket.id not in cart_items_ticket_ids:
             Item.objects.create(
                 ticket=ticket,
@@ -90,12 +104,19 @@ def add_to_cart(request, ticket_id, quantity, projection_id):
 
 @login_required
 def remove_from_cart(request, id):
+    """
+       FBV
+       POST request - remove ticket from the cart.
+       """
     item = Item.objects.get(id=id)
     item.quantity -= 1
     item.save()
     return redirect('cart view')
 
 def send_email(email, tickets, total_price, total_quantity):
+    """
+        Sending email with information for the order.
+    """
     subject = 'Thank you for your order'
     message = '\n'.join([
         f'Ticket for {ticket.movie.title} with duration {ticket.movie.duration:.0f}mins minutes on price {ticket.price:.2f}$'

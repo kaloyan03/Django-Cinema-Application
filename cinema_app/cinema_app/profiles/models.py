@@ -8,6 +8,15 @@ from cinema_app.validators import validate_start_with_capital_letter
 
 
 class Profile(models.Model):
+    """
+    This model represents Profile in DB.
+    It consists of first_name(it has validators - min len, max len and starts only with capital letter validator),
+    last_name(it has validators - min len, max len and starts only with capital letter validator),
+    profile_picture(stored in cloudinary),
+    age(it has min and max length),
+    user(OneToOne Link to the CinemaUser)
+
+    """
     FIRST_NAME_MAX_LENGTH = 30
     FIRST_NAME_MIN_LENGTH = 2
     LAST_NAME_MAX_LENGTH = 30

@@ -9,7 +9,7 @@
             <form method="post" enctype="multipart/form-data" action="{% url 'add movie' %}" class="add-movie-form">
                 <h1 class="add-movie-title">Add Movie</h1>
                 {% csrf_token %}
-                                {{ form }}
+                                {{ movie_form }}
                 {{ ticket_form }}
 {#                <div class="form-title">#}
 {#                    {{ form.errors.title }}#}

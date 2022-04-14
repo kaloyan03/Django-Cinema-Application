@@ -25,7 +25,7 @@ class ProfileForm(forms.ModelForm):
                 attrs={'class': 'input-field'},
             ),
         }
-
+    # attach user to the profile created.
     def save(self, commit=True):
         profile = super().save(commit=False)
         profile.user = self.user

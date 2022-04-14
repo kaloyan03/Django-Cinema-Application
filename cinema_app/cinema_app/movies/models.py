@@ -14,7 +14,7 @@ UserModel = get_user_model()
 # Create your models here.
 class Movie(models.Model):
     """
-    This model is representing movies.
+    This model is representing Movies in DB.
     Class Movie has name, genre, year(when movie is made), description, duration and category attributes.
     Name has capital letters, max length and min length validators.
     Genre has choices, which are base genres of the movie, it has max length and min length validators.
@@ -105,6 +105,10 @@ class Movie(models.Model):
 
 
 class Comment(models.Model):
+    """
+    This model represents comments in DB.
+    It consists of movie(fk to Movie), comment (TextField) and user(fk to CinemaUser)
+    """
     movie = models.ForeignKey(
         Movie,
         on_delete=models.CASCADE,
@@ -117,6 +121,10 @@ class Comment(models.Model):
 
 
 class Ticket(models.Model):
+    """
+    This model represents Tickets in DB.
+    It consists of price, movie(fk to Movie).
+    """
     PRICE_MIN_VALUE = 0
 
     price = models.FloatField(

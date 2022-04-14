@@ -6,6 +6,11 @@ from cinema_app.movies.models import Movie, Ticket
 
 
 class Projection(models.Model):
+    """
+    This model represents Projection in DB.
+    It consists of day_of_the_week(choices),
+    time and tickets(fk to Tickets).
+    """
     MONDAY = 'Monday'
     TUESDAY = 'Tuesday'
     WEDNESDAY = 'Wednesday'

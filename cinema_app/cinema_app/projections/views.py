@@ -5,19 +5,14 @@ from django.views import generic as views, View
 # Create your views here.
 from django.utils.decorators import method_decorator
 
-from cinema_app.movies.forms import AddProjectionForm
 from cinema_app.projections.models import Projection
 
 
-@method_decorator(staff_member_required, name='dispatch')
-class AddProjection(views.CreateView):
-    model = Projection
-    template_name = 'movies/../../templates/projections/add_projection.html'
-    success_url = reverse_lazy('movie details')
-    form_class = AddProjectionForm
-
-
 def show_movie_projections(request, day, movie_id):
+    """
+    FBV
+    GET request - showing projections for the day user selected.
+    """
     projections_that_day = Projection.objects.order_by('time').filter(day_of_the_week=day)
     movie_projections_that_day = []
 
@@ -35,9 +30,3 @@ def show_movie_projections(request, day, movie_id):
     }
     return render(request, 'projections/show_projections.html', context)
 
-# class ShowMovieProjections(views.ListView):
-#     model = Projection
-#     context_object_name = 'projections'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)

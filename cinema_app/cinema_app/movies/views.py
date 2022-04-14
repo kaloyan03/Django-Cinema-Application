@@ -8,20 +8,28 @@ from django.utils.decorators import method_decorator
 from django.views import generic as views
 from star_ratings.models import Rating
 
-from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm, AddProjectionForm
+from cinema_app.movies.forms import AddMovieForm, EditMovieForm, AddTicketForm, AddCommentForm
 from cinema_app.movies.models import Movie, Ticket, Comment
 from cinema_app.projections.models import Projection
 
 
 class ListMovies(views.ListView):
+    """
+        GET request - rendering the page(using Django Templates).
+        On this page will be listed all movies( if there is movies ), with pagination 3 movies on page.
+        On each movie container there will be details button for all users, including the no-authenticated.
+        For the staff users or superuser there will be edit button and delete button on each movie.
+        Details button redirecting to "http://localhost:8000/movies/<int:id>/", (movie details, <id>)"
+        Edit button redirecting to "http://localhost:8000/movies/edit/<int:id>/", (edit movie, <id>)"
+        Delete button redirecting to "http://localhost:8000/movies/delete/<int:id>/", (delete movie, <id>)"
+        """
     model = Movie
     context_object_name = 'movies'
     queryset = Movie.objects.all()
     paginate_by = 3
     template_name = 'movies/list_movies.html'
 
-    # TODO Add rated to the queryset, object lists
-
+    # Add movies average rating to the queryset, object lists
     def get_queryset(self):
         movies = super().get_queryset()
 
@@ -37,58 +45,56 @@ class ListMovies(views.ListView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
+        # if user is staff there is edit and delete buttons
         context['user_is_staff'] = True if self.request.user.is_staff else False
         return context
 
 
 @method_decorator(staff_member_required, name='dispatch')
-class AddMovie(views.CreateView):
-    model = Movie
-    form_class = AddMovieForm
-    template_name = 'movies/add_movie.html'
-    success_url = reverse_lazy('list movies')
+class AddMovie(views.FormView):
+    """
+        GET request - rendering the page(using Django Templates) with forms(AddMovieForm and AddTicketForm).
+        POST request - creating movie in DB if form is valid. Redirecting to "http://localhost:8000/movies"(list movies).
+    """
 
-    def form_valid(self, form):
-        movie = form.save()
-        ticket_price = self.get_form_kwargs()['data']['price']
-        ticket = Ticket(movie=movie, price=ticket_price)
-        ticket.save()
-        return super().form_valid(form)
+    def form_invalid(self, form):
+        return form
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get(self, request, *args, **kwargs):
+        movie_form = AddMovieForm()
         ticket_form = AddTicketForm()
-        context['ticket_form'] = ticket_form
-        return context
-    #
-    # def form_invalid(self, form):
-    #     return form
 
-    # def get(self, request):
-    #     form = AddMovieForm()
-    #
-    #     context = {
-    #         'form': form,
-    #     }
-    #
-    #     return render(request, 'add_movie.html', context)
-    #
-    # def post(self, request):
-    #     form = AddMovieForm(request.POST)
-    #
-    #     context = {
-    #         'form': form,
-    #     }
-    #
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('list movies')
-    #
-    #     return render(request, 'add_movie.html', context)
+        context = {
+            'movie_form': movie_form,
+            'ticket_form': ticket_form,
+        }
+
+        return render(request, 'movies/add_movie.html', context)
+
+    def post(self, request, *args, **kwargs):
+        movie_form = AddMovieForm(request.POST, request.FILES)
+        ticket_form = AddTicketForm(request.POST)
+
+        context = {
+            'movie_form': movie_form,
+            'ticket_form': ticket_form,
+        }
+
+        if movie_form.is_valid() and ticket_form.is_valid():
+            movie = movie_form.save()
+            Ticket.objects.create(movie=movie, price=ticket_form.cleaned_data['price'])
+
+            return redirect('list movies')
+
+        return render(request, 'movies/add_movie.html', context)
 
 
 @method_decorator(staff_member_required, name='dispatch')
 class EditMovie(views.UpdateView):
+    """
+        GET request - rendering the page(using Django Templates) with forms(EditMovieForm).
+        POST request - editing movie if form is valid. Redirecting to "http://localhost:8000/movies/<int:id>"(movie details, <id>)
+    """
     model = Movie
     form_class = EditMovieForm
     context_object_name = 'movie'
@@ -100,6 +106,10 @@ class EditMovie(views.UpdateView):
 
 
 class MovieDetails(views.DetailView):
+    """
+            GET request - rendering the page(using Django Templates) where is information to the selected movie.
+        """
+
     model = Movie
     template_name = 'movies/movie_details.html'
     context_object_name = 'movie'
@@ -107,12 +117,15 @@ class MovieDetails(views.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         movie = self.object
+        # getting ticket from the movie object and adding it to the context
         ticket = Ticket.objects.get(movie_id=movie.id)
         context['ticket'] = ticket
+        # adding comment form and comments (if any ) to the context.
         comment_form = AddCommentForm()
         context['comment_form'] = comment_form
         comments = Comment.objects.filter(movie=movie)
         context['comments'] = comments
+        # getting movie screenings from the ticket and filtering them.
         movie_projections = Projection.objects.filter(ticket=ticket)
         if movie_projections:
             movie_projection_days = [projection.day_of_the_week for projection in movie_projections]
@@ -121,6 +134,7 @@ class MovieDetails(views.DetailView):
             context['movie_projection_days'] = projection_days_sorted
         return context
 
+    # this method filters the days that are not repeating: ['Monday', 'Monday'] - It returns you ['Monday']
     @staticmethod
     def get_no_repeating_projection_days(days):
         no_repeating_days = []
@@ -129,6 +143,7 @@ class MovieDetails(views.DetailView):
                 no_repeating_days.append(day)
         return no_repeating_days
 
+    # this method sorts the days of the week:  ['Tuesday', 'Monday'] - It returns you ['Monday', 'Tuesday]
     @staticmethod
     def sort_days_of_the_week(days_unsorted):
         days_of_the_week_correct_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -137,6 +152,10 @@ class MovieDetails(views.DetailView):
 
 @method_decorator(staff_member_required, name='dispatch')
 class DeleteMovie(views.DeleteView):
+    """
+            GET request - rendering the page(using Django Templates) with confirmation on the deleting.
+            POST request - deleting the movie with the ticket. Redirecting to "http://localhost:8000/movies"(list movies).
+        """
     model = Movie
     template_name = 'movies/delete_movie.html'
     success_url = reverse_lazy('list movies')
@@ -148,11 +167,7 @@ class DeleteMovie(views.DeleteView):
         return super().form_valid(form)
 
 
-# class AddCommentView(views.CreateView):
-#     model = Comment
-#     form_class = AddCommentForm
-#     success_url = reverse_lazy('movie details', )
-
+# This FBV is created to post comments
 def comment_movie(request, pk):
     movie = Movie.objects.get(pk=pk)
     form = AddCommentForm(request.POST)

@@ -4,14 +4,16 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
 from django.db import models
 
+
 # Create your models here.
 
 
 class CinemaUserManager(BaseUserManager):
+    """
+    Manager for the CinemaUser.
+    """
+
     def _create_user(self, email, password, **extra_fields):
-        """
-        Create and save a user with the given username, email, and password.
-        """
         if not email:
             raise ValueError("The given email must be set")
         email = self.normalize_email(email)
@@ -38,6 +40,9 @@ class CinemaUserManager(BaseUserManager):
 
 
 class CinemaUser(AbstractBaseUser, PermissionsMixin):
+    """
+    Extended User model with email than username.
+    """
     email = models.EmailField(
         unique=True,
         null=False,
@@ -60,9 +65,6 @@ class CinemaUser(AbstractBaseUser, PermissionsMixin):
     has_completed_profile = models.BooleanField(
         default=False,
     )
-
-    # solution to the reset password functionality
-    # is_active = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
 

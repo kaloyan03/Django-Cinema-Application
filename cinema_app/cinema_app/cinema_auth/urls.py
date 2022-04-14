@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 from cinema_app.cinema_auth.views import SignInView, SignUpView, SignOutView, ResetPasswordView, ResetPasswordSentView, \
     ResetPasswordConfirmView, ResetPasswordCompleteView
 
+# URLs for the auth app
 urlpatterns = (
     path('sign-up/', SignUpView.as_view(), name='sign up'),
     path('sign-in/', SignInView.as_view(), name='sign in'),

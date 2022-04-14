@@ -11,8 +11,7 @@ UserModel = get_user_model()
 
 class SignUpForm(UserCreationForm):
     """
-       A form that creates a user, with no privileges, from the given username and
-       password.
+       A form that creates a user, with email and password.
        """
 
     error_messages = {

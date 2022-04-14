@@ -97,15 +97,3 @@ class AddCommentForm(forms.ModelForm):
             ),
         }
 
-
-class AddProjectionForm(forms.ModelForm):
-    class Meta:
-        model = Projection
-        fields = ['ticket', 'time', ]
-        widgets = {
-            'movie': forms.TextInput(
-                attrs={
-                    'class': 'input-field',
-                }
-            )
-        }
