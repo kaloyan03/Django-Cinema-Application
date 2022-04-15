@@ -5,7 +5,7 @@
     margin: 35vh auto 0;
     transform: translateY(-50%);
     border-radius: 8px;
-    box-shadow: 2px 2px 10px 5px orange;
+    box-shadow: 2px 2px 10px 5px grey;
     color: black;
 }
 
@@ -25,6 +25,7 @@
 
 #delete-profile-page .buttons-delete:hover {
     background-color: #b10000;
+    cursor: pointer;
 }
 
 

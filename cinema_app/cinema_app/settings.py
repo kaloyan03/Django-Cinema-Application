@@ -197,3 +197,4 @@ cloudinary.config(
     api_secret=os.getenv('CLOUDINARY_API_SECRET', None)
 )
 
+LOGIN_URL = '/auth/sign-in'

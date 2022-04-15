@@ -82,6 +82,11 @@
     margin-bottom: 10px;
 }
 
+#movie-details-desktop-page .movie-details-comments .movie-details-comments-no-profile-message {
+    text-align: center;
+    text-decoration: underline;
+}
+
 #movie-details-desktop-page .movie-details-comments .movie-details-comments-title {
     font-size: 2vw;
 }
@@ -269,6 +274,10 @@
     display: inline-block;
 }
 
+#movie-details-mobile .movie-details-mobile-video-smaller {
+    display: none;
+}
+
 #movie-details-mobile .movie-details-rate {
     text-align: center;
     font-size: 18px;
@@ -295,6 +304,14 @@
 }
 
 @media only screen and (max-width: 820px) {
+    #movie-details-mobile .movie-details-mobile-video-smaller {
+        display: none;
+    }
+
+    #movie-details-mobile .movie-details-mobile-video {
+        display: block;
+    }
+
     #movie-details-desktop-page {
         display: none;
     }
@@ -306,11 +323,6 @@
     #movie-details-page {
         width: 350px;
     }
-
-    #movie-details-page .comment-area {
-        width: 200px;
-    }
-
 
     .movie-details-video-and-buy .movie-video-mobile {
         display: inline-block;
@@ -350,7 +362,7 @@
     }
 
     #movie-details-mobile .movie-details-mobile-comment-form .comment-area {
-        width: 300px;
+        width: 85vw;
         height: 50px;
     }
 
@@ -358,6 +370,10 @@
     #movie-details-mobile .movie-details-mobile-comment-form input {
         display: block;
         margin: 12px auto;
+        background-color: gray;
+        color: white;
+        padding: 1vw 3vw;
+        border-radius: 10px;
     }
 
     .movie-details-mobile-buy .add-button-mobile {

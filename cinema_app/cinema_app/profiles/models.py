@@ -53,3 +53,7 @@ class Profile(models.Model):
         CinemaUser,
         on_delete=models.CASCADE,
     )
+
+    @property
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"

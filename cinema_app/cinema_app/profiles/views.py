@@ -7,14 +7,16 @@ from django.utils.decorators import method_decorator
 from django.views import generic as views
 
 # Create your views here.
+from cinema_app.profiles.decorators import profile_required
 from cinema_app.profiles.forms import ProfileForm, EditProfileForm
 from cinema_app.profiles.models import Profile
 
 UserModel = get_user_model()
 
 
-# TODO change it with is_completed_profile decorator
+# Added custom decorator for profile required. To access this page you must be logged in and with completed profile.
 @method_decorator(login_required, name='dispatch')
+@method_decorator(profile_required, name='dispatch')
 class ShowProfileView(views.TemplateView):
     """
         GET request - rendering the page(using Django Templates) with information for the profile and edit, delete operations..
@@ -59,7 +61,7 @@ class EditProfileView(views.UpdateView):
     success_url = reverse_lazy('profile')
     context_object_name = 'profile'
 
-
+@method_decorator(login_required, name='dispatch')
 class CompleteProfileView(views.CreateView):
     """
             GET request - rendering the page(using Django Templates) with form(ProfileForm).
