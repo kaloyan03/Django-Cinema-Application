@@ -71,6 +71,8 @@
     </section>
 
     <section id="cart-page-mobile">
+
+    {% if tickets %}
         <h2 class="cart-page-mobile-title">Cart</h2>
 
         <hr>
@@ -125,8 +127,11 @@
                 <input class='buy-button' type="submit" value="Get tickets">
             </form>
         </article>
+    {% else %}
+                    <h2 class="empty-cart-mobile-message">Your cart is empty!</h2>
 
 
+    {% endif %}
     </section>
 
 {% endblock %}
